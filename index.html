@@ -110,6 +110,31 @@
                         radial-gradient(circle at 70% 30%, rgba(255, 107, 53, 0.08) 0%, transparent 50%);
             pointer-events: none;
         }
+        
+        .contact {
+            margin-top: 3rem;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+        
+        .contact a {
+            color: #ff6b35;
+            text-decoration: none;
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            font-weight: 400;
+            border: 2px solid #ff6b35;
+            padding: 12px 24px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-shadow: none;
+        }
+        
+        .contact a:hover {
+            background-color: #ff6b35;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -122,6 +147,9 @@
                 <span class="highlight">deep psychological insight</span>. Experience transformation 
                 that resonates at every level of your organization.
             </p>
+            <div class="contact">
+                <a href="mailto:contact@contraco.net">contact@contraco.net</a>
+            </div>
         </div>
     </section>
 </body>
