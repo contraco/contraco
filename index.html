@@ -1,43 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>contraco - We Build Transformation You Can Feel</title>
-    <meta name="description" content="contraco - We Build Transformation You Can Feel. Strategic Clarity. Technological Intelligence. Psychological Depth.">
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-868WGCC45D"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-868WGCC45D');
-    </script>
-    
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="msapplication-TileColor" content="#e62d00">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#e62d00">
-    
+    <meta content="contraco - We Build Transformation You Can Feel. Strategic Clarity. Technological Intelligence. Psychological Depth." name="description"/>
     <!-- Bootstrap CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"/>
     <style>
         * {
             margin: 0;
@@ -50,6 +19,7 @@
             line-height: 1.6;
             background-color: #eaeaea;
             color: #333333;
+            overflow-x: hidden;
         }
         
         /* Navigation */
@@ -57,6 +27,7 @@
             background-color: white;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             padding: 1rem 0;
+            z-index: 1000;
         }
         
         .navbar-brand {
@@ -80,27 +51,144 @@
         .hero {
             position: relative;
             height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(230, 45, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(230, 188, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 60% 40%, rgba(230, 45, 0, 0.05) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .hero-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            padding: 0 40px;
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* Left side - Visual Element */
+        .hero-visual {
+            position: relative;
+            height: 500px;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            color: white;
-            overflow: hidden;
-            background: none; /* Remove previous background */
         }
-        .hero-animation {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            width: 100%; height: 100%;
-            z-index: 1;
-            pointer-events: none;
-        }
-        .hero-content {
-            max-width: 1000px;
-            padding: 0 20px;
-            animation: fadeInUp 1s ease-out;
-            z-index: 2;
+        
+        /* Transformation Timeline */
+        .transformation-viz {
             position: relative;
+            width: 450px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .timeline-container {
+            position: relative;
+            width: 100%;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        /* Timeline base line */
+        .timeline-line {
+            position: absolute;
+            top: 50%;
+            left: 50px;
+            right: 50px;
+            height: 6px;
+            background: linear-gradient(to right, #666 0%, #e62d00 50%, #e6bc00 100%);
+            border-radius: 3px;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+        
+        /* Timeline progress animation */
+        .timeline-progress {
+            position: absolute;
+            top: 50%;
+            left: 50px;
+            height: 8px;
+            background: linear-gradient(to right, #e62d00, #e6bc00);
+            border-radius: 4px;
+            transform: translateY(-50%);
+            animation: progress-flow 4s ease-in-out infinite;
+            box-shadow: 0 0 15px rgba(230, 45, 0, 0.4);
+            z-index: 2;
+        }
+        
+        .transform-stage {
+            position: relative;
+            width: 100px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-radius: 8px;
+            z-index: 3;
+        }
+        
+        .stage-before {
+            background: linear-gradient(135deg, #555 0%, #333 100%);
+            color: #ccc;
+            border: 2px solid #666;
+        }
+        
+        .stage-process {
+            background: linear-gradient(135deg, #e62d00 0%, #cc2500 100%);
+            color: white;
+            border: 2px solid #e6bc00;
+            box-shadow: 0 0 20px rgba(230, 45, 0, 0.3);
+        }
+        
+        .stage-after {
+            background: linear-gradient(135deg, #e6bc00 0%, #d4aa00 100%);
+            color: #1a1a1a;
+            border: 2px solid #fff;
+            box-shadow: 0 0 20px rgba(230, 188, 0, 0.3);
+            font-weight: 700;
+        }
+        
+        /* Floating elements */
+        .floating-element {
+            display: none;
+        }
+        
+        /* Right side - Content */
+        .hero-content {
+            color: white;
+            padding-left: 20px;
         }
         
         .hero h1 {
@@ -108,35 +196,83 @@
             font-weight: 700;
             color: #e62d00;
             margin-bottom: 2rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             letter-spacing: -0.02em;
+            line-height: 1.1;
         }
         
         .hero p {
             font-size: clamp(1.1rem, 2vw, 1.3rem);
             font-weight: 300;
             line-height: 1.7;
-            max-width: 900px;
-            margin: 0 auto 2rem auto;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            margin-bottom: 2rem;
             opacity: 0.95;
+            color: #e0e0e0;
         }
         
         .hero-pillars {
-            font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
             font-weight: 500;
-            margin: 2rem 0;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            margin: 2rem 0 3rem 0;
+            color: #e62d00;
         }
         
         .pillar {
-            color: #e62d00;
-            margin: 0 1rem;
+            margin: 0 0.5rem;
         }
         
         .highlight {
-            font-weight: 500;
+            font-weight: 600;
             color: #e62d00;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .cta-buttons a {
+            color: #e6bc00;
+            text-decoration: none;
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            font-weight: 500;
+            border: 2px solid #e62d00;
+            padding: 14px 28px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .cta-buttons a:hover {
+            background-color: #e6bc00;
+            color: #1a1a1a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(230, 188, 0, 0.3);
+        }
+        
+        .cta-primary {
+            background-color: #e62d00;
+            border-color: #e62d00;
+            color: white !important;
+        }
+        
+        .cta-primary:hover {
+            background-color: #cc2500;
+            border-color: #cc2500;
+            color: white !important;
+        }
+        
+        /* Animations */
+        @keyframes progress-flow {
+            0% { width: 0px; opacity: 0.8; }
+            50% { width: 350px; opacity: 1; }
+            100% { width: 350px; opacity: 0.8; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+            33% { transform: translateY(-15px) rotate(120deg); opacity: 1; }
+            66% { transform: translateY(-5px) rotate(240deg); opacity: 0.8; }
         }
         
         @keyframes fadeInUp {
@@ -150,70 +286,18 @@
             }
         }
         
-        @media (max-width: 768px) {
-            .hero {
-                height: 80vh;
-                padding: 2rem 1rem;
-            }
-            
-            .hero h1 {
-                margin-bottom: 1.5rem;
-            }
-            
-            .pillar {
-                display: block;
-                margin: 0.5rem 0;
-            }
+        .hero-content {
+            animation: fadeInUp 1s ease-out 0.3s both;
         }
         
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 70%, rgba(230, 45, 0, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 30%, rgba(230, 188, 0, 0.08) 0%, transparent 50%);
-            pointer-events: none;
+        .transformation-viz {
+            animation: fadeInUp 1s ease-out both;
         }
         
-        .cta-buttons {
-            margin-top: 3rem;
-            animation: fadeInUp 1s ease-out 0.5s both;
-        }
-        
-        .cta-buttons a {
-            color: #e6bc00;
-            text-decoration: none;
-            font-size: clamp(1rem, 1.5vw, 1.2rem);
-            font-weight: 500;
-            border: 2px solid #e62d00;
-            padding: 12px 24px;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            display: inline-block;
-            text-shadow: none;
-            margin: 0.5rem;
-        }
-        
-        .cta-buttons a:hover {
-            background-color: #e6bc00;
-            color: #333333;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(230, 188, 0, 0.3);
-        }
-        
-        .cta-primary {
-            background-color: #e62d00;
-            border-color: #e62d00;
-            color: white !important;
-        }
-        
-        .cta-primary:hover {
-            background-color: #cc2500;
-            border-color: #cc2500;
-            color: white !important;
+        /* Hover effects for stages */
+        .transform-stage:hover {
+            transform: translateY(-10px) scale(1.05);
+            z-index: 10;
         }
         
         /* Contact Form Section */
@@ -255,19 +339,69 @@
         }
         
         .footer a:hover {
-            color: #e62d00;
+            color: #e6bc00;
         }
         
-        /* Imprint */
-        #imprint {
-            background-color: #eaeaea;
-            padding: 2rem 0;
-            border-top: 1px solid #969696;
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero-grid {
+                gap: 40px;
+            }
+            
+            .transformation-viz {
+                width: 400px;
+                height: 180px;
+            }
         }
         
-        #imprint h2 {
-            color: #e62d00;
-            margin-bottom: 1rem;
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            
+            .hero-content {
+                padding-left: 0;
+            }
+            
+            .transformation-viz {
+                width: 350px;
+                height: 160px;
+            }
+            
+            .transform-stage {
+                width: 80px;
+                height: 50px;
+                font-size: 0.75rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                padding: 100px 0 50px;
+            }
+            
+            .hero-container {
+                padding: 0 20px;
+            }
+            
+            .transformation-viz {
+                width: 300px;
+                height: 140px;
+            }
+            
+            .transform-stage {
+                width: 70px;
+                height: 45px;
+                font-size: 0.7rem;
+            }
+            
+            .cta-buttons {
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -276,16 +410,16 @@
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">contraco</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="contraco_about.html">About Us</a>
+                        <a class="nav-link" href="#about">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contraco_services.html">Services</a>
+                        <a class="nav-link" href="#services">Services</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#case-studies">Case Studies</a>
@@ -306,147 +440,50 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-animation">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" style="background: transparent;">
-              <defs>
-                <!-- Gradients -->
-                <radialGradient id="nodeGradient" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" style="stop-color:#e62d00;stop-opacity:0.8"/>
-                  <stop offset="100%" style="stop-color:#e62d00;stop-opacity:0.2"/>
-                </radialGradient>
-                <radialGradient id="pulseGradient" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" style="stop-color:#e6bc00;stop-opacity:0.4"/>
-                  <stop offset="100%" style="stop-color:#e6bc00;stop-opacity:0"/>
-                </radialGradient>
-                <linearGradient id="connectionGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" style="stop-color:#e62d00;stop-opacity:0"/>
-                  <stop offset="50%" style="stop-color:#e6bc00;stop-opacity:0.6"/>
-                  <stop offset="100%" style="stop-color:#e62d00;stop-opacity:0"/>
-                </linearGradient>
-                <!-- Filters for glow effects -->
-                <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                  <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                  <feMerge> 
-                    <feMergeNode in="coloredBlur"/>
-                    <feMergeNode in="SourceGraphic"/>
-                  </feMerge>
-                </filter>
-              </defs>
-              <!-- Central transformation hub -->
-              <g id="centralHub">
-                <!-- Pulsing rings -->
-                <circle cx="400" cy="300" r="60" fill="none" stroke="#e62d00" stroke-width="2" opacity="0.3">
-                  <animate attributeName="r" values="60;80;60" dur="4s" repeatCount="indefinite"/>
-                  <animate attributeName="opacity" values="0.3;0.1;0.3" dur="4s" repeatCount="indefinite"/>
-                </circle>
-                <circle cx="400" cy="300" r="40" fill="none" stroke="#e6bc00" stroke-width="1.5" opacity="0.4">
-                  <animate attributeName="r" values="40;60;40" dur="3s" repeatCount="indefinite"/>
-                  <animate attributeName="opacity" values="0.4;0.1;0.4" dur="3s" repeatCount="indefinite"/>
-                </circle>
-                <!-- Central core -->
-                <circle cx="400" cy="300" r="8" fill="url(#nodeGradient)" filter="url(#glow)">
-                  <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
-                </circle>
-              </g>
-              <!-- Strategic Clarity Network (Top Left) -->
-              <g id="strategyNetwork">
-                <circle cx="200" cy="150" r="4" fill="#e62d00" opacity="0.7">
-                  <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite" begin="0s"/>
-                </circle>
-                <circle cx="160" cy="180" r="3" fill="#e6bc00" opacity="0.6">
-                  <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite" begin="0.5s"/>
-                </circle>
-                <circle cx="240" cy="120" r="3" fill="#e62d00" opacity="0.5">
-                  <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3s" repeatCount="indefinite" begin="1s"/>
-                </circle>
-                <!-- Connecting lines -->
-                <line x1="200" y1="150" x2="400" y2="300" stroke="url(#connectionGrad)" stroke-width="1" opacity="0.3">
-                  <animate attributeName="opacity" values="0.3;0.7;0.3" dur="4s" repeatCount="indefinite" begin="0s"/>
-                </line>
-              </g>
-              <!-- Technological Intelligence Network (Top Right) -->
-              <g id="techNetwork">
-                <circle cx="600" cy="180" r="5" fill="#e6bc00" opacity="0.8">
-                  <animate attributeName="opacity" values="0.8;1;0.8" dur="2.5s" repeatCount="indefinite" begin="0.3s"/>
-                </circle>
-                <circle cx="640" cy="140" r="3" fill="#e62d00" opacity="0.6">
-                  <animate attributeName="opacity" values="0.6;1;0.6" dur="2.5s" repeatCount="indefinite" begin="0.8s"/>
-                </circle>
-                <circle cx="580" cy="220" r="3" fill="#e6bc00" opacity="0.5">
-                  <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2.5s" repeatCount="indefinite" begin="1.3s"/>
-                </circle>
-                <line x1="600" y1="180" x2="400" y2="300" stroke="url(#connectionGrad)" stroke-width="1" opacity="0.3">
-                  <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3.5s" repeatCount="indefinite" begin="0.5s"/>
-                </line>
-              </g>
-              <!-- Psychological Depth Network (Bottom) -->
-              <g id="psychNetwork">
-                <circle cx="350" cy="480" r="4" fill="#e62d00" opacity="0.7">
-                  <animate attributeName="opacity" values="0.7;1;0.7" dur="3.5s" repeatCount="indefinite" begin="0.2s"/>
-                </circle>
-                <circle cx="450" cy="460" r="5" fill="#e6bc00" opacity="0.8">
-                  <animate attributeName="opacity" values="0.8;1;0.8" dur="3.5s" repeatCount="indefinite" begin="0.7s"/>
-                </circle>
-                <circle cx="300" cy="520" r="3" fill="#e62d00" opacity="0.6">
-                  <animate attributeName="opacity" values="0.6;1;0.6" dur="3.5s" repeatCount="indefinite" begin="1.2s"/>
-                </circle>
-                <line x1="400" y1="470" x2="400" y2="300" stroke="url(#connectionGrad)" stroke-width="1" opacity="0.3">
-                  <animate attributeName="opacity" values="0.3;0.7;0.3" dur="4s" repeatCount="indefinite" begin="0.8s"/>
-                </line>
-              </g>
-              <!-- Transformation particles -->
-              <g id="particles">
-                <circle cx="300" cy="250" r="1" fill="#e6bc00" opacity="0">
-                  <animate attributeName="opacity" values="0;0.8;0" dur="2s" repeatCount="indefinite" begin="0s"/>
-                  <animateTransform attributeName="transform" type="translate" values="0,0; 100,-50; 0,0" dur="2s" repeatCount="indefinite" begin="0s"/>
-                </circle>
-                <circle cx="500" cy="350" r="1" fill="#e62d00" opacity="0">
-                  <animate attributeName="opacity" values="0;0.6;0" dur="2.5s" repeatCount="indefinite" begin="1s"/>
-                  <animateTransform attributeName="transform" type="translate" values="0,0; -100,50; 0,0" dur="2.5s" repeatCount="indefinite" begin="1s"/>
-                </circle>
-                <circle cx="420" cy="200" r="1" fill="#e6bc00" opacity="0">
-                  <animate attributeName="opacity" values="0;0.7;0" dur="1.8s" repeatCount="indefinite" begin="0.5s"/>
-                  <animateTransform attributeName="transform" type="translate" values="0,0; -20,100; 0,0" dur="1.8s" repeatCount="indefinite" begin="0.5s"/>
-                </circle>
-              </g>
-              <!-- Connecting flow lines -->
-              <g id="flowLines" opacity="0.2">
-                <path d="M200,150 Q300,200 400,300" fill="none" stroke="#e6bc00" stroke-width="1">
-                  <animate attributeName="opacity" values="0.2;0.6;0.2" dur="6s" repeatCount="indefinite"/>
-                </path>
-                <path d="M600,180 Q500,240 400,300" fill="none" stroke="#e62d00" stroke-width="1">
-                  <animate attributeName="opacity" values="0.2;0.6;0.2" dur="5s" repeatCount="indefinite" begin="1s"/>
-                </path>
-              </g>
-              <!-- Subtle geometric transformation shapes -->
-              <g id="geometricShapes" opacity="0.15">
-                <polygon points="150,100 180,140 120,140" fill="#e62d00" transform-origin="150 127">
-                  <animateTransform attributeName="transform" type="rotate" values="0;360" dur="20s" repeatCount="indefinite"/>
-                </polygon>
-                <rect x="620" y="80" width="20" height="20" fill="#e6bc00" transform-origin="630 90">
-                  <animateTransform attributeName="transform" type="rotate" values="0;360" dur="15s" repeatCount="indefinite"/>
-                </rect>
-                <circle cx="100" cy="400" r="8" fill="#e62d00" opacity="0.1">
-                  <animate attributeName="r" values="8;15;8" dur="8s" repeatCount="indefinite"/>
-                </circle>
-              </g>
-            </svg>
-        </div>
-        <div class="hero-content">
-            <h1>We Build Transformation You Can Feel</h1>
-            <p>
-                <span class="highlight">contraco</span> transcends traditional consulting by integrating 
-                strategic clarity, cutting-edge technology, and deep psychological insight. 
-                Experience transformation that resonates at every level of your organization.
-            </p>
-            <div class="hero-pillars">
-                <span class="pillar">Strategic Clarity</span> • 
-                <span class="pillar">Technological Intelligence</span> • 
-                <span class="pillar">Psychological Depth</span>
-            </div>
-            <div class="cta-buttons">
-                <a href="#contact" class="cta-primary">Start Your Transformation</a>
-                <a href="contraco_about.html">Learn Our Story</a>
+        <div class="hero-container">
+            <div class="hero-grid">
+                <!-- Left side - Transformation Timeline -->
+                <div class="hero-visual">
+                    <div class="transformation-viz">
+                        <div class="timeline-container">
+                            <!-- Timeline base and progress -->
+                            <div class="timeline-line"></div>
+                            <div class="timeline-progress"></div>
+                            
+                            <!-- Transformation stages positioned along timeline -->
+                            <div class="transform-stage stage-before">
+                                Current<br>State
+                            </div>
+                            
+                            <div class="transform-stage stage-process">
+                                contraco<br>Process
+                            </div>
+                            
+                            <div class="transform-stage stage-after">
+                                Accelerated<br>Growth
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right side - Content -->
+                <div class="hero-content">
+                    <h1>We Build Transformation You Can Feel</h1>
+                    <p>
+                        <span class="highlight">contraco</span> transcends traditional consulting by integrating 
+                        strategic clarity, cutting-edge technology, and deep psychological insight. 
+                        Experience transformation that resonates at every level of your organization.
+                    </p>
+                    <div class="hero-pillars">
+                        <span class="pillar">Strategic Clarity</span> • 
+                        <span class="pillar">Technological Intelligence</span> • 
+                        <span class="pillar">Psychological Depth</span>
+                    </div>
+                    <div class="cta-buttons">
+                        <a class="cta-primary" href="#contact">Start Your Transformation</a>
+                        <a href="#about">Learn Our Story</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -460,27 +497,27 @@
                     <form action="https://formsubmit.co/contact@contraco.net" method="POST">
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="name" class="form-label">Name *</label>
-                                <input type="text" class="form-control" id="name" name="name" required>
+                                <label class="form-label" for="name">Name *</label>
+                                <input class="form-control" id="name" name="name" required="" type="text"/>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="email" class="form-label">Email *</label>
-                                <input type="email" class="form-control" id="email" name="_replyto" required>
+                                <label class="form-label" for="email">Email *</label>
+                                <input class="form-control" id="email" name="_replyto" required="" type="email"/>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="company" class="form-label">Company</label>
-                            <input type="text" class="form-control" id="company" name="company">
+                            <label class="form-label" for="company">Company</label>
+                            <input class="form-control" id="company" name="company" type="text"/>
                         </div>
                         <div class="mb-3">
-                            <label for="message" class="form-label">What transformation challenge are you facing? *</label>
-                            <textarea class="form-control" id="message" name="message" rows="4" required placeholder="Tell us about your transformation goals, current challenges, or how we can help..."></textarea>
+                            <label class="form-label" for="message">What transformation challenge are you facing? *</label>
+                            <textarea class="form-control" id="message" name="message" placeholder="Tell us about your transformation goals, current challenges, or how we can help..." required="" rows="4"></textarea>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-contraco btn-lg">Send Message</button>
+                            <button class="btn btn-contraco btn-lg" type="submit">Send Message</button>
                         </div>
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_next" value="https://www.contraco.net/thank-you.html">
+                        <input name="_captcha" type="hidden" value="false"/>
+                        <input name="_next" type="hidden" value="https://www.contraco.net/thank-you.html"/>
                     </form>
                     <div class="text-center mt-4">
                         <p class="text-muted">Or reach us directly: <a href="mailto:contact@contraco.net">contact@contraco.net</a> | <a href="tel:+14176833613">+1 (417) 683-3613</a></p>
@@ -495,35 +532,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <p class="mb-2">Coming Soon: <a href="contraco_about.html">About Us</a> | <a href="contraco_services.html">Services</a> | <a href="#case-studies">Case Studies</a> | <a href="#insights">Insights</a> | <a href="#faq">FAQ</a></p>
+                    <p class="mb-2">Coming Soon: <a href="#about">About Us</a> | <a href="#services">Services</a> | <a href="#case-studies">Case Studies</a> | <a href="#insights">Insights</a> | <a href="#faq">FAQ</a></p>
                 </div>
                 <div class="col-lg-6 text-lg-end">
-                    <p class="mb-2">&copy; 2025 contraco - Transformation Consulting</p>
+                    <p class="mb-2">© 2025 contraco - Transformation Consulting</p>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Imprint -->
-    <section id="imprint">
-        <div class="container">
-            <h2>Imprint</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <p><strong>Company Name:</strong> contraco</p>
-                    <p><strong>Address:</strong> 1209 10th Ln. Ava, MO 65608 USA</p>
-                </div>
-                <div class="col-md-6">
-                    <p><strong>Contact Email:</strong> <a href="mailto:imprint@contraco.net">imprint@contraco.net</a></p>
-                    <p><strong>Phone:</strong> <a href="tel:+14176833613">+1 (417) 683-3613</a></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    
     <script>
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -547,6 +566,29 @@
             } else {
                 navbar.style.backgroundColor = 'white';
             }
+        });
+
+        // Interactive transformation stages
+        const stages = document.querySelectorAll('.transform-stage');
+        
+        stages.forEach(stage => {
+            stage.addEventListener('mouseenter', function() {
+                // Add subtle interactions when hovering over stages
+                if (this.classList.contains('stage-before')) {
+                    this.innerHTML = 'Current<br>Challenges';
+                } else if (this.classList.contains('stage-after')) {
+                    this.innerHTML = 'Exponential<br>Results';
+                }
+            });
+            
+            stage.addEventListener('mouseleave', function() {
+                // Reset to original text
+                if (this.classList.contains('stage-before')) {
+                    this.innerHTML = 'Current<br>State';
+                } else if (this.classList.contains('stage-after')) {
+                    this.innerHTML = 'Accelerated<br>Growth';
+                }
+            });
         });
     </script>
 </body>
