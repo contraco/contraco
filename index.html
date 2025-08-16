@@ -80,21 +80,27 @@
         .hero {
             position: relative;
             height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                        url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDgwMCI+PHJlY3QgZmlsbD0iIzMzMyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjxjaXJjbGUgY3g9IjMwMCIgY3k9IjQwMCIgcj0iMTAwIiBmaWxsPSIjNTU1IiBvcGFjaXR5PSIwLjMiLz48Y2lyY2xlIGN4PSI5MDAiIGN5PSIyMDAiIHI9IjgwIiBmaWxsPSIjNjY2IiBvcGFjaXR5PSIwLjIiLz48L3N2Zz4=');
-            background-size: cover;
-            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
+            overflow: hidden;
+            background: none; /* Remove previous background */
         }
-        
+        .hero-animation {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            width: 100%; height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
         .hero-content {
             max-width: 1000px;
             padding: 0 20px;
             animation: fadeInUp 1s ease-out;
+            z-index: 2;
+            position: relative;
         }
         
         .hero h1 {
@@ -300,6 +306,132 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <div class="hero-animation">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" style="background: transparent;">
+              <defs>
+                <!-- Gradients -->
+                <radialGradient id="nodeGradient" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" style="stop-color:#e62d00;stop-opacity:0.8"/>
+                  <stop offset="100%" style="stop-color:#e62d00;stop-opacity:0.2"/>
+                </radialGradient>
+                <radialGradient id="pulseGradient" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" style="stop-color:#e6bc00;stop-opacity:0.4"/>
+                  <stop offset="100%" style="stop-color:#e6bc00;stop-opacity:0"/>
+                </radialGradient>
+                <linearGradient id="connectionGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" style="stop-color:#e62d00;stop-opacity:0"/>
+                  <stop offset="50%" style="stop-color:#e6bc00;stop-opacity:0.6"/>
+                  <stop offset="100%" style="stop-color:#e62d00;stop-opacity:0"/>
+                </linearGradient>
+                <!-- Filters for glow effects -->
+                <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                  <feMerge> 
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
+              <!-- Central transformation hub -->
+              <g id="centralHub">
+                <!-- Pulsing rings -->
+                <circle cx="400" cy="300" r="60" fill="none" stroke="#e62d00" stroke-width="2" opacity="0.3">
+                  <animate attributeName="r" values="60;80;60" dur="4s" repeatCount="indefinite"/>
+                  <animate attributeName="opacity" values="0.3;0.1;0.3" dur="4s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="400" cy="300" r="40" fill="none" stroke="#e6bc00" stroke-width="1.5" opacity="0.4">
+                  <animate attributeName="r" values="40;60;40" dur="3s" repeatCount="indefinite"/>
+                  <animate attributeName="opacity" values="0.4;0.1;0.4" dur="3s" repeatCount="indefinite"/>
+                </circle>
+                <!-- Central core -->
+                <circle cx="400" cy="300" r="8" fill="url(#nodeGradient)" filter="url(#glow)">
+                  <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
+                </circle>
+              </g>
+              <!-- Strategic Clarity Network (Top Left) -->
+              <g id="strategyNetwork">
+                <circle cx="200" cy="150" r="4" fill="#e62d00" opacity="0.7">
+                  <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite" begin="0s"/>
+                </circle>
+                <circle cx="160" cy="180" r="3" fill="#e6bc00" opacity="0.6">
+                  <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+                </circle>
+                <circle cx="240" cy="120" r="3" fill="#e62d00" opacity="0.5">
+                  <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3s" repeatCount="indefinite" begin="1s"/>
+                </circle>
+                <!-- Connecting lines -->
+                <line x1="200" y1="150" x2="400" y2="300" stroke="url(#connectionGrad)" stroke-width="1" opacity="0.3">
+                  <animate attributeName="opacity" values="0.3;0.7;0.3" dur="4s" repeatCount="indefinite" begin="0s"/>
+                </line>
+              </g>
+              <!-- Technological Intelligence Network (Top Right) -->
+              <g id="techNetwork">
+                <circle cx="600" cy="180" r="5" fill="#e6bc00" opacity="0.8">
+                  <animate attributeName="opacity" values="0.8;1;0.8" dur="2.5s" repeatCount="indefinite" begin="0.3s"/>
+                </circle>
+                <circle cx="640" cy="140" r="3" fill="#e62d00" opacity="0.6">
+                  <animate attributeName="opacity" values="0.6;1;0.6" dur="2.5s" repeatCount="indefinite" begin="0.8s"/>
+                </circle>
+                <circle cx="580" cy="220" r="3" fill="#e6bc00" opacity="0.5">
+                  <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2.5s" repeatCount="indefinite" begin="1.3s"/>
+                </circle>
+                <line x1="600" y1="180" x2="400" y2="300" stroke="url(#connectionGrad)" stroke-width="1" opacity="0.3">
+                  <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3.5s" repeatCount="indefinite" begin="0.5s"/>
+                </line>
+              </g>
+              <!-- Psychological Depth Network (Bottom) -->
+              <g id="psychNetwork">
+                <circle cx="350" cy="480" r="4" fill="#e62d00" opacity="0.7">
+                  <animate attributeName="opacity" values="0.7;1;0.7" dur="3.5s" repeatCount="indefinite" begin="0.2s"/>
+                </circle>
+                <circle cx="450" cy="460" r="5" fill="#e6bc00" opacity="0.8">
+                  <animate attributeName="opacity" values="0.8;1;0.8" dur="3.5s" repeatCount="indefinite" begin="0.7s"/>
+                </circle>
+                <circle cx="300" cy="520" r="3" fill="#e62d00" opacity="0.6">
+                  <animate attributeName="opacity" values="0.6;1;0.6" dur="3.5s" repeatCount="indefinite" begin="1.2s"/>
+                </circle>
+                <line x1="400" y1="470" x2="400" y2="300" stroke="url(#connectionGrad)" stroke-width="1" opacity="0.3">
+                  <animate attributeName="opacity" values="0.3;0.7;0.3" dur="4s" repeatCount="indefinite" begin="0.8s"/>
+                </line>
+              </g>
+              <!-- Transformation particles -->
+              <g id="particles">
+                <circle cx="300" cy="250" r="1" fill="#e6bc00" opacity="0">
+                  <animate attributeName="opacity" values="0;0.8;0" dur="2s" repeatCount="indefinite" begin="0s"/>
+                  <animateTransform attributeName="transform" type="translate" values="0,0; 100,-50; 0,0" dur="2s" repeatCount="indefinite" begin="0s"/>
+                </circle>
+                <circle cx="500" cy="350" r="1" fill="#e62d00" opacity="0">
+                  <animate attributeName="opacity" values="0;0.6;0" dur="2.5s" repeatCount="indefinite" begin="1s"/>
+                  <animateTransform attributeName="transform" type="translate" values="0,0; -100,50; 0,0" dur="2.5s" repeatCount="indefinite" begin="1s"/>
+                </circle>
+                <circle cx="420" cy="200" r="1" fill="#e6bc00" opacity="0">
+                  <animate attributeName="opacity" values="0;0.7;0" dur="1.8s" repeatCount="indefinite" begin="0.5s"/>
+                  <animateTransform attributeName="transform" type="translate" values="0,0; -20,100; 0,0" dur="1.8s" repeatCount="indefinite" begin="0.5s"/>
+                </circle>
+              </g>
+              <!-- Connecting flow lines -->
+              <g id="flowLines" opacity="0.2">
+                <path d="M200,150 Q300,200 400,300" fill="none" stroke="#e6bc00" stroke-width="1">
+                  <animate attributeName="opacity" values="0.2;0.6;0.2" dur="6s" repeatCount="indefinite"/>
+                </path>
+                <path d="M600,180 Q500,240 400,300" fill="none" stroke="#e62d00" stroke-width="1">
+                  <animate attributeName="opacity" values="0.2;0.6;0.2" dur="5s" repeatCount="indefinite" begin="1s"/>
+                </path>
+              </g>
+              <!-- Subtle geometric transformation shapes -->
+              <g id="geometricShapes" opacity="0.15">
+                <polygon points="150,100 180,140 120,140" fill="#e62d00" transform-origin="150 127">
+                  <animateTransform attributeName="transform" type="rotate" values="0;360" dur="20s" repeatCount="indefinite"/>
+                </polygon>
+                <rect x="620" y="80" width="20" height="20" fill="#e6bc00" transform-origin="630 90">
+                  <animateTransform attributeName="transform" type="rotate" values="0;360" dur="15s" repeatCount="indefinite"/>
+                </rect>
+                <circle cx="100" cy="400" r="8" fill="#e62d00" opacity="0.1">
+                  <animate attributeName="r" values="8;15;8" dur="8s" repeatCount="indefinite"/>
+                </circle>
+              </g>
+            </svg>
+        </div>
         <div class="hero-content">
             <h1>We Build Transformation You Can Feel</h1>
             <p>
