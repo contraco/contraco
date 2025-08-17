@@ -894,6 +894,19 @@
             width: 100%;
         }
 
+        /* Success Message Styles */
+        .success-message {
+            display: none;
+            background: rgba(40, 167, 69, 0.1);
+            border: 1px solid rgba(40, 167, 69, 0.3);
+            color: #28a745;
+            padding: 16px;
+            border-radius: 4px;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 500;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             :root {
@@ -924,10 +937,6 @@
 
             .transformation-content h3 {
                 font-size: 1.6rem;
-            }
-
-            .transformation-icons {
-                gap: 15px;
             }
 
             .transformation-icon-circle {
@@ -1210,20 +1219,23 @@
                     <p><strong>Email:</strong> transformation@contraco.net<br>
                     <strong>Phone:</strong> +1 (417) 555-0140</p>
                 </div>
-                <form class="contact-form">
+                <form class="contact-form" method="POST" action="mailto:transformation@contraco.net">
                     <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
+                        <input type="text" name="name" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" placeholder="Email Address" required>
+                        <input type="email" name="email" placeholder="Email Address" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Organization">
+                        <input type="text" name="organization" placeholder="Organization">
                     </div>
                     <div class="form-group">
-                        <textarea rows="5" placeholder="Tell us about your transformation challenge..."></textarea>
+                        <textarea rows="5" name="message" placeholder="Tell us about your transformation challenge..."></textarea>
                     </div>
                     <button type="submit" class="submit-button">Start the Conversation</button>
+                    <div class="success-message" id="successMessage">
+                        Thank you for your interest! We will be in touch shortly to begin your transformation journey.
+                    </div>
                 </form>
             </div>
         </div>
@@ -1385,10 +1397,47 @@
             }
         });
 
-        // Form submission
+        // Updated form submission handler
         document.querySelector('.contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for your interest! We will be in touch shortly to begin your transformation journey.');
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const organization = formData.get('organization');
+            const message = formData.get('message');
+            
+            // Create mailto link with form data
+            const subject = encodeURIComponent('Transformation Consultation Request');
+            const body = encodeURIComponent(`
+Name: ${name}
+Email: ${email}
+Organization: ${organization}
+
+Message:
+${message}
+
+---
+Sent from contraco.net contact form
+            `);
+            
+            const mailtoLink = `mailto:transformation@contraco.net?subject=${subject}&body=${body}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+            
+            // Reset form
+            this.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 5000);
         });
 
         // Add keyboard support for modal
@@ -1399,4 +1448,8 @@
         });
     </script>
 </body>
-</html>
+</html>s {
+                gap: 15px;
+            }
+
+            .transformation-icon
