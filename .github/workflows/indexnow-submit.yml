@@ -1,0 +1,29 @@
+name: Submit URLs to IndexNow
+
+on:
+  push:
+    branches:
+      - main  # or 'master' if that's your default branch
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Submit URLs to IndexNow
+      run: |
+        curl -X POST "https://api.indexnow.org/IndexNow" \
+        -H "Content-Type: application/json; charset=utf-8" \
+        -d '{
+          "host": "www.contraco.net",
+          "key": "1697384df4494ecabd7b897699293b52",
+          "keyLocation": "https://www.contraco.net/1697384df4494ecabd7b897699293b52.txt",
+          "urlList": [
+            "https://www.contraco.net/index.html",
+            "https://www.contraco.net/contraco_about.html",
+            "https://www.contraco.net/contraco_services.html"
+          ]
+        }'
