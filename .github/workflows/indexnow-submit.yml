@@ -1,29 +1,76 @@
-name: Submit URLs to IndexNow
-
+name: IndexNow Submit
 on:
   push:
-    branches:
-      - main  # or 'master' if that's your default branch
+    branches: [main]
+    paths:
+      - '**/*.html'
+      - '**/*.htm'
+  workflow_dispatch:  # Allows manual trigger
 
 jobs:
-  indexnow:
+  submit-changed-pages:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-
-    - name: Submit URLs to IndexNow
-      run: |
-        curl -X POST "https://api.indexnow.org/IndexNow" \
-        -H "Content-Type: application/json; charset=utf-8" \
-        -d '{
-          "host": "www.contraco.net",
-          "key": "1697384df4494ecabd7b897699293b52",
-          "keyLocation": "https://www.contraco.net/1697384df4494ecabd7b897699293b52.txt",
-          "urlList": [
-            "https://www.contraco.net/index.html",
-            "https://www.contraco.net/contraco_about.html",
-            "https://www.contraco.net/contraco_services.html"
-          ]
-        }'
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # Need previous commit to compare
+      
+      - name: Get changed HTML files
+        id: changed-files
+        run: |
+          echo "Finding changed HTML files..."
+          # Get list of changed HTML files in the last commit
+          git diff --name-only HEAD~1 HEAD | grep -E '\.(html|htm)$' > changed_html.txt || touch changed_html.txt
+          
+          echo "Finding newly added HTML files..."
+          # Also get newly added HTML files
+          git diff --name-status HEAD~1 HEAD | grep -E '^A.*\.(html|htm)$' | cut -f2 >> changed_html.txt || echo "No new HTML files"
+          
+          # Remove duplicates and convert to URLs
+          if [ -s changed_html.txt ]; then
+            sort changed_html.txt | uniq | sed 's|^|https://contraco.net/|' > urls_to_submit.txt
+            echo "URLs to submit:"
+            cat urls_to_submit.txt
+            echo "found_files=true" >> $GITHUB_OUTPUT
+          else
+            echo "No HTML files changed"
+            echo "found_files=false" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Install jq
+        if: steps.changed-files.outputs.found_files == 'true'
+        run: sudo apt-get update && sudo apt-get install -y jq
+      
+      - name: Submit to IndexNow
+        if: steps.changed-files.outputs.found_files == 'true'
+        run: |
+          if [ -s urls_to_submit.txt ]; then
+            # Create JSON array of URLs
+            urls_json=$(jq -R -s -c 'split("\n")[:-1]' urls_to_submit.txt)
+            
+            echo "Submitting to IndexNow API..."
+            response=$(curl -s -w "\nHTTP_CODE:%{http_code}" -X POST "https://api.indexnow.org/indexnow" \
+              -H "Content-Type: application/json" \
+              -d '{
+                "host": "contraco.net",
+                "key": "${{ secrets.INDEXNOW_KEY }}",
+                "keyLocation": "https://contraco.net/${{ secrets.INDEXNOW_KEY }}.txt",
+                "urlList": '$urls_json'
+              }')
+            
+            # Extract HTTP status code
+            http_code=$(echo "$response" | grep "HTTP_CODE:" | cut -d: -f2)
+            response_body=$(echo "$response" | sed '/HTTP_CODE:/d')
+            
+            echo "HTTP Status: $http_code"
+            echo "Response: $response_body"
+            
+            if [ "$http_code" = "200" ] || [ "$http_code" = "202" ]; then
+              echo "✅ Successfully submitted $(wc -l < urls_to_submit.txt) URLs to IndexNow"
+            else
+              echo "❌ Failed to submit URLs. HTTP Status: $http_code"
+              exit 1
+            fi
+          else
+            echo "No HTML files to submit"
+          fi
