@@ -1,41 +1,65 @@
-name: IndexNow Submit
+name: IndexNow Submit + Sitemap Update
 on:
   push:
     branches: [main]
     paths:
       - '**/*.html'
       - '**/*.htm'
-  workflow_dispatch:  # Allows manual trigger
+  workflow_dispatch:
 
 jobs:
-  submit-changed-pages:
+  submit-and-update-sitemap:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 2  # Need previous commit to compare
+          fetch-depth: 2
+          token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Get changed HTML files
         id: changed-files
         run: |
           echo "Finding changed HTML files..."
-          # Get list of changed HTML files in the last commit
           git diff --name-only HEAD~1 HEAD | grep -E '\.(html|htm)$' > changed_html.txt || touch changed_html.txt
           
           echo "Finding newly added HTML files..."
-          # Also get newly added HTML files
           git diff --name-status HEAD~1 HEAD | grep -E '^A.*\.(html|htm)$' | cut -f2 >> changed_html.txt || echo "No new HTML files"
           
-          # Remove duplicates and convert to URLs
           if [ -s changed_html.txt ]; then
             sort changed_html.txt | uniq | sed 's|^|https://contraco.net/|' > urls_to_submit.txt
-            echo "URLs to submit:"
+            echo "URLs to submit to IndexNow:"
             cat urls_to_submit.txt
             echo "found_files=true" >> $GITHUB_OUTPUT
           else
             echo "No HTML files changed"
             echo "found_files=false" >> $GITHUB_OUTPUT
           fi
+      
+      - name: Generate sitemap.xml
+        run: |
+          echo "Generating sitemap.xml..."
+          echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
+          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
+          
+          # Find all HTML files and add to sitemap
+          find . -name "*.html" -not -path "./.git/*" -not -name "404.html" | while read file; do
+            # Convert file path to URL
+            url=$(echo "$file" | sed 's|^\./||' | sed 's|/index\.html$|/|' | sed 's|^|https://contraco.net/|')
+            
+            # Get file modification date
+            lastmod=$(date -r "$file" +"%Y-%m-%d")
+            
+            # Add URL to sitemap
+            echo "  <url>" >> sitemap.xml
+            echo "    <loc>$url</loc>" >> sitemap.xml
+            echo "    <lastmod>$lastmod</lastmod>" >> sitemap.xml
+            echo "    <changefreq>weekly</changefreq>" >> sitemap.xml
+            echo "    <priority>0.8</priority>" >> sitemap.xml
+            echo "  </url>" >> sitemap.xml
+          done
+          
+          echo '</urlset>' >> sitemap.xml
+          echo "Generated sitemap with $(grep -c "<url>" sitemap.xml) URLs"
       
       - name: Install jq
         if: steps.changed-files.outputs.found_files == 'true'
@@ -45,7 +69,6 @@ jobs:
         if: steps.changed-files.outputs.found_files == 'true'
         run: |
           if [ -s urls_to_submit.txt ]; then
-            # Create JSON array of URLs
             urls_json=$(jq -R -s -c 'split("\n")[:-1]' urls_to_submit.txt)
             
             echo "Submitting to IndexNow API..."
@@ -58,12 +81,7 @@ jobs:
                 "urlList": '$urls_json'
               }')
             
-            # Extract HTTP status code
             http_code=$(echo "$response" | grep "HTTP_CODE:" | cut -d: -f2)
-            response_body=$(echo "$response" | sed '/HTTP_CODE:/d')
-            
-            echo "HTTP Status: $http_code"
-            echo "Response: $response_body"
             
             if [ "$http_code" = "200" ] || [ "$http_code" = "202" ]; then
               echo "✅ Successfully submitted $(wc -l < urls_to_submit.txt) URLs to IndexNow"
@@ -71,6 +89,17 @@ jobs:
               echo "❌ Failed to submit URLs. HTTP Status: $http_code"
               exit 1
             fi
+          fi
+      
+      - name: Commit sitemap.xml
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add sitemap.xml
+          if git diff --staged --quiet; then
+            echo "No changes to sitemap.xml"
           else
-            echo "No HTML files to submit"
+            git commit -m "Auto-update sitemap.xml"
+            git push
+            echo "✅ Sitemap updated and committed"
           fi
