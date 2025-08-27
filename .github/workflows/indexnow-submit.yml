@@ -89,8 +89,7 @@ jobs:
               echo "❌ Failed to submit URLs. HTTP Status: $http_code"
               exit 1
             fi
-          fi
-      
+                
 - name: Commit sitemap.xml
   run: |
     git config --local user.email "action@github.com"
