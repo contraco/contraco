@@ -91,15 +91,18 @@ jobs:
             fi
           fi
       
- - name: Commit sitemap.xml
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add sitemap.xml
-          if git diff --staged --quiet; then
-            echo "No changes to sitemap.xml"
-          else
-            git commit -m "Auto-update sitemap.xml"
-            git push
-            echo "✅ Sitemap updated and committed"
-          fi
+
+- name: Commit sitemap.xml
+  run: |
+    git config --local user.email "action@github.com"
+    git config --local user.name "GitHub Action"
+    git add sitemap.xml
+    if git diff --staged --quiet; then
+      echo "No changes to sitemap.xml"
+    else
+      git commit -m "Auto-update sitemap.xml"
+      git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/contraco/contraco.git
+      git push origin main
+      echo "✅ Sitemap updated and committed"
+    fi
+
