@@ -1,106 +1,172 @@
 name: IndexNow Submit + Sitemap Update
+
 on:
   push:
-    branches: [main]
+    branches: [ main ]
     paths:
       - '**/*.html'
       - '**/*.htm'
   workflow_dispatch:
 
+permissions:
+  contents: write   # optional but recommended
+
+env:
+  DOMAIN: https://contraco.net
+
 jobs:
   submit-and-update-sitemap:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 2
-          token: ${{ secrets.GITHUB_TOKEN }}
-      
-      - name: Get changed HTML files
+          persist-credentials: false   # don't keep GITHUB_TOKEN extraheader
+
+      # Build the set of changed/added/renamed HTML(HTM) files
+      - name: Get changed HTML files (paths → normalized URLs)
         id: changed-files
+        shell: bash
         run: |
-          echo "Finding changed HTML files..."
-          git diff --name-only HEAD~1 HEAD | grep -E '\.(html|htm)$' > changed_html.txt || touch changed_html.txt
-          
-          echo "Finding newly added HTML files..."
-          git diff --name-status HEAD~1 HEAD | grep -E '^A.*\.(html|htm)$' | cut -f2 >> changed_html.txt || echo "No new HTML files"
-          
-          if [ -s changed_html.txt ]; then
-            sort changed_html.txt | uniq | sed 's|^|https://contraco.net/|' > urls_to_submit.txt
+          set -euo pipefail
+
+          # 1) Collect changed paths in this push (A/M/R). For renames, take NEW name.
+          git diff --name-status -M HEAD~1 HEAD \
+          | awk '
+              BEGIN { IGNORECASE=1 }
+              $1 ~ /^A|^M/ && $2 ~ /\.(html|htm)$/ {print $2}
+              $1 ~ /^R/     && $3 ~ /\.(html|htm)$/ {print $3}
+            ' > changed_paths.txt || true
+
+          # Also capture "name-only" changes as a fallback (modified files)
+          git diff --name-only HEAD~1 HEAD \
+            | grep -Ei '\.(html|htm)$' >> changed_paths.txt || true
+
+          # Drop .git paths and 404.html; de-dupe
+          grep -Ev '^\.git/|/\.git/|(^|/)404\.(html|htm)$' changed_paths.txt 2>/dev/null \
+            | sort -u > changed_paths.clean.txt || true
+
+          # 2) Normalization function (matches sitemap generation)
+          normalize() {
+            local path="$1"
+            path="${path#./}"                                # strip leading ./ if present
+            # Build absolute URL
+            local url="${DOMAIN}/${path}"
+            # Canonicalize "index.html" and "index.htm"
+            url="${url%/index.html}"
+            url="${url%/index.htm}"
+            # Special case: root index
+            if [[ "$path" == "index.html" || "$path" == "index.htm" ]]; then
+              url="${DOMAIN}"
+            fi
+            printf '%s\n' "$url"
+          }
+
+          : > urls_to_submit.txt
+          if [[ -s changed_paths.clean.txt ]]; then
+            while IFS= read -r p; do
+              normalize "$p"
+            done < changed_paths.clean.txt \
+            | sort -u > urls_to_submit.txt
             echo "URLs to submit to IndexNow:"
             cat urls_to_submit.txt
-            echo "found_files=true" >> $GITHUB_OUTPUT
+            echo "found_files=true" >> "$GITHUB_OUTPUT"
           else
-            echo "No HTML files changed"
-            echo "found_files=false" >> $GITHUB_OUTPUT
+            echo "No HTML/HTM changes detected."
+            echo "found_files=false" >> "$GITHUB_OUTPUT"
           fi
-      
-      - name: Generate sitemap.xml
+
+      - name: Generate sitemap.xml (same normalization)
+        shell: bash
         run: |
+          set -euo pipefail
+
+          normalize() {
+            local path="$1"
+            path="${path#./}"
+            local url="${DOMAIN}/${path}"
+            url="${url%/index.html}"
+            url="${url%/index.htm}"
+            if [[ "$path" == "index.html" || "$path" == "index.htm" ]]; then
+              url="${DOMAIN}"
+            fi
+            printf '%s\n' "$url"
+          }
+
           echo "Generating sitemap.xml..."
-          echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
-          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
-          
-          # Find all HTML files and add to sitemap
-          find . -name "*.html" -not -path "./.git/*" -not -name "404.html" | while read file; do
-            # Convert file path to URL
-            url=$(echo "$file" | sed 's|^\./||' | sed 's|/index\.html$|/|' | sed 's|^|https://contraco.net/|')
-            
-            # Get file modification date
-            lastmod=$(date -r "$file" +"%Y-%m-%d")
-            
-            # Add URL to sitemap
-            echo "  <url>" >> sitemap.xml
-            echo "    <loc>$url</loc>" >> sitemap.xml
-            echo "    <lastmod>$lastmod</lastmod>" >> sitemap.xml
-            echo "    <changefreq>weekly</changefreq>" >> sitemap.xml
-            echo "    <priority>0.8</priority>" >> sitemap.xml
-            echo "  </url>" >> sitemap.xml
-          done
-          
-          echo '</urlset>' >> sitemap.xml
-          echo "Generated sitemap with $(grep -c "<url>" sitemap.xml) URLs"
-      
+          {
+            echo '<?xml version="1.0" encoding="UTF-8"?>'
+            echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+            # Find .html and .htm, exclude .git and 404.*
+            find . \( -name "*.html" -o -name "*.htm" \) \
+              -not -path "./.git/*" \
+              -not -name "404.html" \
+              -not -name "404.htm" \
+            | sort | while read -r file; do
+                url="$(normalize "$file")"
+                lastmod="$(date -r "$file" +"%Y-%m-%d" 2>/dev/null || stat -c %y "$file" | cut -d' ' -f1)"
+                cat <<EOF
+  <url>
+    <loc>${url}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+EOF
+              done
+            echo '</urlset>'
+          } > sitemap.xml
+
+          echo "Generated sitemap with $(grep -c '<url>' sitemap.xml) URLs"
+
       - name: Install jq
         if: steps.changed-files.outputs.found_files == 'true'
         run: sudo apt-get update && sudo apt-get install -y jq
-      
+
       - name: Submit to IndexNow
         if: steps.changed-files.outputs.found_files == 'true'
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        shell: bash
         run: |
-          if [ -s urls_to_submit.txt ]; then
+          set -euo pipefail
+          if [[ -s urls_to_submit.txt ]]; then
             urls_json=$(jq -R -s -c 'split("\n")[:-1]' urls_to_submit.txt)
-            
             echo "Submitting to IndexNow API..."
             response=$(curl -s -w "\nHTTP_CODE:%{http_code}" -X POST "https://api.indexnow.org/indexnow" \
               -H "Content-Type: application/json" \
               -d '{
                 "host": "contraco.net",
-                "key": "${{ secrets.INDEXNOW_KEY }}",
-                "keyLocation": "https://contraco.net/${{ secrets.INDEXNOW_KEY }}.txt",
-                "urlList": '$urls_json'
+                "key": "'"${INDEXNOW_KEY}"'",
+                "keyLocation": "https://contraco.net/'"${INDEXNOW_KEY}"'.txt",
+                "urlList": '"$urls_json"'
               }')
-            
-            http_code=$(echo "$response" | grep "HTTP_CODE:" | cut -d: -f2)
-            
-            if [ "$http_code" = "200" ] || [ "$http_code" = "202" ]; then
+            http_code=$(echo "$response" | awk -F: '/HTTP_CODE:/ {print $2}')
+            if [[ "$http_code" == "200" || "$http_code" == "202" ]]; then
               echo "✅ Successfully submitted $(wc -l < urls_to_submit.txt) URLs to IndexNow"
             else
               echo "❌ Failed to submit URLs. HTTP Status: $http_code"
+              echo "$response"
               exit 1
             fi
           fi
-      
-      - name: Commit sitemap.xml
+
+      - name: Commit and push sitemap.xml
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        shell: bash
         run: |
+          set -euo pipefail
           git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config --local user.name "github-actions[bot]"
           git add sitemap.xml
           if git diff --staged --quiet; then
             echo "No changes to sitemap.xml"
-          else
-            git commit -m "Auto-update sitemap.xml"
-            git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/contraco/contraco.git
-            git push origin main
-            echo "✅ Sitemap updated and committed"
+            exit 0
           fi
+          git commit -m "Auto-update sitemap.xml"
+          # Ensure no conflicting auth header from checkout
+          git config --local --unset-all http.https://github.com/.extraheader || true
+          # Push with PAT
+          git push "https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}.git" HEAD:${{ github.ref_name }}
