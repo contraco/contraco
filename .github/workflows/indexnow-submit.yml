@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write   # optional but recommended
+  contents: write
 
 env:
   DOMAIN: https://contraco.net
@@ -22,16 +22,15 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 2
-          persist-credentials: false   # don't keep GITHUB_TOKEN extraheader
+          persist-credentials: false
 
-      # Build the set of changed/added/renamed HTML(HTM) files
-      - name: Get changed HTML files (paths → normalized URLs)
+      - name: Get changed HTML files (paths -> normalized URLs)
         id: changed-files
         shell: bash
         run: |
           set -euo pipefail
 
-          # 1) Collect changed paths in this push (A/M/R). For renames, take NEW name.
+          # Collect A/M/R changes (use new path for renames)
           git diff --name-status -M HEAD~1 HEAD \
           | awk '
               BEGIN { IGNORECASE=1 }
@@ -39,24 +38,21 @@ jobs:
               $1 ~ /^R/     && $3 ~ /\.(html|htm)$/ {print $3}
             ' > changed_paths.txt || true
 
-          # Also capture "name-only" changes as a fallback (modified files)
+          # Fallback: name-only for modified files
           git diff --name-only HEAD~1 HEAD \
             | grep -Ei '\.(html|htm)$' >> changed_paths.txt || true
 
-          # Drop .git paths and 404.html; de-dupe
+          # Drop .git and 404 pages; dedupe
           grep -Ev '^\.git/|/\.git/|(^|/)404\.(html|htm)$' changed_paths.txt 2>/dev/null \
             | sort -u > changed_paths.clean.txt || true
 
-          # 2) Normalization function (matches sitemap generation)
+          # Normalization function (same as sitemap)
           normalize() {
             local path="$1"
-            path="${path#./}"                                # strip leading ./ if present
-            # Build absolute URL
+            path="${path#./}"
             local url="${DOMAIN}/${path}"
-            # Canonicalize "index.html" and "index.htm"
             url="${url%/index.html}"
             url="${url%/index.htm}"
-            # Special case: root index
             if [[ "$path" == "index.html" || "$path" == "index.htm" ]]; then
               url="${DOMAIN}"
             fi
@@ -67,8 +63,7 @@ jobs:
           if [[ -s changed_paths.clean.txt ]]; then
             while IFS= read -r p; do
               normalize "$p"
-            done < changed_paths.clean.txt \
-            | sort -u > urls_to_submit.txt
+            done < changed_paths.clean.txt | sort -u > urls_to_submit.txt
             echo "URLs to submit to IndexNow:"
             cat urls_to_submit.txt
             echo "found_files=true" >> "$GITHUB_OUTPUT"
@@ -95,29 +90,29 @@ jobs:
           }
 
           echo "Generating sitemap.xml..."
-          {
-            echo '<?xml version="1.0" encoding="UTF-8"?>'
-            echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-            # Find .html and .htm, exclude .git and 404.*
-            find . \( -name "*.html" -o -name "*.htm" \) \
-              -not -path "./.git/*" \
-              -not -name "404.html" \
-              -not -name "404.htm" \
-            | sort | while read -r file; do
-                url="$(normalize "$file")"
-                lastmod="$(date -r "$file" +"%Y-%m-%d" 2>/dev/null || stat -c %y "$file" | cut -d' ' -f1)"
-                cat <<EOF
-  <url>
-    <loc>${url}</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-EOF
-              done
-            echo '</urlset>'
-          } > sitemap.xml
+          : > sitemap.xml
+          printf '%s\n' '<?xml version="1.0" encoding="UTF-8"?>' >> sitemap.xml
+          printf '%s\n' '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
 
+          # Find all html/htm files, exclude .git and 404 pages
+          find . \( -name "*.html" -o -name "*.htm" \) \
+            -not -path "./.git/*" \
+            -not -name "404.html" \
+            -not -name "404.htm" \
+          | sort | while read -r file; do
+              url="$(normalize "$file")"
+              lastmod="$(date -r "$file" +"%Y-%m-%d" 2>/dev/null || stat -c %y "$file" | cut -d' ' -f1)"
+              {
+                printf '  <url>\n'
+                printf '    <loc>%s</loc>\n' "$url"
+                printf '    <lastmod>%s</lastmod>\n' "$lastmod"
+                printf '    <changefreq>weekly</changefreq>\n'
+                printf '    <priority>0.8</priority>\n'
+                printf '  </url>\n'
+              } >> sitemap.xml
+            done
+
+          printf '%s\n' '</urlset>' >> sitemap.xml
           echo "Generated sitemap with $(grep -c '<url>' sitemap.xml) URLs"
 
       - name: Install jq
