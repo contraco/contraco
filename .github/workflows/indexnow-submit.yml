@@ -91,7 +91,6 @@ jobs:
             fi
           fi
       
-
 - name: Commit sitemap.xml
   run: |
     git config --local user.email "action@github.com"
