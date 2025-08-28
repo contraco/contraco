@@ -12,7 +12,7 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-868WGCC45D', {
-            page_title: 'contraco - Premium Transformation Consulting',
+            page_title: 'Transformation Insights - contraco',
             page_location: window.location.href
         });
     </script>
@@ -27,7 +27,7 @@
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
     <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="120x120" href "/apple-touch-icon-120x120.png">
     <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
@@ -38,9 +38,23 @@
     <meta name="theme-color" content="#EA4425">
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="contraco - Premium transformation consulting combining strategic clarity, technological intelligence, and psychological depth. Partner for sustainable organizational change.">
-    <meta name="keywords" content="transformation consulting, strategic consulting, digital transformation, organizational change, AI consulting, contraco">
+    <meta name="description" content="Transformation insights from contraco - Strategic intelligence on digital transformation, AI adoption, and human-centered change management.">
+    <meta name="keywords" content="transformation insights, digital transformation, AI adoption, change management, organizational design, contraco">
     <meta name="author" content="contraco">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.contraco.net/contraco_insights.html">
+    <meta property="og:title" content="Transformation Insights - contraco">
+    <meta property="og:description" content="Strategic intelligence and practical wisdom from the frontlines of organizational transformation.">
+    <meta property="og:image" content="https://www.contraco.net/images/contraco-insights-preview.jpg">
+    
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.contraco.net/contraco_insights.html">
+    <meta property="twitter:title" content="Transformation Insights - contraco">
+    <meta property="twitter:description" content="Strategic intelligence and practical wisdom from the frontlines of organizational transformation.">
+    <meta property="twitter:image" content="https://www.contraco.net/images/contraco-insights-preview.jpg">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
     <style>
@@ -150,7 +164,7 @@
             position: relative;
         }
 
-        .nav-link:hover {
+        .nav-link:hover, .nav-link.active {
             color: var(--primary-red);
         }
 
@@ -165,7 +179,7 @@
             transition: width 0.3s ease;
         }
 
-        .nav-link:hover::after {
+        .nav-link:hover::after, .nav-link.active::after {
             width: 100%;
         }
 
@@ -355,6 +369,8 @@
         .featured-cta:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(255, 77, 77, 0.3);
+            color: white;
+            text-decoration: none;
         }
 
         .featured-visual {
@@ -629,6 +645,8 @@
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 12px 35px rgba(230, 45, 0, 0.4);
+            color: white;
+            text-decoration: none;
         }
 
         /* Modal */
@@ -719,6 +737,63 @@
             margin: 8px 0;
         }
 
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: var(--warm-gray-light);
+            padding: 50px 0 35px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+            align-items: start;
+            margin-bottom: 32px;
+        }
+
+        .company-info h4 {
+            color: var(--primary-red);
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            font-family: var(--font-serif);
+        }
+
+        .company-info p {
+            margin-bottom: 8px;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .imprint-section h4 {
+            color: var(--primary-red);
+            font-size: 1rem;
+            margin-bottom: 12px;
+            font-family: var(--font-serif);
+        }
+
+        .imprint-details {
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .imprint-details p {
+            margin-bottom: 6px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        .trademark-notice {
+            margin-top: 8px;
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .footer-content {
@@ -791,13 +866,13 @@
     <nav class="navbar">
         <div class="container">
             <div class="nav-container">
-                <a href="https://www.contraco.net/#" class="logo">
+                <a href="https://www.contraco.net/" class="logo">
                     <img src="https://contraco.net/Logo_rectangle.svg" alt="contraco" />
                 </a>
                 <ul class="nav-menu">
                     <li><a href="https://www.contraco.net/#services" class="nav-link">Services</a></li>
                     <li><a href="https://www.contraco.net/#methodology" class="nav-link">Methodology</a></li>
-                    <li><a href="#insights" class="nav-link">Insights</a></li>
+                    <li><a href="https://www.contraco.net/contraco_insights.html" class="nav-link active">Insights</a></li>
                     <li><a href="https://www.contraco.net/contraco_about.html" class="nav-link">About</a></li>
                     <li><a href="https://www.contraco.net/#contact" class="nav-link">Contact</a></li>
                 </ul>
@@ -807,10 +882,11 @@
 
     <!-- Add padding for fixed nav -->
     <div style="height: 80px;"></div>
+    
     <!-- Insights Section -->
     <section class="insights" id="insights">
         <div class="container">
-                        <div class="section-header">
+            <div class="section-header">
                 <h1 class="section-title">Transformation Insights</h1>
                 <p class="section-subtitle">
                     Strategic intelligence and practical wisdom from the frontlines of organizational transformation
@@ -842,11 +918,11 @@
                                 <span class="stat-label">Better ROI with Resonance Method™</span>
                             </div>
                         </div>
-                    <a href="https://www.contraco.net/contraco_ai_adoption_research.html" class="featured-cta">
-                             Read Full Research
+                        <a href="https://www.contraco.net/contraco_ai_adoption_research.html" class="featured-cta">
+                            Read Full Research
                             <span>→</span>
-                    </a>
-                        </div>
+                        </a>
+                    </div>
                         
                     <div class="featured-visual">
                         <div class="chart-container">
@@ -914,7 +990,7 @@
                             </div>
                         </div>
 
-                        <div class="insight-card" onclick="location.href='https://www.contraco.net/contraco_strategic_intelligence.html#organizational-design-ai-era';">
+                        <div class="insight-card" onclick="window.location.href='https://www.contraco.net/contraco_strategic_intelligence.html#organizational-design-ai-era';">
                             <div class="card-header">
                                 <span class="card-type">Case Study</span>
                                 <span class="card-duration">12 min read</span>
@@ -1010,4 +1086,293 @@
                                 <span class="card-duration">11 min read</span>
                             </div>
                             <h4 class="card-title">Leadership in the Age of AI: From Command to Orchestration</h4>
-                            <p class
+                            <p class="card-description">The evolution of leadership roles in AI-augmented organizations. How successful leaders are adapting their approach to guide human-AI collaboration and maintain strategic vision.</p>
+                            <div class="card-tags">
+                                <span class="tag">Leadership Evolution</span>
+                                <span class="tag">AI Integration</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="insights-cta">
+                <div class="cta-content">
+                    <h2 class="cta-title">Ready to Transform with Strategic Intelligence?</h2>
+                    <p class="cta-subtitle">Apply these insights to your organization with The Resonance Method™ - combining strategic clarity, technological intelligence, and psychological depth.</p>
+                    <a href="https://www.contraco.net/#contact" class="cta-button">
+                        Start Your Transformation Journey
+                        <span>→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Structure -->
+    <div id="insightModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Insight Title</h2>
+                <span class="close" onclick="closeInsightModal()">&times;</span>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Modal content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="company-info">
+                    <h4>contraco USA</h4>
+                    <p>Premium transformation consulting combining strategic clarity, technological intelligence, and psychological depth.</p>
+                    <p><strong>Email:</strong> transformation@contraco.net</p>
+                    <p><strong>Phone:</strong> +1 (417) 543-5624</p>
+                </div>
+                <div class="imprint-section">
+                    <h4>Company Information</h4>
+                    <div class="imprint-details">
+                        <p><strong>contraco</strong></p>
+                        <p>1209 10th Ln.</p>
+                        <p>Ava, MO 65608</p>
+                        <p>United States</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 contraco All rights reserved.</p>
+                <p class="trademark-notice">The Resonance Method™ is a trademark of contraco.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Modal functionality
+        const modalContent = {
+            'omnichannel': {
+                title: 'Omnichannel Architecture: Building for Customer Journey Intelligence',
+                content: `
+                    <h2>The Challenge of Fragmented Customer Experience</h2>
+                    <p>Modern customers interact with brands across multiple touchpoints—websites, mobile apps, social media, email, physical stores, and customer service channels. Each interaction creates data and expectations that must be seamlessly connected to deliver a cohesive experience.</p>
+                    
+                    <h2>Architectural Principles for Omnichannel Success</h2>
+                    <p><strong>Customer Data Platform (CDP) as Foundation:</strong> Centralized customer data management that creates unified customer profiles across all touchpoints.</p>
+                    
+                    <p><strong>API-First Architecture:</strong> Microservices approach that enables flexible integration of new channels and technologies without disrupting existing systems.</p>
+                    
+                    <p><strong>Real-Time Data Synchronization:</strong> Event-driven architecture that ensures customer interactions are immediately reflected across all channels.</p>
+                    
+                    <h2>Implementation Strategy</h2>
+                    <ul>
+                        <li>Start with customer journey mapping to identify critical touchpoints</li>
+                        <li>Implement data governance frameworks for consistent customer information</li>
+                        <li>Build progressive personalization capabilities using machine learning</li>
+                        <li>Create feedback loops for continuous optimization</li>
+                    </ul>
+                    
+                    <p>Organizations implementing comprehensive omnichannel strategies typically see 15-35% improvement in customer satisfaction scores and 20-30% increase in customer lifetime value.</p>
+                `
+            },
+            'data-strategy': {
+                title: 'Data Strategy for Decision Intelligence: Beyond Business Intelligence',
+                content: `
+                    <h2>The Evolution from Reporting to Intelligence</h2>
+                    <p>Traditional business intelligence focuses on what happened. Decision intelligence focuses on what should happen next, combining data science, behavioral economics, and decision theory to enhance organizational decision-making.</p>
+                    
+                    <h2>Building Decision Intelligence Capabilities</h2>
+                    <p><strong>Predictive Analytics Integration:</strong> Moving beyond descriptive analytics to predictive models that inform strategic decisions.</p>
+                    
+                    <p><strong>Automated Decision Systems:</strong> Implementing AI-driven decision-making for routine operational choices while maintaining human oversight for strategic decisions.</p>
+                    
+                    <p><strong>Decision Quality Measurement:</strong> Establishing metrics to evaluate decision outcomes and continuously improve decision-making processes.</p>
+                    
+                    <h2>Implementation Framework</h2>
+                    <ul>
+                        <li>Audit current data assets and identify decision-critical gaps</li>
+                        <li>Implement data quality management and governance frameworks</li>
+                        <li>Build cross-functional teams combining data science and domain expertise</li>
+                        <li>Create decision trees and automated workflows for common scenarios</li>
+                    </ul>
+                    
+                    <p>Organizations with mature decision intelligence capabilities report 25-40% improvement in decision speed and 30-50% better strategic outcome achievement.</p>
+                `
+            },
+            'automation': {
+                title: 'Intelligent Automation: When to Automate, When to Augment',
+                content: `
+                    <h2>The Automation Decision Framework</h2>
+                    <p>Not all processes should be automated. The key is identifying where automation adds genuine value while preserving human creativity, judgment, and relationship-building capabilities.</p>
+                    
+                    <h2>Automation Sweet Spot Analysis</h2>
+                    <p><strong>High-Volume, Low-Variability Tasks:</strong> Routine data processing, report generation, and standard customer service queries are ideal for full automation.</p>
+                    
+                    <p><strong>Complex, High-Stakes Decisions:</strong> Strategic planning, customer relationship management, and creative problem-solving benefit from human-AI augmentation rather than replacement.</p>
+                    
+                    <p><strong>Hybrid Workflows:</strong> Many processes benefit from automation of routine elements while preserving human oversight for exceptions and quality assurance.</p>
+                    
+                    <h2>Implementation Best Practices</h2>
+                    <ul>
+                        <li>Start with pilot programs in low-risk, high-impact areas</li>
+                        <li>Implement comprehensive change management to address employee concerns</li>
+                        <li>Create clear escalation paths from automated to human decision-making</li>
+                        <li>Establish continuous monitoring and improvement processes</li>
+                    </ul>
+                    
+                    <p>Successful automation initiatives typically achieve 30-60% reduction in processing time while improving accuracy by 20-40% and employee satisfaction by focusing human effort on higher-value activities.</p>
+                `
+            },
+            'change-psychology': {
+                title: 'The Neuroscience of Organizational Change: Why Logic Isn\'t Enough',
+                content: `
+                    <h2>The Neuroscience Behind Resistance to Change</h2>
+                    <p>Recent neuroscience research reveals that organizational change triggers the brain's threat detection systems, creating physiological resistance that logical arguments cannot overcome. Understanding these mechanisms is crucial for successful transformation.</p>
+                    
+                    <h2>Brain-Based Change Principles</h2>
+                    <p><strong>Status Quo Bias and Neural Efficiency:</strong> The brain's preference for familiar patterns creates automatic resistance to new processes and structures.</p>
+                    
+                    <p><strong>Loss Aversion in Organizational Context:</strong> Employees perceive potential losses (familiar processes, established relationships, proven competencies) more intensely than equivalent gains.</p>
+                    
+                    <p><strong>Social Brain and Group Dynamics:</strong> Mirror neurons and social cognition systems mean that change must address both individual and collective psychological needs.</p>
+                    
+                    <h2>Neuroscience-Informed Change Strategies</h2>
+                    <ul>
+                        <li>Create positive emotional associations with change through celebration and recognition</li>
+                        <li>Implement gradual change processes that don't overwhelm the brain's adaptation capacity</li>
+                        <li>Use storytelling and visualization to engage emotional and rational brain systems</li>
+                        <li>Provide psychological safety to reduce threat responses</li>
+                    </ul>
+                    
+                    <p>Organizations applying neuroscience principles to change management see 40-65% higher adoption rates and 30-45% faster transformation timelines compared to traditional approaches.</p>
+                `
+            },
+            'culture-design': {
+                title: 'Culture as Code: Engineering Organizational Values in the Digital Age',
+                content: `
+                    <h2>Systematic Approach to Cultural Transformation</h2>
+                    <p>Leading technology companies are treating culture development with the same rigor as software development—creating systematic processes, measuring outcomes, and continuously iterating based on data.</p>
+                    
+                    <h2>Culture Engineering Framework</h2>
+                    <p><strong>Values Translation into Systems:</strong> Converting abstract cultural values into concrete policies, processes, and system designs that reinforce desired behaviors.</p>
+                    
+                    <p><strong>Behavioral Metrics and Feedback Loops:</strong> Implementing measurement systems that track cultural indicators and provide real-time feedback on cultural health.</p>
+                    
+                    <p><strong>Digital Culture Touchpoints:</strong> Designing digital experiences that reinforce cultural values through user interfaces, communication tools, and workflow systems.</p>
+                    
+                    <h2>Implementation Methodology</h2>
+                    <ul>
+                        <li>Define measurable cultural behaviors that reflect organizational values</li>
+                        <li>Design systems and processes that naturally encourage these behaviors</li>
+                        <li>Create feedback mechanisms to track cultural evolution</li>
+                        <li>Iterate and optimize based on behavioral data and employee feedback</li>
+                    </ul>
+                    
+                    <p>Organizations with systematically engineered cultures report 25-40% higher employee engagement, 30-50% better retention rates, and 20-35% faster innovation cycles.</p>
+                `
+            },
+            'leadership-evolution': {
+                title: 'Leadership in the Age of AI: From Command to Orchestration',
+                content: `
+                    <h2>The Changing Nature of Leadership</h2>
+                    <p>As AI takes over routine decision-making and analysis, leadership roles are evolving from information processing and command structures to orchestration, vision-setting, and human development.</p>
+                    
+                    <h2>New Leadership Competencies</h2>
+                    <p><strong>AI Collaboration Skills:</strong> Understanding how to work effectively with AI systems while maintaining human judgment for strategic and ethical decisions.</p>
+                    
+                    <p><strong>Adaptive Leadership:</strong> Leading through continuous change and uncertainty as AI capabilities rapidly evolve and market conditions shift.</p>
+                    
+                    <p><strong>Human Development Focus:</strong> Developing uniquely human capabilities in team members while helping them adapt to AI-augmented work environments.</p>
+                    
+                    <h2>Leadership Transformation Strategies</h2>
+                    <ul>
+                        <li>Develop AI literacy to understand capabilities and limitations</li>
+                        <li>Focus on vision-setting and strategic thinking rather than operational control</li>
+                        <li>Build coaching and development skills to support team adaptation</li>
+                        <li>Create psychological safety for experimentation and learning</li>
+                    </ul>
+                    
+                    <p>Leaders who successfully adapt to AI-augmented environments typically see 20-35% improvement in team performance, 25-40% increase in innovation output, and 30-45% better employee retention and satisfaction.</p>
+                `
+            }
+        };
+
+        function openInsightModal(insightId) {
+            const modal = document.getElementById('insightModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBody = document.getElementById('modalBody');
+            
+            if (modalContent[insightId]) {
+                modalTitle.textContent = modalContent[insightId].title;
+                modalBody.innerHTML = modalContent[insightId].content;
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeInsightModal() {
+            const modal = document.getElementById('insightModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('insightModal');
+            if (event.target === modal) {
+                closeInsightModal();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeInsightModal();
+            }
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(248, 246, 243, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(248, 246, 243, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Enhanced insight card interactions
+        document.querySelectorAll('.insight-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.borderColor = 'var(--border-hover)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.borderColor = 'var(--border-subtle)';
+            });
+        });
+
+        // Analytics tracking
+        gtag('event', 'page_view', {
+            page_title: 'Transformation Insights',
+            page_location: window.location.href,
+            content_group1: 'Insights'
+        });
+
+        // Track insight engagement
+        document.querySelectorAll('.insight-card').forEach((card, index) => {
+            card.addEventListener('click', function() {
+                gtag('event', 'click', {
+                    event_category: 'engagement',
+                    event_label: 'insight_card_click',
+                    value: index + 1
+                });
+            });
+        });
+    </script>
+</body>
+</html>
