@@ -38,7 +38,7 @@
     <meta name="theme-color" content="#EA4425">
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="contraco - Premium transformation consulting combining strategic clarity, technological intelligence, and psychological depth. Partner for sustainable organizational change.">
+    <meta name="description" content="contraco - Premium transformation consulting combining strategic clarity, technological intelligence, and psychological depth.">
     <meta name="keywords" content="transformation consulting, strategic consulting, digital transformation, organizational change, AI consulting, contraco">
     <meta name="author" content="contraco">
     
@@ -55,42 +55,32 @@
     <meta property="twitter:title" content="contraco - We Build Transformation You Can Feel">
     <meta property="twitter:description" content="Premium transformation consulting combining strategic clarity, technological intelligence, and psychological depth.">
     <meta property="twitter:image" content="https://www.contraco.net/images/contraco-social-preview.jpg">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
-
-        :root {
-            /* Original Contraco Brand Colors */
-            --primary-red: #e62d00;
-            --deep-charcoal: #2C2C2C;
-            --warm-white: #F8F6F3;
-            --warm-gray-light: #E5E2DD;
-            --warm-gray-medium: #A8A5A0;
-            --warm-gray-dark: #6B6B6B;
-            
-            /* Typography */
-            --font-serif: 'Crimson Text', serif;
-            --font-sans: 'Inter', sans-serif;
-            
-            /* Spacing */
-            --section-padding: 100px 0;
-            --container-max: 1200px;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-red: #e62d00;
+            --deep-charcoal: #2C2C2C;
+            --warm-white: #F8F6F3;
+            --warm-gray-light: #E5E2DD;
+            --warm-gray-medium: #A8A5A0;
+            --warm-gray-dark: #6B6B6B;
+        }
+
         body {
-            font-family: var(--font-sans);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: var(--deep-charcoal);
             background-color: var(--warm-white);
         }
 
         .container {
-            max-width: var(--container-max);
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 40px;
         }
@@ -127,6 +117,17 @@
 
         .logo:hover img {
             transform: scale(1.05);
+        }
+
+        .logo-fallback {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            transition: color 0.3s ease;
+        }
+
+        .logo-fallback:hover {
+            color: #D63E20;
         }
 
         .nav-menu {
@@ -205,9 +206,8 @@
         }
 
         .hero-text h1 {
-            font-family: var(--font-serif);
             font-size: 4rem;
-            font-weight: 600;
+            font-weight: 700;
             line-height: 1.1;
             margin-bottom: 24px;
             color: var(--deep-charcoal);
@@ -215,7 +215,6 @@
 
         .hero-text .highlight {
             color: var(--primary-red);
-            position: relative;
         }
 
         .hero-text .subtitle {
@@ -226,13 +225,6 @@
             line-height: 1.6;
         }
 
-        .hero-text .methodology {
-            font-size: 1rem;
-            color: var(--warm-gray-medium);
-            font-style: italic;
-            margin-bottom: 40px;
-        }
-
         .cta-button {
             display: inline-flex;
             align-items: center;
@@ -241,44 +233,22 @@
             color: white;
             padding: 16px 32px;
             text-decoration: none;
-            border-radius: 2px;
+            border-radius: 4px;
             font-weight: 600;
             font-size: 0.95rem;
             transition: all 0.3s ease;
             box-shadow: 0 8px 25px rgba(234, 68, 37, 0.2);
             position: relative;
             overflow: hidden;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.6s ease;
+            width: fit-content;
         }
 
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 12px 35px rgba(234, 68, 37, 0.3);
             background: #D63E20;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        .cta-pulse {
-            animation: pulse-glow 2s infinite;
-        }
-
-        @keyframes pulse-glow {
-            0% { box-shadow: 0 8px 25px rgba(234, 68, 37, 0.2); }
-            50% { box-shadow: 0 12px 35px rgba(234, 68, 37, 0.4); }
-            100% { box-shadow: 0 8px 25px rgba(234, 68, 37, 0.2); }
+            color: white;
+            text-decoration: none;
         }
 
         .hero-visual {
@@ -302,17 +272,6 @@
             overflow: hidden;
         }
 
-        .transformation-graphic::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
-        }
-
         .transformation-content {
             position: relative;
             z-index: 2;
@@ -322,7 +281,6 @@
         }
 
         .transformation-content h3 {
-            font-family: var(--font-serif);
             font-size: 2rem;
             margin-bottom: 16px;
             opacity: 0.95;
@@ -365,187 +323,18 @@
             text-align: center;
         }
 
-        /* Floating elements animation */
-        .floating-element {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .floating-element:nth-child(1) {
-            width: 18px;
-            height: 18px;
-            top: 20%;
-            left: 15%;
-            animation-delay: 0s;
-        }
-
-        .floating-element:nth-child(2) {
-            width: 14px;
-            height: 14px;
-            top: 60%;
-            right: 20%;
-            animation-delay: 2s;
-        }
-
-        .floating-element:nth-child(3) {
-            width: 22px;
-            height: 22px;
-            bottom: 30%;
-            left: 20%;
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-            0%, 100% { 
-                transform: translateY(0px) scale(1); 
-                opacity: 0.6; 
-            }
-            50% { 
-                transform: translateY(-18px) scale(1.1); 
-                opacity: 0.9; 
-            }
-        }
-
-        /* METHODOLOGY SECTION*/
-        .methodology {
-            padding: var(--section-padding);
-            background: var(--deep-charcoal);
-            color: white;
-        }
-
-        .methodology .section-title {
-            color: white;
-            font-size: 2.6rem;
-        }
-
-        .methodology-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            margin-top: 50px;
-        }
-
-        .methodology-text h3 {
-            font-family: var(--font-serif);
-            font-size: 2rem;
-            margin-bottom: 24px;
-            color: var(--primary-red);
-        }
-
-        .methodology-text p {
-            font-size: 1rem;
-            line-height: 1.7;
-            margin-bottom: 24px;
-            color: var(--warm-gray-light);
-        }
-
-        .methodology-steps {
-            list-style: none;
-            margin-top: 40px;
-        }
-
-        .methodology-steps li {
-            padding: 16px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-
-        /* UPDATED METHODOLOGY VISUAL */
-        .methodology-visual {
-            position: relative;
-            height: 380px;
-            background: linear-gradient(135deg, #FF6B35 0%, #EA4425 100%);
-            border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            padding: 40px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .methodology-visual:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 18px 35px rgba(234, 68, 37, 0.3);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .evolution-flow {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            width: 100%;
-        }
-
-        .evolution-step {
-            font-size: 1.1rem;
-            font-weight: 600;
-            opacity: 0.9;
-            padding: 12px 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 6px;
-            min-width: 200px;
-        }
-
-        .arrow-down {
-            font-size: 24px;
-            opacity: 0.8;
-            margin: 8px 0;
-        }
-
-        .contraco-highlight {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin: 16px 0;
-            color: white;
-            font-family: var(--font-sans);
-        }
-
-        .methodology-tagline {
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-align: center;
-            line-height: 1.4;
-            opacity: 0.95;
-            margin: 12px 0;
-        }
-
-        .methodology-equation {
-            font-size: 1rem;
-            font-weight: 500;
-            opacity: 0.9;
-            margin: 8px 0;
-        }
-
-        .methodology-cta {
-            font-size: 0.85rem;
-            font-weight: 500;
-            opacity: 0.8;
-            margin-top: 16px;
-            font-style: italic;
-        }
-
         /* Services Section */
         .services {
-            padding: var(--section-padding);
+            padding: 100px 0;
             background: white;
         }
 
         .section-title {
-            font-family: var(--font-serif);
             font-size: 2.6rem;
             text-align: center;
             margin-bottom: 50px;
             color: var(--deep-charcoal);
+            font-weight: 700;
         }
 
         .services-grid {
@@ -569,10 +358,10 @@
         }
 
         .service-card h3 {
-            font-family: var(--font-serif);
             font-size: 1.6rem;
             margin-bottom: 16px;
             color: var(--deep-charcoal);
+            font-weight: 600;
         }
 
         .service-card p {
@@ -602,158 +391,9 @@
             font-weight: bold;
         }
 
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-content {
-            background-color: var(--warm-white);
-            margin: 2% auto;
-            padding: 0;
-            border-radius: 12px;
-            width: 90%;
-            max-width: 850px;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
-        }
-
-        .modal-header {
-            background: linear-gradient(135deg, var(--primary-red), rgba(234, 68, 37, 0.8));
-            color: white;
-            padding: 35px;
-            border-radius: 12px 12px 0 0;
-            position: relative;
-        }
-
-        .modal-header h2 {
-            font-family: var(--font-serif);
-            font-size: 2.2rem;
-            margin-bottom: 12px;
-        }
-
-        .modal-header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin: 0;
-        }
-
-        .close {
-            color: white;
-            float: right;
-            font-size: 32px;
-            font-weight: bold;
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            cursor: pointer;
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
-        }
-
-        .close:hover {
-            opacity: 1;
-        }
-
-        .modal-body {
-            padding: 40px;
-            color: var(--deep-charcoal);
-        }
-
-        .method-section {
-            margin-bottom: 32px;
-        }
-
-        .method-section h3 {
-            font-family: var(--font-serif);
-            font-size: 1.6rem;
-            color: var(--primary-red);
-            margin-bottom: 16px;
-        }
-
-        .method-section p {
-            line-height: 1.7;
-            margin-bottom: 16px;
-            color: var(--warm-gray-dark);
-            font-size: 0.95rem;
-        }
-
-        .method-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 25px;
-            margin: 32px 0;
-        }
-
-        .method-step {
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            border-left: 4px solid var(--primary-red);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .method-step h4 {
-            color: var(--primary-red);
-            font-weight: 600;
-            margin-bottom: 12px;
-            font-size: 0.95rem;
-        }
-
-        .method-step p {
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
-        /* Testimonial Section */
-        .testimonials {
-            padding: var(--section-padding);
-            background: var(--warm-white);
-        }
-
-        .testimonial-card {
-            max-width: 750px;
-            margin: 50px auto 0;
-            text-align: center;
-            padding: 50px;
-            background: white;
-            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
-            border-radius: 8px;
-        }
-
-        .testimonial-quote {
-            font-family: var(--font-serif);
-            font-size: 1.4rem;
-            font-style: italic;
-            color: var(--deep-charcoal);
-            margin-bottom: 32px;
-            line-height: 1.5;
-        }
-
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--primary-red);
-            margin-bottom: 8px;
-        }
-
-        .testimonial-company {
-            color: var(--warm-gray-medium);
-            font-size: 0.95rem;
-        }
-
         /* Contact Section */
         .contact {
-            padding: var(--section-padding);
+            padding: 100px 0;
             background: var(--deep-charcoal);
             color: white;
         }
@@ -770,10 +410,10 @@
         }
 
         .contact-info h3 {
-            font-family: var(--font-serif);
             font-size: 1.6rem;
             margin-bottom: 24px;
             color: var(--primary-red);
+            font-weight: 600;
         }
 
         .contact-info p {
@@ -840,7 +480,6 @@
             color: var(--primary-red);
             font-size: 1.1rem;
             margin-bottom: 16px;
-            font-family: var(--font-serif);
         }
 
         .company-info p {
@@ -853,7 +492,6 @@
             color: var(--primary-red);
             font-size: 1rem;
             margin-bottom: 12px;
-            font-family: var(--font-serif);
         }
 
         .imprint-details {
@@ -878,41 +516,8 @@
             opacity: 0.8;
         }
 
-        /* Micro-interactions */
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(234, 68, 37, 0.05), transparent);
-            transition: width 0.6s ease;
-        }
-
-        .service-card:hover::before {
-            width: 100%;
-        }
-
-        /* Success Message Styles */
-        .success-message {
-            display: none;
-            background: rgba(40, 167, 69, 0.1);
-            border: 1px solid rgba(40, 167, 69, 0.3);
-            color: #28a745;
-            padding: 16px;
-            border-radius: 4px;
-            margin-top: 20px;
-            text-align: center;
-            font-weight: 500;
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
-            :root {
-                --section-padding: 60px 0;
-            }
-
             .hero {
                 padding-top: 70px;
             }
@@ -946,19 +551,9 @@
             }
             
             .services-grid,
-            .methodology-content,
             .contact-content {
                 grid-template-columns: 1fr;
                 gap: 30px;
-            }
-
-            .methodology-visual {
-                height: 300px;
-                padding: 25px;
-            }
-
-            .contraco-highlight {
-                font-size: 2rem;
             }
 
             .footer-content {
@@ -974,31 +569,9 @@
             .nav-menu {
                 display: none;
             }
-            
-            .logo img {
-                height: 32px;
-            }
 
             .section-title {
                 font-size: 2.2rem;
-            }
-
-            .modal-content {
-                width: 95%;
-                margin: 5% auto;
-            }
-
-            .modal-header {
-                padding: 25px;
-            }
-
-            .modal-body {
-                padding: 25px;
-            }
-
-            .method-steps {
-                grid-template-columns: 1fr;
-                gap: 20px;
             }
         }
 
@@ -1016,30 +589,8 @@
                 padding: 30px 24px;
             }
 
-            .testimonial-card {
-                padding: 35px 25px;
-            }
-
-            .testimonial-quote {
-                font-size: 1.2rem;
-            }
-
             .transformation-content {
                 padding: 25px 20px;
-            }
-
-            .methodology-visual {
-                height: 280px;
-                padding: 20px;
-            }
-
-            .contraco-highlight {
-                font-size: 1.8rem;
-            }
-
-            .evolution-step {
-                font-size: 1rem;
-                min-width: 150px;
             }
         }
     </style>
@@ -1049,15 +600,16 @@
     <nav class="navbar">
         <div class="container">
             <div class="nav-container">
-                    <a href="https://www.contraco.net/#" class="logo">
-                    <img src="https://contraco.net/Logo_rectangle.svg" alt="contraco" />
-                    </a>
+                <a href="https://www.contraco.net/" class="logo">
+                    <img src="https://contraco.net/Logo_rectangle.svg" alt="contraco" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <span class="logo-fallback" style="display: none;">contraco</span>
+                </a>
                 <ul class="nav-menu">
-                    <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#methodology" class="nav-link">Methodology</a></li>
+                    <li><a href="https://www.contraco.net/#services" class="nav-link">Services</a></li>
+                    <li><a href="https://www.contraco.net/#methodology" class="nav-link">Methodology</a></li>
                     <li><a href="https://www.contraco.net/contraco_insights.html" class="nav-link">Insights</a></li>
                     <li><a href="https://www.contraco.net/contraco_about.html" class="nav-link">About</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="https://www.contraco.net/#contact" class="nav-link">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -1070,21 +622,13 @@
                 <div class="hero-text">
                     <h1>We Build Transformation <span class="highlight">You Can Feel</span></h1>
                     <p class="subtitle">Your partner for sustainable change that delivers strategic clarity, technological intelligence, and psychological depth—with the execution excellence you expect.</p>
-                    <div style="margin: 32px 0; padding: 25px; background: rgba(234, 68, 37, 0.05); border-left: 4px solid var(--primary-red);">
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; font-size: 0.9rem;">
-                            <div><strong>Strategic Clarity</strong><br>Clear, actionable strategies aligned with your vision</div>
-                            <div><strong>Technological Intelligence</strong><br>Smart use of AI, data, and digital tools</div>
-                            <div><strong>Psychological Depth</strong><br>Understanding human behavior to drive adoption</div>
-                            <div><strong>Execution Excellence</strong><br>Fast, practical results with deeper impact</div>
-                        </div>
-                    </div>
+                    <a href="#contact" class="cta-button">
+                        Start Your Transformation
+                        <span>→</span>
+                    </a>
                 </div>
                 <div class="hero-visual">
                     <div class="transformation-graphic">
-                        <div class="floating-element"></div>
-                        <div class="floating-element"></div>
-                        <div class="floating-element"></div>
-                        
                         <div class="transformation-content">
                             <h3>Transform with Confidence</h3>
                             <p>Strategic clarity meets technological intelligence</p>
@@ -1153,62 +697,6 @@
         </div>
     </section>
 
-    <!-- Methodology Section -->
-    <section class="methodology" id="methodology">
-        <div class="container">
-            <h2 class="section-title">The Resonance Method™</h2>
-            <div class="methodology-content">
-                <div class="methodology-text">
-                    <h3>From Execution to Transformation</h3>
-                    <p>Built on our foundation of execution excellence in IT, e-commerce, and telecom, The Resonance Method™ represents our evolution into comprehensive transformation consulting. We still deliver fast, practical results—but now with the strategic depth and psychological insight that creates lasting change.</p>
-                    <p>This proprietary methodology combines our proven digital expertise with new capabilities in AI, pricing strategy, omnichannel experiences, and organizational design. The result? Transformation that resonates at every level of your organization.</p>
-                    <div style="margin-top: 32px; padding: 20px; background: rgba(255, 255, 255, 0.1); border-radius: 4px;">
-                        <h4 style="color: var(--primary-red); margin-bottom: 12px; font-size: 1rem;">Our Evolution Journey:</h4>
-                        <p style="margin: 0; font-size: 0.9rem; line-height: 1.6;">From lean, agile consultancy focused on digital innovation → To comprehensive transformation partner blending strategy, technology, and psychology for sustainable change</p>
-                    </div>
-                </div>
-                <div class="methodology-visual" onclick="openMethodologyModal()">
-                    <div class="evolution-flow">
-                        <div class="evolution-step">Traditional Consulting</div>
-                        <div class="arrow-down">↓</div>
-                        <div class="contraco-highlight">contraco</div>
-                        <div class="methodology-tagline">
-                            Strategy + Technology + Psychology
-                        </div>
-                        <div class="methodology-equation">
-                            = Sustainable Change
-                        </div>
-                        <div class="methodology-cta">
-                            Click to explore The Resonance Method™
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div style="margin-top: 50px;">
-                <ul class="methodology-steps">
-                    <li><strong>Strategic Foundation:</strong> Clear, actionable strategies rooted in our proven execution excellence</li>
-                    <li><strong>Technological Intelligence:</strong> AI, data, and digital tools applied with strategic insight</li>
-                    <li><strong>Psychological Integration:</strong> Human behavior analysis to ensure adoption and lasting change</li>
-                    <li><strong>Sustainable Transformation:</strong> Long-term capability building, not just project delivery</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <h2 class="section-title">Client Transformations</h2>
-            <div class="testimonial-card">
-                <div class="testimonial-quote">
-                    "contraco has evolved beyond just delivering digital solutions—they've become our strategic transformation partner. Their blend of technical expertise and psychological insight helped us not just implement change, but make it stick across our entire organization."
-                </div>
-                <div class="testimonial-author">Sarah Chen</div>
-                <div class="testimonial-company">Chief Transformation Officer, Aruba Inc.</div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
@@ -1216,7 +704,7 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <h3>Ready to Create Change You Can Feel?</h3>
-                    <p>Every transformation begins with a conversation. Let's explore how the Resonance Method™ can unlock your organization's potential for meaningful, sustainable change.</p>
+                    <p>Every transformation begins with a conversation. Let's explore how The Resonance Method™ can unlock your organization's potential for meaningful, sustainable change.</p>
                     <p><strong>Email:</strong> transformation@contraco.net<br>
                     <strong>Phone:</strong> +1 (417) 543-5624</p>
                 </div>
@@ -1272,109 +760,7 @@
         </div>
     </footer>
 
-    <!-- Resonance Method Modal -->
-    <div id="methodologyModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="close" onclick="closeMethodologyModal()">&times;</span>
-                <h2>The Resonance Method™</h2>
-                <p>Our proprietary approach to transformation that creates lasting change</p>
-            </div>
-            <div class="modal-body">
-                <div class="method-section">
-                    <h3>Why Traditional Consulting Falls Short</h3>
-                    <p>Most consulting approaches focus on either strategy OR technology OR people. The Resonance Method™ recognizes that sustainable transformation requires all three working in harmony—creating "resonance" across your entire organization.</p>
-                </div>
-
-                <div class="method-section">
-                    <h3>The Three Pillars of Resonance</h3>
-                    <div class="method-steps">
-                        <div class="method-step">
-                            <h4>Strategic Clarity</h4>
-                            <p>Clear, actionable strategies that align with your vision and market reality. We don't just plan—we create roadmaps for execution.</p>
-                        </div>
-                        <div class="method-step">
-                            <h4>Technological Intelligence</h4>
-                            <p>Smart application of AI, data analytics, and digital tools that enhance human potential rather than replace it.</p>
-                        </div>
-                        <div class="method-step">
-                            <h4>Psychological Depth</h4>
-                            <p>Deep understanding of human behavior, organizational culture, and change psychology to ensure adoption and sustainability.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="method-section">
-                    <h3>Our Process: From Insight to Impact</h3>
-                    <p><strong>Phase 1: Resonance Assessment</strong><br>
-                    We analyze the current state of alignment between your strategy, technology, and people to identify resonance gaps.</p>
-                    
-                    <p><strong>Phase 2: Harmonic Design</strong><br>
-                    We design integrated solutions that create positive reinforcement loops between strategic goals, technological capabilities, and human behavior.</p>
-                    
-                    <p><strong>Phase 3: Resonance Implementation</strong><br>
-                    We execute with careful attention to maintaining alignment and momentum across all three pillars throughout the transformation.</p>
-                    
-                    <p><strong>Phase 4: Sustained Resonance</strong><br>
-                    We build internal capabilities and feedback systems to maintain transformation momentum long after our engagement ends.</p>
-                </div>
-
-                <div class="method-section">
-                    <h3>What Makes It Different</h3>
-                    <p>The Resonance Method™ isn't just another consulting framework. It's built on our real-world experience transforming organizations across IT, e-commerce, telecom, and beyond. We've learned that:</p>
-                    <ul style="margin-left: 20px; color: var(--warm-gray-dark);">
-                        <li>Strategy without psychological insight fails at adoption</li>
-                        <li>Technology without strategic alignment creates expensive complexity</li>
-                        <li>People-focused change without technological enablement lacks scale</li>
-                        <li>True transformation requires all three working in perfect harmony</li>
-                    </ul>
-                </div>
-
-                <div style="text-align: center; margin-top: 32px; padding: 25px; background: rgba(234, 68, 37, 0.05); border-radius: 8px;">
-                    <h3 style="color: var(--primary-red); margin-bottom: 16px;">Ready to Experience Resonance?</h3>
-                    <p style="margin-bottom: 20px;">Let's explore how The Resonance Method™ can transform your organization.</p>
-                    <a href="#contact" class="cta-button" onclick="closeMethodologyModal(); document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">
-                        Start Your Transformation Journey
-                        <span>→</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script>
-        // Modal functionality
-        function openMethodologyModal() {
-            document.getElementById('methodologyModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeMethodologyModal() {
-            document.getElementById('methodologyModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('methodologyModal');
-            if (event.target === modal) {
-                closeMethodologyModal();
-            }
-        }
-
-        // Enhanced CTA click handler
-        function handleCTAClick(event) {
-            // Add a subtle animation effect
-            const button = event.target.closest('.cta-button');
-            button.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                button.style.transform = '';
-            }, 150);
-
-            // Optional: Track analytics or show additional messaging
-            console.log('Transformation discovery initiated');
-        }
-
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1401,12 +787,33 @@
             }
         });
 
-        // Add keyboard support for modal
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeMethodologyModal();
-            }
-        });
+        // Analytics tracking (only if gtag is loaded)
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_view', {
+                page_title: 'Homepage',
+                page_location: window.location.href,
+                content_group1: 'Main Site'
+            });
+
+            // Track form submissions
+            document.querySelector('.contact-form').addEventListener('submit', function() {
+                gtag('event', 'form_submission', {
+                    event_category: 'engagement',
+                    event_label: 'contact_form_submit'
+                });
+            });
+
+            // Track CTA clicks
+            document.querySelectorAll('.cta-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    gtag('event', 'click', {
+                        event_category: 'engagement',
+                        event_label: 'cta_button_click',
+                        value: 1
+                    });
+                });
+            });
+        }
     </script>
 </body>
 </html>

@@ -44,20 +44,24 @@
     
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.contraco.net/about">
+    <meta property="og:url" content="https://www.contraco.net/contraco_about.html">
     <meta property="og:title" content="About contraco - We Build Transformation You Can Feel">
     <meta property="og:description" content="27 years of transformation leadership: from search engines to AI, we humanize change with psychological depth and strategic excellence.">
     <meta property="og:image" content="https://www.contraco.net/images/contraco-about-preview.jpg">
     
     <!-- Twitter Card -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.contraco.net/about">
+    <meta property="twitter:url" content="https://www.contraco.net/contraco_about.html">
     <meta property="twitter:title" content="About contraco - We Build Transformation You Can Feel">
     <meta property="twitter:description" content="27 years of transformation leadership: from search engines to AI, we humanize change with psychological depth.">
     <meta property="twitter:image" content="https://www.contraco.net/images/contraco-about-preview.jpg">
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         :root {
             /* Contraco Brand Colors */
@@ -69,18 +73,12 @@
             --warm-gray-dark: #6B6B6B;
             
             /* Typography */
-            --font-serif: 'Crimson Text', serif;
-            --font-sans: 'Inter', sans-serif;
+            --font-serif: Georgia, 'Times New Roman', serif;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             
             /* Spacing */
             --section-padding: 100px 0;
             --container-max: 1200px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
         }
 
         body {
@@ -128,6 +126,17 @@
 
         .logo:hover img {
             transform: scale(1.05);
+        }
+
+        .logo-fallback {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            transition: color 0.3s ease;
+        }
+
+        .logo-fallback:hover {
+            color: #D63E20;
         }
 
         .nav-menu {
@@ -596,6 +605,7 @@
             transform: translateY(-2px);
             box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
             color: var(--deep-charcoal);
+            text-decoration: none;
         }
 
         .btn-cta-outline {
@@ -654,6 +664,22 @@
             font-size: 0.95rem;
         }
 
+        .imprint-section h4 {
+            color: var(--primary-red);
+            font-size: 1rem;
+            margin-bottom: 12px;
+            font-family: var(--font-serif);
+        }
+
+        .imprint-details {
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .imprint-details p {
+            margin-bottom: 6px;
+        }
+
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding-top: 25px;
@@ -686,6 +712,10 @@
 
             .hero-content h1 {
                 font-size: 2.8rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1.1rem;
             }
 
             .hero-stats {
@@ -768,15 +798,16 @@
     <nav class="navbar">
         <div class="container">
             <div class="nav-container">
-                    <a href="https://www.contraco.net/#" class="logo">
-                    <img src="https://contraco.net/Logo_rectangle.svg" alt="contraco" />
-                    </a>
+                <a href="https://www.contraco.net/" class="logo">
+                    <img src="https://contraco.net/Logo_rectangle.svg" alt="contraco" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <span class="logo-fallback" style="display: none;">contraco</span>
+                </a>
                 <ul class="nav-menu">
-                    <li><a href="index.html#services" class="nav-link">Services</a></li>
-                    <li><a href="index.html#methodology" class="nav-link">Methodology</a></li>
-                    <li><a href="index.html#insights" class="nav-link">Insights</a></li>
-                    <li><a href="contraco_about.html" class="nav-link active">About</a></li>
-                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                    <li><a href="https://www.contraco.net/#services" class="nav-link">Services</a></li>
+                    <li><a href="https://www.contraco.net/#methodology" class="nav-link">Methodology</a></li>
+                    <li><a href="https://www.contraco.net/contraco_insights.html" class="nav-link">Insights</a></li>
+                    <li><a href="https://www.contraco.net/contraco_about.html" class="nav-link active">About</a></li>
+                    <li><a href="https://www.contraco.net/#contact" class="nav-link">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -987,11 +1018,11 @@
                 <h3>Ready to Experience Transformation?</h3>
                 <p>Join industry leaders who've chosen human-centered change over algorithmic efficiency.</p>
                 <div class="cta-buttons">
-                    <a href="index.html#services" class="btn-cta">
+                    <a href="https://www.contraco.net/#services" class="btn-cta">
                         Explore Our Services
                         <span>→</span>
                     </a>
-                    <a href="index.html#contact" class="btn-cta btn-cta-outline">
+                    <a href="https://www.contraco.net/#contact" class="btn-cta btn-cta-outline">
                         Start the Conversation
                         <span>→</span>
                     </a>
@@ -1006,12 +1037,11 @@
             <div class="footer-content">
                 <div class="company-info">
                     <div class="footer-links">
-                        <a href="index.html">Home</a>
+                        <a href="https://www.contraco.net/">Home</a>
                         <a href="https://www.contraco.net/contraco_about.html">About Us</a>
-                        <a href="index.html#services">Services</a>
-                        <a href="#case-studies">Case Studies</a>
-                        <a href="index.html#insights">Insights</a>
-                        <a href="index.html#contact">Contact</a>
+                        <a href="https://www.contraco.net/#services">Services</a>
+                        <a href="https://www.contraco.net/contraco_insights.html">Insights</a>
+                        <a href="https://www.contraco.net/#contact">Contact</a>
                     </div>
                     <h4>contraco USA</h4>
                     <p>Premium transformation consulting combining strategic clarity, technological intelligence, and psychological depth.</p>
@@ -1020,7 +1050,7 @@
                 </div>
                 <div class="imprint-section">
                     <h4>Company Information</h4>
-                    <div style="font-size: 0.85rem; line-height: 1.5;">
+                    <div class="imprint-details">
                         <p><strong>contraco</strong></p>
                         <p>1209 10th Ln.</p>
                         <p>Ava, MO 65608</p>
@@ -1135,6 +1165,15 @@
         });
 
         heroObserver.observe(document.querySelector('.hero-stats'));
+
+        // Analytics tracking (only if gtag is loaded)
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_view', {
+                page_title: 'About Page',
+                page_location: window.location.href,
+                content_group1: 'About'
+            });
+        }
     </script>
 </body>
 </html>
