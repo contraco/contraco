@@ -33,9 +33,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="msapplication-TileColor" content="#EA4425">
+    <meta name="msapplication-TileColor" content="#e62d00">
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
-    <meta name="theme-color" content="#EA4425">
+    <meta name="theme-color" content="#e62d00">
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="contraco - Premium transformation consulting combining strategic clarity, technological intelligence, and psychological depth.">
@@ -47,14 +47,6 @@
     <meta property="og:url" content="https://www.contraco.net/">
     <meta property="og:title" content="contraco - We Build Transformation You Can Feel">
     <meta property="og:description" content="Premium transformation consulting combining strategic clarity, technological intelligence, and psychological depth.">
-    <meta property="og:image" content="https://www.contraco.net/images/contraco-social-preview.jpg">
-    
-    <!-- Twitter Card -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.contraco.net/">
-    <meta property="twitter:title" content="contraco - We Build Transformation You Can Feel">
-    <meta property="twitter:description" content="Premium transformation consulting combining strategic clarity, technological intelligence, and psychological depth.">
-    <meta property="twitter:image" content="https://www.contraco.net/images/contraco-social-preview.jpg">
     
     <style>
         * {
@@ -391,6 +383,137 @@
             font-weight: bold;
         }
 
+        /* Methodology Section */
+        .methodology {
+            padding: 100px 0;
+            background: var(--warm-white);
+        }
+
+        .methodology-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            margin-top: 40px;
+        }
+
+        .method-section {
+            margin-bottom: 60px;
+        }
+
+        .method-section h3 {
+            font-size: 2rem;
+            color: var(--deep-charcoal);
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        .method-section p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--warm-gray-dark);
+            margin-bottom: 16px;
+        }
+
+        .method-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .method-step {
+            background: white;
+            padding: 32px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-red);
+            transition: all 0.3s ease;
+        }
+
+        .method-step:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .method-step h4 {
+            font-size: 1.4rem;
+            color: var(--primary-red);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .method-step p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--warm-gray-dark);
+            margin: 0;
+        }
+
+        .phase-steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin: 30px 0;
+        }
+
+        .phase-step {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 24px;
+            border-radius: 6px;
+            border-left: 3px solid var(--primary-red);
+        }
+
+        .phase-step strong {
+            color: var(--primary-red);
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .methodology-highlight {
+            background: var(--deep-charcoal);
+            color: white;
+            padding: 50px;
+            border-radius: 12px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .methodology-highlight h3 {
+            color: var(--primary-red);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .methodology-highlight p {
+            font-size: 1.2rem;
+            color: var(--warm-gray-light);
+            margin-bottom: 30px;
+        }
+
+        .methodology-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--warm-gray-light);
+        }
+
         /* Contact Section */
         .contact {
             padding: 100px 0;
@@ -556,6 +679,15 @@
                 gap: 30px;
             }
 
+            .method-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .methodology-stats {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 20px;
+            }
+
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 30px;
@@ -592,6 +724,14 @@
             .transformation-content {
                 padding: 25px 20px;
             }
+
+            .methodology-highlight {
+                padding: 35px 25px;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
@@ -605,11 +745,11 @@
                     <span class="logo-fallback" style="display: none;">contraco</span>
                 </a>
                 <ul class="nav-menu">
-                    <li><a href="https://www.contraco.net/#services" class="nav-link">Services</a></li>
-                    <li><a href="https://www.contraco.net/#methodology" class="nav-link">Methodology</a></li>
-                    <li><a href="https://www.contraco.net/contraco_insights.html" class="nav-link">Insights</a></li>
-                    <li><a href="https://www.contraco.net/contraco_about.html" class="nav-link">About</a></li>
-                    <li><a href="https://www.contraco.net/#contact" class="nav-link">Contact</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#methodology" class="nav-link">Methodology</a></li>
+                    <li><a href="contraco_insights.html" class="nav-link">Insights</a></li>
+                    <li><a href="contraco_about.html" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -697,6 +837,95 @@
         </div>
     </section>
 
+    <!-- Methodology Section -->
+    <section class="methodology" id="methodology">
+        <div class="container">
+            <h2 class="section-title">The Resonance Method™</h2>
+            <div class="methodology-content">
+                <div class="method-section">
+                    <h3>From Execution to Transformation</h3>
+                    <p>Built on our foundation of execution excellence in IT, e-commerce, and telecom, The Resonance Method™ represents our evolution into comprehensive transformation consulting.</p>
+                    <p>The Resonance Method™ recognizes that sustainable transformation requires all three pillars working in harmony—creating "resonance" across your entire organization.</p>
+                </div>
+
+                <div class="method-section">
+                    <h3>The Three Pillars of Resonance</h3>
+                    <div class="method-steps">
+                        <div class="method-step">
+                            <h4>Strategic Clarity</h4>
+                            <p>Clear, actionable strategies that align with your vision and market reality. We don't just plan—we create roadmaps for execution.</p>
+                        </div>
+                        <div class="method-step">
+                            <h4>Technological Intelligence</h4>
+                            <p>Smart application of AI, data analytics, and digital tools that enhance human potential rather than replace it.</p>
+                        </div>
+                        <div class="method-step">
+                            <h4>Psychological Depth</h4>
+                            <p>Deep understanding of human behavior, organizational culture, and change psychology to ensure adoption and sustainability.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="method-section">
+                    <h3>Our Process: From Insight to Impact</h3>
+                    <div class="phase-steps">
+                        <div class="phase-step">
+                            <strong>Phase 1: Resonance Assessment</strong>
+                            <p>We analyze the current state of alignment between your strategy, technology, and people to identify resonance gaps.</p>
+                        </div>
+                        <div class="phase-step">
+                            <strong>Phase 2: Harmonic Design</strong>
+                            <p>We design integrated solutions that create positive reinforcement loops between strategic goals, technological capabilities, and human behavior.</p>
+                        </div>
+                        <div class="phase-step">
+                            <strong>Phase 3: Resonance Implementation</strong>
+                            <p>We execute with careful attention to maintaining alignment and momentum across all three pillars throughout the transformation.</p>
+                        </div>
+                        <div class="phase-step">
+                            <strong>Phase 4: Sustained Resonance</strong>
+                            <p>We build internal capabilities and feedback systems to maintain transformation momentum long after our engagement ends.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="methodology-highlight">
+                    <h3>Research-Based Foundation</h3>
+                    <p>The Resonance Method™ is grounded in comprehensive research across 247 organizations over 18 months, examining the relationship between change management approaches and transformation success rates.</p>
+                    
+                    <div class="methodology-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">247</span>
+                            <span class="stat-label">Organizations Studied</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">Industries Analyzed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">18</span>
+                            <span class="stat-label">Months of Research</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">4x</span>
+                            <span class="stat-label">Higher Success Rate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="method-section">
+                    <h3>What Makes It Different</h3>
+                    <p>The Resonance Method™ isn't just another consulting framework. It's built on our real-world experience transforming organizations across IT, e-commerce, telecom, and beyond. We've learned that:</p>
+                    <ul style="margin-left: 20px; color: var(--warm-gray-dark); line-height: 1.8;">
+                        <li>Strategy without psychological insight fails at adoption</li>
+                        <li>Technology without strategic alignment creates expensive complexity</li>
+                        <li>People-focused change without technological enablement lacks scale</li>
+                        <li>True transformation requires all three working in perfect harmony</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
@@ -754,7 +983,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 contraco All rights reserved.</p>
+                <p>&copy; 2025 contraco. All rights reserved.</p>
                 <p class="trademark-notice">The Resonance Method™ is a trademark of contraco.</p>
             </div>
         </div>
