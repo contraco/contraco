@@ -34,9 +34,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="msapplication-TileColor" content="#EA4425">
+    <meta name="msapplication-TileColor" content="#e62d00">
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
-    <meta name="theme-color" content="#EA4425">
+    <meta name="theme-color" content="#e62d00">
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
@@ -54,8 +54,7 @@
             --font-serif: 'Crimson Text', serif;
             --font-sans: 'Inter', sans-serif;
             
-            /* Spacing */
-            --section-padding: 100px 0;
+            /* Container */
             --container-max: 1200px;
         }
 
@@ -78,7 +77,7 @@
             padding: 0 40px;
         }
 
-        /* Navigation  */
+        /* Navigation */
         .navbar {
             position: fixed;
             top: 0;
@@ -88,7 +87,6 @@
             z-index: 1000;
             padding: 12px 0;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
         }
 
         .nav-container {
@@ -403,28 +401,57 @@
         .footer {
             background: #1a1a1a;
             color: var(--warm-gray-light);
-            padding: 30px 0;
-            margin-top: 50px;
+            padding: 50px 0 35px;
         }
 
         .footer-content {
-            text-align: center;
-            font-size: 0.9rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+            align-items: start;
+            margin-bottom: 32px;
         }
 
-        .footer-links {
-            margin-bottom: 15px;
-        }
-
-        .footer-links a {
-            color: var(--warm-gray-light);
-            text-decoration: none;
-            margin: 0 15px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
+        .company-info h4 {
             color: var(--primary-red);
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            font-family: var(--font-serif);
+        }
+
+        .company-info p {
+            margin-bottom: 8px;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .imprint-section h4 {
+            color: var(--primary-red);
+            font-size: 1rem;
+            margin-bottom: 12px;
+            font-family: var(--font-serif);
+        }
+
+        .imprint-details {
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .imprint-details p {
+            margin-bottom: 6px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        .trademark-notice {
+            margin-top: 8px;
+            font-size: 0.8rem;
+            opacity: 0.8;
         }
 
         /* Responsive Design */
@@ -467,9 +494,10 @@
                 text-align: center;
             }
 
-            .footer-links a {
-                display: block;
-                margin: 5px 0;
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
             }
         }
 
@@ -522,15 +550,15 @@
     <nav class="navbar">
         <div class="container">
             <div class="nav-container">
-                    <a href="https://www.contraco.net/#" class="logo">
+                <a href="https://www.contraco.net/" class="logo">
                     <img src="https://contraco.net/Logo_rectangle.svg" alt="contraco" />
-                    </a>
+                </a>
                 <ul class="nav-menu">
-                    <li><a href="index.html#services" class="nav-link">Services</a></li>
-                    <li><a href="index.html#methodology" class="nav-link">Methodology</a></li>
-                    <li><a href="#insights" class="nav-link">Insights</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                    <li><a href="https://www.contraco.net/#services" class="nav-link">Services</a></li>
+                    <li><a href="https://www.contraco.net/#methodology" class="nav-link">Methodology</a></li>
+                    <li><a href="https://www.contraco.net/contraco_insights.html" class="nav-link">Insights</a></li>
+                    <li><a href="https://www.contraco.net/contraco_about.html" class="nav-link">About</a></li>
+                    <li><a href="https://www.contraco.net/#contact" class="nav-link">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -590,7 +618,7 @@
                         </div>
                         <div class="contact-item">
                             <span>📞</span>
-                            <a href="tel:+14175550140">+1 (417) 543-5624</a>
+                            <a href="tel:+14175435624">+1 (417) 543-5624</a>
                         </div>
                         <div class="contact-item">
                             <span>📍</span>
@@ -600,11 +628,11 @@
                 </div>
 
                 <div class="action-buttons">
-                    <a href="index.html" class="btn-primary">
+                    <a href="https://www.contraco.net/" class="btn-primary">
                         Return to Homepage
                         <span>→</span>
                     </a>
-                    <a href="index.html#methodology" class="btn-secondary">
+                    <a href="https://www.contraco.net/#methodology" class="btn-secondary">
                         Learn About Our Method
                         <span>→</span>
                     </a>
@@ -617,17 +645,25 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="index.html#services">Services</a>
-                    <a href="index.html#methodology">Methodology</a>
-                    <a href="#insights">Insights</a>
-                    <a href="index.html#contact">Contact</a>
+                <div class="company-info">
+                    <h4>contraco USA</h4>
+                    <p>Premium transformation consulting combining strategic clarity, technological intelligence, and psychological depth.</p>
+                    <p><strong>Email:</strong> transformation@contraco.net</p>
+                    <p><strong>Phone:</strong> +1 (417) 543-5624</p>
                 </div>
+                <div class="imprint-section">
+                    <h4>Company Information</h4>
+                    <div class="imprint-details">
+                        <p><strong>contraco</strong></p>
+                        <p>1209 10th Ln.</p>
+                        <p>Ava, MO 65608</p>
+                        <p>United States</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
                 <p>&copy; 2025 contraco All rights reserved.</p>
-                <p style="font-size: 0.8rem; margin-top: 8px; opacity: 0.8;">
-                    The Resonance Method™ is a trademark of contraco.
-                </p>
+                <p class="trademark-notice">The Resonance Method™ is a trademark of contraco.</p>
             </div>
         </div>
     </footer>
@@ -663,6 +699,18 @@
                     });
                 }
             });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(248, 246, 243, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(248, 246, 243, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
         });
 
         // Track thank you page analytics event
