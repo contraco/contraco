@@ -313,6 +313,57 @@
             font-weight: bold;
         }
 
+        /* Methodology Section */
+        .methodology {
+            padding: 80px 0;
+            background: var(--warm-white);
+        }
+
+        .methodology-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .methodology-content h2 {
+            font-size: 2.4rem;
+            color: var(--deep-charcoal);
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .methodology-content .highlight {
+            color: var(--primary-red);
+        }
+
+        .methodology-content p {
+            font-size: 1.15rem;
+            color: var(--warm-gray-dark);
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .methodology-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--primary-red);
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .methodology-link:hover {
+            background: #D63E20;
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
         /* Contact Section */
         .contact {
             padding: 100px 0;
@@ -384,7 +435,7 @@
             transform: translateY(-2px);
         }
 
-        /* Footer - EXACT COPY FROM INDEX.HTML */
+        /* Footer */
         .footer {
             background: #1a1a1a;
             color: var(--warm-gray-light);
@@ -485,7 +536,7 @@
                 </a>
                 <ul class="nav-menu">
                     <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#heritage" class="nav-link">Heritage</a></li>
+                    <li><a href="#methodology" class="nav-link">Methodology</a></li>
                     <li><a href="contraco_insights.html" class="nav-link">Insights</a></li>
                     <li><a href="contraco_about.html" class="nav-link">About</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -574,6 +625,20 @@
         </div>
     </section>
 
+    <!-- Methodology Section -->
+    <section class="methodology" id="methodology">
+        <div class="container">
+            <div class="methodology-content">
+                <h2><span class="highlight">The Resonance Method™</span></h2>
+                <p>Our proprietary transformation methodology combines 27 years of pattern recognition with strategic clarity, technological intelligence, and psychological depth. The Resonance Method™ creates sustainable change by ensuring all three pillars work in perfect harmony across your organization.</p>
+                <a href="https://www.contraco.net/contraco_resonance_method.html" class="methodology-link">
+                    Explore Our Methodology
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
@@ -598,7 +663,7 @@
                     
                     <div class="form-group">
                         <input type="text" name="name" placeholder="Your Name" required>
-                    </div>
+                        </div>
                     <div class="form-group">
                         <input type="email" name="email" placeholder="Email Address" required>
                     </div>
@@ -614,7 +679,7 @@
         </div>
     </section>
 
-    <!-- Footer - EXACT COPY FROM INDEX.HTML -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
