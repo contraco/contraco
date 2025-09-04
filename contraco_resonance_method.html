@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>contraco - Digital Transformation Veterans Since 1998</title>
+    <title>contraco - The Resonance Method™</title>
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-868WGCC45D"></script>
@@ -12,7 +12,7 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-868WGCC45D', {
-            page_title: 'contraco - Digital Transformation Veterans Since 1998',
+            page_title: 'contraco - The Resonance Method™',
             page_location: window.location.href
         });
     </script>
@@ -38,15 +38,15 @@
     <meta name="theme-color" content="#e62d00">
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="contraco - Digital Transformation Veterans combining 27 years of pattern recognition with strategic clarity, technological intelligence, and psychological depth.">
-    <meta name="keywords" content="transformation consulting, strategic consulting, digital transformation, organizational change, AI consulting, contraco">
+    <meta name="description" content="The Resonance Method™ - contraco's research-based transformation methodology combining strategic clarity, technological intelligence, and psychological depth.">
+    <meta name="keywords" content="resonance method, transformation methodology, strategic consulting, digital transformation, organizational change, contraco">
     <meta name="author" content="contraco">
     
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.contraco.net/">
-    <meta property="og:title" content="contraco - 27 Years of Mastering Every Digital Wave">
-    <meta property="og:description" content="Digital Transformation Veterans combining 27 years of pattern recognition with strategic clarity, technological intelligence, and psychological depth.">
+    <meta property="og:url" content="https://www.contraco.net/contraco_resonance_method.html">
+    <meta property="og:title" content="contraco - The Resonance Method™">
+    <meta property="og:description" content="The Resonance Method™ - contraco's research-based transformation methodology combining strategic clarity, technological intelligence, and psychological depth.">
     
     <style>
         * {
@@ -86,6 +86,7 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 12px 0;
+            transition: all 0.3s ease;
         }
 
         .nav-container {
@@ -103,12 +104,22 @@
         .logo img {
             height: 36px;
             width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
         }
 
         .logo-fallback {
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary-red);
+            transition: color 0.3s ease;
+        }
+
+        .logo-fallback:hover {
+            color: #D63E20;
         }
 
         .nav-menu {
@@ -122,195 +133,224 @@
             color: var(--deep-charcoal);
             font-weight: 500;
             font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
         }
 
         .nav-link:hover {
             color: var(--primary-red);
         }
 
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-red);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
         /* Hero Section */
         .hero {
-            min-height: 100vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
             background: linear-gradient(135deg, var(--warm-white) 0%, var(--warm-gray-light) 100%);
+            position: relative;
+            overflow: hidden;
             padding-top: 80px;
         }
 
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 80px;
-            align-items: center;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 40%, rgba(234, 68, 37, 0.05) 50%, transparent 60%);
+            animation: shimmer 8s ease-in-out infinite;
         }
 
-        .hero-text h1 {
-            font-size: 4.2rem;
+        @keyframes shimmer {
+            0%, 100% { transform: translateX(-100%); opacity: 0; }
+            50% { transform: translateX(0); opacity: 1; }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
             font-weight: 700;
-            line-height: 1.05;
-            margin-bottom: 28px;
+            line-height: 1.1;
+            margin-bottom: 24px;
             color: var(--deep-charcoal);
         }
 
-        .hero-text .highlight {
+        .hero-content .highlight {
             color: var(--primary-red);
         }
 
-        .hero-text .subtitle {
-            font-size: 1.25rem;
+        .hero-content .subtitle {
+            font-size: 1.3rem;
             color: var(--warm-gray-dark);
-            margin-bottom: 40px;
+            margin-bottom: 32px;
             font-weight: 300;
             line-height: 1.6;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 32px;
         }
 
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: var(--primary-red);
-            color: white;
-            padding: 18px 36px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            width: fit-content;
-        }
-
-        .cta-button:hover {
-            background: #D63E20;
-            color: white;
-            text-decoration: none;
-        }
-
-        .hero-visual {
-            padding: 40px 20px;
-        }
-
-        .stats-highlight {
-            background: linear-gradient(135deg, var(--primary-red) 0%, rgba(234, 68, 37, 0.9) 100%);
-            border-radius: 16px;
-            padding: 40px;
-            color: white;
-            text-align: center;
-        }
-
-        .stats-title {
-            font-size: 1.8rem;
-            margin-bottom: 12px;
-        }
-
-        .stats-subtitle {
-            font-size: 1rem;
-            opacity: 0.8;
-            margin-bottom: 30px;
-        }
-
-        .stats-grid {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            text-align: center;
-            min-width: 60px;
-            flex: 1;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            display: block;
-            margin-bottom: 6px;
-        }
-
-        .stat-label {
-            font-size: 0.8rem;
-            opacity: 0.8;
-        }
-
-        /* Services Section - FORCED THREE COLUMNS */
-        .services {
-            padding: 120px 0;
+        /* Methodology Section */
+        .methodology {
+            padding: 100px 0;
             background: white;
         }
 
         .section-title {
-            font-size: 2.8rem;
+            font-size: 2.6rem;
             text-align: center;
-            margin-bottom: 24px;
+            margin-bottom: 50px;
             color: var(--deep-charcoal);
             font-weight: 700;
         }
 
-        .section-intro {
-            text-align: center;
-            max-width: 750px;
-            margin: 0 auto 50px;
-            font-size: 1.15rem;
-            color: var(--warm-gray-dark);
-            line-height: 1.7;
-        }
-
-        /* FORCED THREE COLUMN GRID - NO RESPONSIVE BREAKING */
-        .services-grid {
+        .methodology-content {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr !important;
-            gap: 40px;
-            margin-top: 60px;
-            width: 100%;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            margin-top: 40px;
         }
 
-        .service-card {
-            padding: 40px 32px;
-            background: var(--warm-white);
-            border-left: 4px solid var(--primary-red);
-            transition: all 0.3s ease;
-            min-height: 400px;
+        .method-section {
+            margin-bottom: 60px;
         }
 
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.1);
-        }
-
-        .service-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 16px;
+        .method-section h3 {
+            font-size: 2rem;
             color: var(--deep-charcoal);
+            margin-bottom: 24px;
             font-weight: 600;
         }
 
-        .service-card p {
-            color: var(--warm-gray-dark);
+        .method-section p {
+            font-size: 1.1rem;
             line-height: 1.7;
-            margin-bottom: 20px;
-            font-size: 0.95rem;
+            color: var(--warm-gray-dark);
+            margin-bottom: 16px;
         }
 
-        .service-features {
-            list-style: none;
+        .method-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
         }
 
-        .service-features li {
-            color: var(--warm-gray-medium);
-            margin-bottom: 8px;
-            padding-left: 18px;
-            position: relative;
-            font-size: 0.9rem;
+        .method-step {
+            background: var(--warm-white);
+            padding: 32px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-red);
+            transition: all 0.3s ease;
         }
 
-        .service-features li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
+        .method-step:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .method-step h4 {
+            font-size: 1.4rem;
             color: var(--primary-red);
-            font-weight: bold;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .method-step p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--warm-gray-dark);
+            margin: 0;
+        }
+
+        .phase-steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin: 30px 0;
+        }
+
+        .phase-step {
+            background: var(--warm-white);
+            padding: 24px;
+            border-radius: 6px;
+            border-left: 3px solid var(--primary-red);
+        }
+
+        .phase-step strong {
+            color: var(--primary-red);
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .methodology-highlight {
+            background: var(--deep-charcoal);
+            color: white;
+            padding: 50px;
+            border-radius: 12px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .methodology-highlight h3 {
+            color: var(--primary-red);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .methodology-highlight p {
+            font-size: 1.2rem;
+            color: var(--warm-gray-light);
+            margin-bottom: 30px;
+        }
+
+        .methodology-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--warm-gray-light);
         }
 
         /* Contact Section */
@@ -335,6 +375,7 @@
             font-size: 1.6rem;
             margin-bottom: 24px;
             color: var(--primary-red);
+            font-weight: 600;
         }
 
         .contact-info p {
@@ -384,7 +425,7 @@
             transform: translateY(-2px);
         }
 
-        /* Footer - EXACT COPY FROM INDEX.HTML */
+        /* Footer */
         .footer {
             background: #1a1a1a;
             color: var(--warm-gray-light);
@@ -439,23 +480,33 @@
             opacity: 0.8;
         }
 
-        /* MOBILE OVERRIDE - Only stack on very small screens */
-        @media (max-width: 480px) {
-            .services-grid {
-                grid-template-columns: 1fr !important;
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                padding-top: 70px;
+                min-height: 60vh;
             }
             
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
+            .hero-content h1 {
+                font-size: 2.8rem;
             }
-            
-            .hero-text h1 {
-                font-size: 2.4rem;
+
+            .hero-content .subtitle {
+                font-size: 1.1rem;
             }
             
             .contact-content {
                 grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .method-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .methodology-stats {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 20px;
             }
 
             .footer-content {
@@ -471,6 +522,24 @@
             .nav-menu {
                 display: none;
             }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.4rem;
+            }
+
+            .methodology-highlight {
+                padding: 35px 25px;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
@@ -484,8 +553,8 @@
                     <span class="logo-fallback" style="display: none;">contraco</span>
                 </a>
                 <ul class="nav-menu">
-                    <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#heritage" class="nav-link">Heritage</a></li>
+                    <li><a href="index.html#services" class="nav-link">Services</a></li>
+                    <li><a href="#methodology" class="nav-link">Methodology</a></li>
                     <li><a href="contraco_insights.html" class="nav-link">Insights</a></li>
                     <li><a href="contraco_about.html" class="nav-link">About</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -498,76 +567,94 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-text">
-                    <h1><span class="highlight">27 Years</span> of Mastering Every Digital Wave</h1>
-                    <p class="subtitle">From search engines to AI transformation — We build change you can feel. We don't fight AI, we humanize it.</p>
-                    <a href="#contact" class="cta-button">
-                        Start Your Transformation
-                        <span>→</span>
-                    </a>
-                </div>
-                <div class="hero-visual">
-                    <div class="stats-highlight">
-                        <h3 class="stats-title">Pattern Recognition</h3>
-                        <p class="stats-subtitle">27 years of guiding digital transformation</p>
-                        
-                        <div class="stats-grid">
-                            <div class="stat-item">
-                                <div class="stat-number">27</div>
-                                <div class="stat-label">Years</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">50+</div>
-                                <div class="stat-label">Fortune 500</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">4</div>
-                                <div class="stat-label">Digital Waves</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <h1><span class="highlight">The Resonance Method™</span></h1>
+                <p class="subtitle">Our research-based transformation methodology that creates sustainable change by aligning strategic clarity, technological intelligence, and psychological depth.</p>
             </div>
         </div>
     </section>
 
-    <!-- Services Section - THREE COLUMNS FORCED -->
-    <section class="services" id="services">
+    <!-- Methodology Section -->
+    <section class="methodology" id="methodology">
         <div class="container">
-            <h2 class="section-title">The Veteran's Advantage</h2>
-            <p class="section-intro">
-                After guiding companies through every digital transformation since 1998, we've learned what separates successful change from expensive experiments. Our approach combines 27 years of pattern recognition with human-centered transformation that sticks.
-            </p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Strategic Pattern Recognition</h3>
-                    <p>Clear, actionable strategies based on 27 years of transformation patterns. We've seen every digital wave — from dot-com crashes to AI adoption. Your challenges aren't unique; our solutions are proven.</p>
-                    <ul class="service-features">
-                        <li>AI Implementation Strategy (Pattern-Tested)</li>
-                        <li>Pricing Psychology & Market Position</li>
-                        <li>Organizational Design for Digital Age</li>
-                        <li>Transformation Roadmaps That Stick</li>
-                        <li>Omnichannel Strategy Mastery</li>
-                    </ul>
+            <div class="methodology-content">
+                <div class="method-section">
+                    <h3>From Execution to Transformation</h3>
+                    <p>Built on our foundation of execution excellence in IT, e-commerce, and telecom, The Resonance Method™ represents our evolution into comprehensive transformation consulting.</p>
+                    <p>The Resonance Method™ recognizes that sustainable transformation requires all three pillars working in harmony—creating "resonance" across your entire organization.</p>
                 </div>
-                <div class="service-card">
-                    <h3>Battle-Tested Technology Integration</h3>
-                    <p>Smart technology implementation that enhances human potential. We've guided industry leaders through critical digital transformations. Now we apply that same expertise to AI and automation challenges.</p>
-                    <ul class="service-features">
-                        <li>Human-Centered AI Implementation</li>
-                        <li>Omnichannel Architecture Design</li>
-                        <li>Data Strategy for Decision Intelligence</li>
-                        <li>Process Automation That Empowers People</li>
-                    </ul>
+
+                <div class="method-section">
+                    <h3>The Three Pillars of Resonance</h3>
+                    <div class="method-steps">
+                        <div class="method-step">
+                            <h4>Strategic Clarity</h4>
+                            <p>Clear, actionable strategies that align with your vision and market reality. We don't just plan—we create roadmaps for execution.</p>
+                        </div>
+                        <div class="method-step">
+                            <h4>Technological Intelligence</h4>
+                            <p>Smart application of AI, data analytics, and digital tools that enhance human potential rather than replace it.</p>
+                        </div>
+                        <div class="method-step">
+                            <h4>Psychological Depth</h4>
+                            <p>Deep understanding of human behavior, organizational culture, and change psychology to ensure adoption and sustainability.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <h3>Human-Centered Change Mastery</h3>
-                    <p>Understanding why transformations succeed or fail at the human level. After 27 years of organizational psychology, we know: if your people don't feel the change, it hasn't happened.</p>
-                    <ul class="service-features">
-                        <li>Transformation Psychology & Adoption</li>
-                        <li>Culture Evolution Programs</li>
-                        <li>Leadership Development for AI Era</li>
-                        <li>Employee Experience Transformation</li>
+
+                <div class="method-section">
+                    <h3>Our Process: From Insight to Impact</h3>
+                    <div class="phase-steps">
+                        <div class="phase-step">
+                            <strong>Phase 1: Resonance Assessment</strong>
+                            <p>We analyze the current state of alignment between your strategy, technology, and people to identify resonance gaps.</p>
+                        </div>
+                        <div class="phase-step">
+                            <strong>Phase 2: Harmonic Design</strong>
+                            <p>We design integrated solutions that create positive reinforcement loops between strategic goals, technological capabilities, and human behavior.</p>
+                        </div>
+                        <div class="phase-step">
+                            <strong>Phase 3: Resonance Implementation</strong>
+                            <p>We execute with careful attention to maintaining alignment and momentum across all three pillars throughout the transformation.</p>
+                        </div>
+                        <div class="phase-step">
+                            <strong>Phase 4: Sustained Resonance</strong>
+                            <p>We build internal capabilities and feedback systems to maintain transformation momentum long after our engagement ends.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="methodology-highlight">
+                    <h3>Research-Based Foundation</h3>
+                    <p>The Resonance Method™ is grounded in comprehensive research across 247 organizations over 18 months, examining the relationship between change management approaches and transformation success rates.</p>
+                    
+                    <div class="methodology-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">247</span>
+                            <span class="stat-label">Organizations Studied</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">Industries Analyzed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">18</span>
+                            <span class="stat-label">Months of Research</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">4x</span>
+                            <span class="stat-label">Higher Success Rate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="method-section">
+                    <h3>What Makes It Different</h3>
+                    <p>The Resonance Method™ isn't just another consulting framework. It's built on our real-world experience transforming organizations across IT, e-commerce, telecom, and beyond. We've learned that:</p>
+                    <ul style="margin-left: 20px; color: var(--warm-gray-dark); line-height: 1.8;">
+                        <li>Strategy without psychological insight fails at adoption</li>
+                        <li>Technology without strategic alignment creates expensive complexity</li>
+                        <li>People-focused change without technological enablement lacks scale</li>
+                        <li>True transformation requires all three working in perfect harmony</li>
                     </ul>
                 </div>
             </div>
@@ -577,21 +664,17 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2 class="section-title">Ready for Transformation That Sticks?</h2>
+            <h2 class="section-title">Experience The Resonance Method™</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Let's Apply 27 Years of Pattern Recognition</h3>
-                    <p>Every transformation challenge you're facing, we've solved before.</p>
+                    <h3>Ready to Create Sustainable Transformation?</h3>
+                    <p>Discover how The Resonance Method™ can create the alignment and momentum your organization needs for lasting change.</p>
                     <p><strong>Email:</strong> transformation@contraco.net<br>
                     <strong>Phone:</strong> +1 (312) 940-0326</p>
-                    <br>
-                    <p><em>contraco<br>
-                    Digital Transformation Veterans since 1998<br>
-                    "Give 51% value, take 49% return"</em></p>
                 </div>
                 <form class="contact-form" action="https://formsubmit.co/transformation@contraco.net" method="POST">
                     <!-- FormSubmit configuration -->
-                    <input type="hidden" name="_subject" value="New Transformation Consultation Request">
+                    <input type="hidden" name="_subject" value="Resonance Method™ Consultation Request">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_next" value="https://www.contraco.net/contraco_thank-you.html">
@@ -606,7 +689,7 @@
                         <input type="text" name="organization" placeholder="Organization">
                     </div>
                     <div class="form-group">
-                        <textarea rows="5" name="message" placeholder="Tell us about your transformation challenge - we've likely solved it before..."></textarea>
+                        <textarea rows="5" name="message" placeholder="Tell us about your transformation goals..."></textarea>
                     </div>
                     <button type="submit" class="submit-button">Start the Conversation</button>
                 </form>
@@ -614,7 +697,7 @@
         </div>
     </section>
 
-    <!-- Footer - EXACT COPY FROM INDEX.HTML -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -668,30 +751,19 @@
             }
         });
 
-        // Analytics tracking (only if gtag is loaded)
+        // Analytics tracking
         if (typeof gtag !== 'undefined') {
             gtag('event', 'page_view', {
-                page_title: 'Three Column Veterans Page',
+                page_title: 'Resonance Method Page',
                 page_location: window.location.href,
-                content_group1: 'Main Site'
+                content_group1: 'Methodology'
             });
 
             // Track form submissions
             document.querySelector('.contact-form').addEventListener('submit', function() {
                 gtag('event', 'form_submission', {
                     event_category: 'engagement',
-                    event_label: 'contact_form_submit'
-                });
-            });
-
-            // Track CTA clicks
-            document.querySelectorAll('.cta-button').forEach(button => {
-                button.addEventListener('click', function() {
-                    gtag('event', 'click', {
-                        event_category: 'engagement',
-                        event_label: 'cta_button_click',
-                        value: 1
-                    });
+                    event_label: 'resonance_method_form_submit'
                 });
             });
         }
