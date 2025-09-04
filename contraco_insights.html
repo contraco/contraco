@@ -27,15 +27,15 @@
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
     <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href "/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
     <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="msapplication-TileColor" content="#EA4425">
+    <meta name="msapplication-TileColor" content="#e62d00">
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
-    <meta name="theme-color" content="#EA4425">
+    <meta name="theme-color" content="#e62d00">
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Transformation insights from contraco - Strategic intelligence on digital transformation, AI adoption, and human-centered change management.">
@@ -65,29 +65,12 @@
         }
 
         :root {
-            /* Original Contraco Brand Colors */
             --primary-red: #e62d00;
             --deep-charcoal: #2C2C2C;
             --warm-white: #F8F6F3;
             --warm-gray-light: #E5E2DD;
             --warm-gray-medium: #A8A5A0;
             --warm-gray-dark: #6B6B6B;
-            
-            /* Dark theme overrides for insights section */
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #111111;
-            --bg-card: rgba(255, 255, 255, 0.02);
-            --bg-card-hover: rgba(255, 255, 255, 0.05);
-            --text-primary: #ffffff;
-            --text-secondary: #a0a0a0;
-            --text-muted: #666666;
-            --accent-primary: #e62d00;
-            --accent-secondary: #ff6b6b;
-            --border-subtle: rgba(255, 255, 255, 0.1);
-            --border-hover: rgba(255, 255, 255, 0.2);
-            --gradient-primary: linear-gradient(135deg, #e62d00 0%, #ff6b6b 100%);
-            --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.3);
-            --shadow-prominent: 0 8px 40px rgba(0, 0, 0, 0.4);
             
             /* Typography */
             --font-primary: 'Inter', sans-serif;
@@ -183,26 +166,15 @@
             width: 100%;
         }
 
-        /* Insights Section - Dark Theme Override */
+        /* Insights Section */
         .insights {
             padding: 120px 0;
-            background: var(--bg-primary);
-            color: var(--text-primary);
+            background: white;
             position: relative;
         }
 
-        .insights::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--border-subtle), transparent);
-        }
-
         .insights .container {
-            padding: 0 24px;
+            padding: 0 40px;
         }
 
         .section-header {
@@ -214,14 +186,14 @@
             font-family: var(--font-secondary);
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 600;
-            color: var(--text-primary);
+            color: var(--deep-charcoal);
             margin-bottom: 24px;
             letter-spacing: -0.02em;
         }
 
         .section-subtitle {
             font-size: 1.25rem;
-            color: var(--text-secondary);
+            color: var(--warm-gray-dark);
             max-width: 600px;
             margin: 0 auto;
             font-weight: 300;
@@ -229,15 +201,15 @@
 
         /* Featured Insight */
         .featured-insight {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
+            background: white;
+            border: 2px solid var(--warm-gray-light);
             border-radius: 16px;
             padding: 0;
             margin-bottom: 120px;
             overflow: hidden;
-            backdrop-filter: blur(20px);
             transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+            box-shadow: 0 8px 30px rgba(44, 44, 44, 0.08);
         }
 
         .featured-insight::before {
@@ -247,13 +219,13 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 77, 77, 0.05), transparent);
+            background: linear-gradient(90deg, transparent, rgba(230, 45, 0, 0.05), transparent);
             transition: left 0.8s ease;
         }
 
         .featured-insight:hover {
-            border-color: var(--border-hover);
-            box-shadow: var(--shadow-prominent);
+            border-color: var(--primary-red);
+            box-shadow: 0 16px 50px rgba(230, 45, 0, 0.15);
             transform: translateY(-8px);
         }
 
@@ -282,7 +254,7 @@
         }
 
         .badge-pill {
-            background: var(--gradient-primary);
+            background: linear-gradient(135deg, var(--primary-red) 0%, #D63E20 100%);
             color: white;
             padding: 8px 16px;
             border-radius: 20px;
@@ -293,7 +265,7 @@
         }
 
         .badge-date {
-            color: var(--text-muted);
+            color: var(--warm-gray-medium);
             font-size: 0.9rem;
             font-weight: 500;
         }
@@ -302,7 +274,7 @@
             font-family: var(--font-secondary);
             font-size: clamp(1.75rem, 3vw, 2.5rem);
             font-weight: 600;
-            color: var(--text-primary);
+            color: var(--deep-charcoal);
             margin-bottom: 24px;
             line-height: 1.3;
             letter-spacing: -0.01em;
@@ -310,7 +282,7 @@
 
         .featured-description {
             font-size: 1.125rem;
-            color: var(--text-secondary);
+            color: var(--warm-gray-dark);
             margin-bottom: 40px;
             line-height: 1.7;
         }
@@ -324,29 +296,31 @@
 
         .stat-item {
             text-align: center;
-            padding: 24px 0;
+            padding: 24px 16px;
             border-radius: 12px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border-subtle);
+            background: var(--warm-white);
+            border: 1px solid var(--warm-gray-light);
             transition: all 0.3s ease;
         }
 
         .stat-item:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: var(--border-hover);
+            background: white;
+            border-color: var(--primary-red);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(230, 45, 0, 0.1);
         }
 
         .stat-number {
             display: block;
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--accent-primary);
+            color: var(--primary-red);
             margin-bottom: 8px;
         }
 
         .stat-label {
             font-size: 0.875rem;
-            color: var(--text-secondary);
+            color: var(--warm-gray-dark);
             line-height: 1.4;
         }
 
@@ -354,7 +328,7 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            background: var(--gradient-primary);
+            background: var(--primary-red);
             color: white;
             padding: 16px 32px;
             border-radius: 8px;
@@ -368,13 +342,14 @@
 
         .featured-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 77, 77, 0.3);
+            box-shadow: 0 8px 25px rgba(230, 45, 0, 0.3);
+            background: #D63E20;
             color: white;
             text-decoration: none;
         }
 
         .featured-visual {
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, #1a1a1a 100%);
+            background: linear-gradient(135deg, var(--warm-white) 0%, var(--warm-gray-light) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -385,15 +360,15 @@
         .chart-container {
             width: 100%;
             max-width: 320px;
-            background: rgba(255, 255, 255, 0.05);
+            background: white;
             padding: 32px;
             border-radius: 16px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--warm-gray-light);
+            box-shadow: 0 8px 30px rgba(44, 44, 44, 0.08);
         }
 
         .chart-title {
-            color: var(--text-primary);
+            color: var(--deep-charcoal);
             font-weight: 600;
             font-size: 1.125rem;
             text-align: center;
@@ -413,14 +388,14 @@
         }
 
         .bar-label {
-            color: var(--text-secondary);
+            color: var(--warm-gray-dark);
             font-size: 0.9rem;
             font-weight: 500;
         }
 
         .bar-track {
             height: 18px;
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--warm-gray-light);
             border-radius: 999px;
             overflow: hidden;
             position: relative;
@@ -431,11 +406,11 @@
             border-radius: 4px;
             position: relative;
             animation: barGrow 1.5s ease-out forwards;
-            background: var(--gradient-primary);
+            background: linear-gradient(90deg, var(--primary-red), #D63E20);
         }
 
         .bar-fill.low {
-            background: linear-gradient(90deg, #e62d00, #ff6b6b);
+            background: linear-gradient(90deg, #ff6b6b, #ff8787);
         }
 
         .bar-fill.medium {
@@ -473,7 +448,7 @@
         .category-title {
             font-family: var(--font-secondary);
             font-size: 2rem;
-            color: var(--text-primary);
+            color: var(--deep-charcoal);
             margin-bottom: 48px;
             text-align: center;
             font-weight: 600;
@@ -486,15 +461,15 @@
         }
 
         .insight-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
+            background: white;
+            border: 2px solid var(--warm-gray-light);
             border-radius: 12px;
             padding: 32px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 20px rgba(44, 44, 44, 0.06);
         }
 
         .insight-card::before {
@@ -504,15 +479,15 @@
             left: -100%;
             width: 100%;
             height: 2px;
-            background: var(--gradient-primary);
+            background: var(--primary-red);
             transition: left 0.6s ease;
         }
 
         .insight-card:hover {
             transform: translateY(-4px);
-            border-color: var(--border-hover);
-            background: var(--bg-card-hover);
-            box-shadow: var(--shadow-prominent);
+            border-color: var(--primary-red);
+            background: white;
+            box-shadow: 0 12px 40px rgba(230, 45, 0, 0.12);
         }
 
         .insight-card:hover::before {
@@ -527,8 +502,8 @@
         }
 
         .card-type {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--text-secondary);
+            background: var(--warm-gray-light);
+            color: var(--warm-gray-dark);
             padding: 6px 12px;
             border-radius: 6px;
             font-size: 0.75rem;
@@ -538,7 +513,7 @@
         }
 
         .card-duration {
-            color: var(--text-muted);
+            color: var(--warm-gray-medium);
             font-size: 0.875rem;
             font-weight: 500;
         }
@@ -546,14 +521,14 @@
         .card-title {
             font-family: var(--font-secondary);
             font-size: 1.375rem;
-            color: var(--text-primary);
+            color: var(--deep-charcoal);
             margin-bottom: 16px;
             line-height: 1.4;
             font-weight: 600;
         }
 
         .card-description {
-            color: var(--text-secondary);
+            color: var(--warm-gray-dark);
             line-height: 1.6;
             margin-bottom: 24px;
             font-size: 0.95rem;
@@ -566,7 +541,7 @@
         }
 
         .tag {
-            background: rgba(230, 45, 0, 0.15);
+            background: rgba(230, 45, 0, 0.1);
             color: var(--primary-red);
             padding: 6px 12px;
             border-radius: 16px;
@@ -579,13 +554,13 @@
         .insights-cta {
             margin-top: 120px;
             text-align: center;
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
+            background: var(--warm-white);
+            border: 2px solid var(--warm-gray-light);
             border-radius: 16px;
             padding: 80px 60px;
-            backdrop-filter: blur(20px);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 8px 30px rgba(44, 44, 44, 0.08);
         }
 
         .insights-cta::before {
@@ -595,7 +570,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(230, 45, 0, 0.05) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(230, 45, 0, 0.03) 0%, transparent 70%);
             animation: pulse 4s ease-in-out infinite;
         }
 
@@ -612,14 +587,14 @@
         .cta-title {
             font-family: var(--font-secondary);
             font-size: clamp(2rem, 4vw, 2.75rem);
-            color: var(--text-primary);
+            color: var(--deep-charcoal);
             margin-bottom: 24px;
             font-weight: 600;
         }
 
         .cta-subtitle {
             font-size: 1.25rem;
-            color: var(--text-secondary);
+            color: var(--warm-gray-dark);
             margin-bottom: 40px;
             max-width: 600px;
             margin-left: auto;
@@ -630,7 +605,7 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            background: var(--gradient-primary);
+            background: var(--primary-red);
             color: white;
             padding: 20px 40px;
             border-radius: 8px;
@@ -644,7 +619,8 @@
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(230, 45, 0, 0.4);
+            box-shadow: 0 12px 35px rgba(230, 45, 0, 0.3);
+            background: #D63E20;
             color: white;
             text-decoration: none;
         }
@@ -658,21 +634,22 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(44, 44, 44, 0.8);
             backdrop-filter: blur(10px);
         }
 
         .modal-content {
-            background: var(--bg-secondary);
+            background: white;
             margin: 5% auto;
             padding: 0;
             border-radius: 16px;
-            border: 1px solid var(--border-subtle);
+            border: 2px solid var(--warm-gray-light);
             width: 90%;
             max-width: 900px;
             max-height: 85vh;
             overflow: hidden;
             animation: modalSlide 0.3s ease-out;
+            box-shadow: 0 20px 60px rgba(44, 44, 44, 0.3);
         }
 
         @keyframes modalSlide {
@@ -681,9 +658,9 @@
         }
 
         .modal-header {
-            background: var(--bg-primary);
+            background: var(--warm-white);
             padding: 24px 32px;
-            border-bottom: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--warm-gray-light);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -692,12 +669,12 @@
         .modal-title {
             font-family: var(--font-secondary);
             font-size: 1.5rem;
-            color: var(--text-primary);
+            color: var(--deep-charcoal);
             font-weight: 600;
         }
 
         .close {
-            color: var(--text-muted);
+            color: var(--warm-gray-medium);
             font-size: 2rem;
             font-weight: bold;
             cursor: pointer;
@@ -706,19 +683,19 @@
         }
 
         .close:hover {
-            color: var(--text-primary);
+            color: var(--deep-charcoal);
         }
 
         .modal-body {
             padding: 40px;
             max-height: 60vh;
             overflow-y: auto;
-            color: var(--text-secondary);
+            color: var(--warm-gray-dark);
             line-height: 1.7;
         }
 
         .modal-body h2 {
-            color: var(--text-primary);
+            color: var(--deep-charcoal);
             margin: 32px 0 16px;
             font-family: var(--font-secondary);
             font-size: 1.375rem;
@@ -867,7 +844,8 @@
         <div class="container">
             <div class="nav-container">
                 <a href="https://www.contraco.net/" class="logo">
-                    <img src="https://contraco.net/Logo_rectangle.svg" alt="contraco" />
+                    <img src="https://contraco.net/Logo_rectangle.svg" alt="contraco" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <span class="logo-fallback" style="display: none; color: #e62d00 !important; text-decoration: none !important; font-size: 1.5rem; font-weight: 700;">contraco</span>
                 </a>
                 <ul class="nav-menu">
                     <li><a href="https://www.contraco.net/#services" class="nav-link">Services</a></li>
@@ -1100,7 +1078,7 @@
             <div class="insights-cta">
                 <div class="cta-content">
                     <h2 class="cta-title">Ready to Transform with Strategic Intelligence?</h2>
-                    <p class="cta-subtitle">Apply these insights to your organization with The Resonance Method™ - combining strategic clarity, technological intelligence, and psychological depth.</p>
+                    <p class="cta-subtitle">Apply these insights to your organization with The Resonance Method™ — combining strategic clarity, technological intelligence, and psychological depth.</p>
                     <a href="https://www.contraco.net/#contact" class="cta-button">
                         Start Your Transformation Journey
                         <span>→</span>
@@ -1144,7 +1122,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 contraco All rights reserved.</p>
+                <p>&copy; 2025 contraco. All rights reserved.</p>
                 <p class="trademark-notice">The Resonance Method™ is a trademark of contraco.</p>
             </div>
         </div>
@@ -1348,11 +1326,11 @@
         // Enhanced insight card interactions
         document.querySelectorAll('.insight-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
-                this.style.borderColor = 'var(--border-hover)';
+                this.style.borderColor = 'var(--primary-red)';
             });
             
             card.addEventListener('mouseleave', function() {
-                this.style.borderColor = 'var(--border-subtle)';
+                this.style.borderColor = 'var(--warm-gray-light)';
             });
         });
 
