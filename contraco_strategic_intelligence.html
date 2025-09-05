@@ -17,6 +17,9 @@
         });
     </script>
     
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -57,10 +60,16 @@
     <meta property="twitter:image" content="https://www.contraco.net/images/contraco-social-preview.jpg">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        /* CSS Variables - Standard across all pages */
         :root {
-            /* Original Contraco Brand Colors */
+            /* Brand Colors */
             --primary-red: #e62d00;
             --deep-charcoal: #2C2C2C;
             --warm-white: #F8F6F3;
@@ -69,29 +78,38 @@
             --warm-gray-dark: #6B6B6B;
             
             /* Typography */
-            --font-serif: 'Crimson Text', serif;
-            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Crimson Text', Georgia, 'Times New Roman', serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             
-            /* Spacing */
+            /* Layout */
+            --container-max: 1200px;
             --section-padding: 80px 0;
-            --container-max: 1000px;
+            
+            /* Transitions */
+            --transition-fast: 0.3s ease;
+            --transition-medium: 0.5s ease;
+            
+            /* Shadows */
+            --shadow-small: 0 4px 15px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --shadow-large: 0 15px 50px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.15);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* Base Typography */
         body {
             font-family: var(--font-sans);
             line-height: 1.7;
             color: var(--deep-charcoal);
             background-color: var(--warm-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-            html {
+        
+        html {
             scroll-padding-top: 120px;
         }
+        
         .container {
             max-width: var(--container-max);
             margin: 0 auto;
@@ -110,22 +128,22 @@
             transition: all 0.3s ease;
         }
 
-.nav-container {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: var(--container-max);
-    margin: 0 auto;
-    padding: 0 40px;
-}
+        .nav-container {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 40px;
+        }
 
-.logo {
-    margin-left: 60px;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
+        .logo {
+            margin-left: 60px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
 
         .logo img {
             height: 36px;
@@ -137,8 +155,31 @@
             transform: scale(1.05);
         }
 
+        /* Logo Fallback Styling */
+        .logo-fallback {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            letter-spacing: -0.02em;
+            font-family: var(--font-serif);
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        .logo:hover .logo-fallback {
+            transform: scale(1.05);
+        }
+
+        .logo.logo-failed img {
+            display: none;
+        }
+
+        .logo.logo-failed .logo-fallback {
+            display: block;
+        }
+
         .nav-menu {
-            margin-right: 60px; /* Adjust this value - try 40px, 80px, etc. */
+            margin-right: 60px;
             display: flex;
             list-style: none;
             gap: 35px;
@@ -239,6 +280,7 @@
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
             border-left: 4px solid var(--primary-red);
+            cursor: pointer;
         }
 
         .article-card:hover {
@@ -432,6 +474,25 @@
             font-size: 0.95rem;
         }
 
+        /* Read More Button */
+        .read-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-red);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .read-more-btn:hover {
+            border-bottom-color: var(--primary-red);
+            transform: translateX(5px);
+        }
+
         /* CTA Section */
         .cta-section {
             background: var(--deep-charcoal);
@@ -488,6 +549,8 @@
             transform: translateY(-2px);
             box-shadow: 0 12px 35px rgba(234, 68, 37, 0.3);
             background: #D63E20;
+            color: white;
+            text-decoration: none;
         }
 
         .cta-button:hover::before {
@@ -509,6 +572,24 @@
             margin-bottom: 32px;
         }
 
+        .footer-links {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .footer-links a {
+            color: var(--warm-gray-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-red);
+        }
+
         .company-info h4 {
             color: var(--primary-red);
             font-size: 1.1rem;
@@ -520,6 +601,10 @@
             margin-bottom: 8px;
             line-height: 1.6;
             font-size: 0.95rem;
+        }
+
+        .company-info strong {
+            color: var(--warm-gray-light);
         }
 
         .imprint-section h4 {
@@ -536,6 +621,10 @@
 
         .imprint-details p {
             margin-bottom: 6px;
+        }
+
+        .imprint-details strong {
+            color: var(--warm-gray-light);
         }
 
         .footer-bottom {
@@ -556,6 +645,10 @@
             .container,
             .nav-container {
                 padding: 0 20px;
+            }
+
+            .logo {
+                margin-left: 20px;
             }
 
             .page-title {
@@ -592,6 +685,10 @@
                 gap: 30px;
                 text-align: center;
             }
+
+            .footer-links {
+                justify-content: center;
+            }
         }
 
         @media (max-width: 480px) {
@@ -612,21 +709,23 @@
 </head>
 <body>
     <!-- Navigation -->
-<nav class="navbar">
-    <div class="nav-container">
-        <a href="https://www.contraco.net/" class="logo">
-            <img src="https://contraco.net/Logo_rectangle.svg" alt="contraco" />
-        </a>
-        <!-- This is where your consistent navigation goes: -->
-        <ul class="nav-menu">
-            <li><a href="https://www.contraco.net/#services" class="nav-link">Services</a></li>
-            <li><a href="https://www.contraco.net/#methodology" class="nav-link">Methodology</a></li>
-            <li><a href="https://www.contraco.net/contraco_insights.html" class="nav-link">Insights</a></li>
-            <li><a href="https://www.contraco.net/contraco_about.html" class="nav-link">About</a></li>
-            <li><a href="https://www.contraco.net/#contact" class="nav-link">Contact</a></li>
-        </ul>
-    </div>
-</nav>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="https://www.contraco.net/" class="logo" id="site-logo">
+                <img src="https://contraco.net/Logo_rectangle.svg" 
+                     alt="contraco" 
+                     onerror="this.parentElement.classList.add('logo-failed');">
+                <span class="logo-fallback">contraco</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="https://www.contraco.net/#services" class="nav-link">Services</a></li>
+                <li><a href="https://www.contraco.net/#methodology" class="nav-link">Methodology</a></li>
+                <li><a href="https://www.contraco.net/contraco_insights.html" class="nav-link">Insights</a></li>
+                <li><a href="https://www.contraco.net/contraco_about.html" class="nav-link">About</a></li>
+                <li><a href="https://www.contraco.net/#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <!-- Main Content -->
     <main class="main-content">
@@ -643,7 +742,7 @@
             <div class="container">
                 <div class="articles-grid">
                     
-                    <!-- !Article 1: Psychology of Pricing -->
+                    <!-- Article 1: Psychology of Pricing - ABBREVIATED FOR DISPLAY -->
                     <article class="article-card">
                         <div class="article-header">
                             <div class="article-meta">Strategy Brief | 5 min read</div>
@@ -652,274 +751,82 @@
                         </div>
                         <div class="article-content">
                             <p>By integrating behavioral economics principles into pricing strategies, organizations can increase pricing power by 15-30% while maintaining customer satisfaction and market position.</p>
-
-                            <h3>The Behavioral Economics Foundation</h3>
-                            <p>Modern pricing strategy must acknowledge that consumers are not rational actors making purely economic decisions. Instead, they operate within cognitive frameworks influenced by:</p>
-
-                            <div class="process-steps">
-                                <div class="process-step">
-                                    <div class="step-title">Anchoring Effects</div>
-                                    <div class="step-description">The first price point presented becomes a reference point for all subsequent evaluations. Strategic anchor pricing can shift entire market perceptions upward.</div>
-                                </div>
-                                <div class="process-step">
-                                    <div class="step-title">Loss Aversion</div>
-                                    <div class="step-description">Customers feel the pain of loss twice as strongly as the pleasure of equivalent gains. Framing pricing in terms of avoided losses rather than achieved gains dramatically improves conversion rates.</div>
-                                </div>
-                                <div class="process-step">
-                                    <div class="step-title">Decoy Pricing</div>
-                                    <div class="step-description">The strategic introduction of deliberately inferior options makes target products appear more valuable by comparison.</div>
-                                </div>
+                            <div class="highlight-box">
+                                <h4>Key Insight</h4>
+                                <p>Successful pricing strategy requires understanding anchoring effects, loss aversion, and decoy pricing mechanisms that influence customer decision-making at subconscious levels.</p>
                             </div>
-
-                            <h3>Implementation Framework</h3>
-                            <div class="timeline">
-                                <div class="timeline-item">
-                                    <div class="timeline-title">Phase 1: Psychological Audit</div>
-                                    <div class="timeline-content">Analyze current customer decision-making patterns, identify cognitive biases affecting purchasing behavior, and map emotional triggers throughout the buyer journey.</div>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="timeline-title">Phase 2: Strategic Repositioning</div>
-                                    <div class="timeline-content">Implement anchoring strategies across product portfolios, redesign pricing architecture to leverage comparison effects, and develop scarcity and urgency mechanisms that align with loss aversion.</div>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="timeline-title">Phase 3: Dynamic Optimization</div>
-                                    <div class="timeline-content">Deploy A/B testing frameworks for behavioral price sensitivity, implement real-time pricing adjustments based on psychological indicators, and create feedback loops for continuous behavioral insight integration.</div>
-                                </div>
-                            </div>
-
-                            <h3>Measurable Outcomes</h3>
-                            <p>Organizations implementing behavioral pricing strategies typically observe:</p>
-                            <div class="stats-grid">
-                                <div class="stat-item">
-                                    <div class="stat-value">15-30%</div>
-                                    <div class="stat-label">Increase in average transaction value</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="stat-value">8-15%</div>
-                                    <div class="stat-label">Improvement in conversion rates</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="stat-value">12-25%</div>
-                                    <div class="stat-label">Reduction in price sensitivity complaints</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="stat-value">Enhanced</div>
-                                    <div class="stat-label">Brand perception and premium positioning</div>
-                                </div>
-                            </div>
+                            <a href="#psychology-of-pricing" class="read-more-btn">Read Full Article <span>→</span></a>
                         </div>
                     </article>
 
-                    <!-- Article 2: AI Strategy Framework -->
+                    <!-- Article 2: AI Strategy Framework - ABBREVIATED -->
                     <article class="article-card">
                         <div class="article-header">
                             <div class="article-meta">Executive Guide | 8 min read</div>
-                            <h2 class="article-title"id="ai-strategy-framework">AI Strategy Framework: From Pilot to Enterprise Scale</h2>
+                            <h2 class="article-title" id="ai-strategy-framework">AI Strategy Framework: From Pilot to Enterprise Scale</h2>
                             <p class="article-excerpt">The transition from AI experimentation to enterprise-wide implementation represents the critical inflection point that separates industry leaders from digital laggards.</p>
                         </div>
                         <div class="article-content">
                             <p>This framework provides executives with the strategic checkpoints necessary to scale AI initiatives while avoiding the common pitfalls that lead to expensive failures.</p>
-
-                            <h3>The Enterprise AI Maturity Model</h3>
-                            <div class="process-steps">
-                                <div class="process-step">
-                                    <div class="step-title">Stage 1: Foundation Building</div>
-                                    <div class="step-description">Data infrastructure assessment and remediation, governance framework establishment, cross-functional AI literacy development, and initial use case identification and prioritization.</div>
-                                </div>
-                                <div class="process-step">
-                                    <div class="step-title">Stage 2: Pilot Excellence</div>
-                                    <div class="step-description">Controlled environment deployment, performance baseline establishment, change management protocol development, and initial ROI validation and stakeholder buy-in.</div>
-                                </div>
-                                <div class="process-step">
-                                    <div class="step-title">Stage 3: Scaling Architecture</div>
-                                    <div class="step-description">Enterprise integration planning, organizational capability building, risk management framework implementation, and performance monitoring and optimization systems.</div>
-                                </div>
-                                <div class="process-step">
-                                    <div class="step-title">Stage 4: Strategic Advantage</div>
-                                    <div class="step-description">AI-driven business model innovation, competitive moat development through proprietary capabilities, ecosystem partnerships and platform thinking, and continuous innovation and adaptation mechanisms.</div>
-                                </div>
-                            </div>
-
-                            <h3>Critical Success Factors</h3>
                             <div class="highlight-box">
-                                <h4>Leadership Alignment</h4>
-                                <p>C-suite commitment to long-term AI transformation, including dedicated budget allocation and organizational restructuring authority.</p>
+                                <h4>Critical Success Factors</h4>
+                                <p>Leadership alignment, data excellence, cultural integration, and ethical frameworks form the foundation of successful AI scaling from pilot to enterprise deployment.</p>
                             </div>
-                            <div class="highlight-box">
-                                <h4>Data Excellence</h4>
-                                <p>Enterprise-grade data quality, accessibility, and governance that enables reliable AI model performance at scale.</p>
-                            </div>
-                            <div class="highlight-box">
-                                <h4>Cultural Integration</h4>
-                                <p>Organization-wide AI literacy programs that prepare teams for augmented workflows and decision-making processes.</p>
-                            </div>
-                            <div class="highlight-box">
-                                <h4>Ethical Framework</h4>
-                                <p>Comprehensive AI ethics guidelines that ensure responsible deployment while maintaining innovation velocity.</p>
-                            </div>
-
-                            <h3>Implementation Roadmap</h3>
-                            <div class="timeline">
-                                <div class="timeline-item">
-                                    <div class="timeline-title">Months 1-3: Strategic Foundation</div>
-                                    <div class="timeline-content">Conduct comprehensive AI readiness assessment, establish AI Center of Excellence, develop enterprise AI policy framework, and identify and prioritize initial use cases.</div>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="timeline-title">Months 4-9: Pilot Execution</div>
-                                    <div class="timeline-content">Deploy 2-3 high-impact pilot projects, build internal AI capabilities and expertise, establish performance measurement frameworks, and create change management protocols.</div>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="timeline-title">Months 10-18: Scale Preparation</div>
-                                    <div class="timeline-content">Develop enterprise integration architecture, build cross-functional AI teams, implement governance and risk management systems, and create continuous improvement processes.</div>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="timeline-title">Months 19+: Enterprise Deployment</div>
-                                    <div class="timeline-content">Roll out AI capabilities across business units, optimize performance and expand use cases, develop AI-driven competitive advantages, and build ecosystem partnerships and platforms.</div>
-                                </div>
-                            </div>
-
-                            <h3>Risk Mitigation Strategies</h3>
-                            <p><strong>Technical Risks:</strong> Implement robust testing protocols, maintain model versioning systems, and establish fallback mechanisms for critical business processes.</p>
-                            <p><strong>Organizational Risks:</strong> Develop comprehensive change management programs, maintain transparent communication channels, and provide extensive retraining opportunities.</p>
-                            <p><strong>Compliance Risks:</strong> Establish legal and regulatory monitoring systems, implement audit trails for AI decisions, and maintain explainability for critical business processes.</p>
+                            <a href="#ai-strategy-framework" class="read-more-btn">Read Full Article <span>→</span></a>
                         </div>
                     </article>
 
-                    <!-- Article 3: Organizational Design -->
+                    <!-- Article 3: Organizational Design - ABBREVIATED -->
                     <article class="article-card">
                         <div class="article-header">
                             <div class="article-meta">Case Study | 12 min read</div>
-                            <h2 class="article-title" id="psychology-of-pricing">The Psychology of Pricing: How Behavioral Economics Drives Revenue Growth</h2>
                             <h2 class="article-title" id="organizational-design-ai-era">Organizational Design for the AI Era: Lessons from 50+ Transformations</h2>
                             <p class="article-excerpt">This analysis draws from comprehensive studies of 50+ organizational transformations across Fortune 500 companies, mid-market enterprises, and high-growth startups.</p>
                         </div>
                         <div class="article-content">
                             <p>The findings reveal consistent patterns that distinguish successful transformations from costly failures.</p>
+                            <div class="highlight-box">
+                                <h4>Transformation Patterns</h4>
+                                <p>Organizations achieving 4x higher adoption rates share common patterns: hybrid team architecture, continuous learning systems, and augmentation over replacement strategies.</p>
+                            </div>
+                            <a href="#organizational-design-ai-era" class="read-more-btn">Read Full Article <span>→</span></a>
+                        </div>
+                    </article>
 
-                            <h3>Transformation Patterns and Anti-Patterns</h3>
-                            <div class="highlight-box">
-                                <h4>Successful Pattern 1: Hybrid Team Architecture</h4>
-                                <p>Organizations that created cross-functional teams combining domain expertise with AI capabilities achieved 40% faster implementation timelines and 25% higher success rates compared to traditional siloed approaches.</p>
-                            </div>
-                            <div class="highlight-box">
-                                <h4>Anti-Pattern 1: Technology-First Transformation</h4>
-                                <p>Companies that led with technology deployment before addressing organizational readiness experienced 60% higher failure rates and required complete restructuring within 18 months.</p>
-                            </div>
-                            <div class="highlight-box">
-                                <h4>Successful Pattern 2: Continuous Learning Systems</h4>
-                                <p>Organizations that embedded learning and adaptation mechanisms throughout their transformation achieved sustainable performance improvements and maintained competitive advantages over 3+ year periods.</p>
-                            </div>
-                            <div class="highlight-box">
-                                <h4>Anti-Pattern 2: Big Bang Implementations</h4>
-                                <p>Large-scale simultaneous deployments resulted in organizational disruption, employee resistance, and system failures that required 12-18 month recovery periods.</p>
-                            </div>
+                    <!-- NEW Article 4: Cultural Adaptation Guide -->
+                    <article class="article-card" onclick="window.location.href='https://www.contraco.net/contraco_cultural_adaptation_guide.html';">
+                        <div class="article-header">
+                            <div class="article-meta">Global Strategy | 10 min read</div>
+                            <h2 class="article-title">Cultural Adaptation Framework: Localizing Transformation for Global Markets</h2>
+                            <p class="article-excerpt">Strategic framework for adapting transformation consulting across diverse cultural contexts while maintaining universal value and professional excellence.</p>
+                        </div>
+                        <div class="article-content">
+                            <p>Successfully scaling transformation consulting globally requires sophisticated understanding of cultural nuances, business practices, and communication styles across different markets.</p>
 
-                            <h3>Organizational Design Principles</h3>
-                            <div class="process-steps">
-                                <div class="process-step">
-                                    <div class="step-title">Principle 1: Augmentation Over Replacement</div>
-                                    <div class="step-description">Design roles and responsibilities that leverage AI to enhance human capabilities rather than replace them entirely. This approach reduces resistance while maximizing the combined potential of human and artificial intelligence.</div>
-                                </div>
-                                <div class="process-step">
-                                    <div class="step-title">Principle 2: Dynamic Capability Building</div>
-                                    <div class="step-description">Create organizational structures that can rapidly adapt to evolving AI capabilities and market conditions. This includes flexible team formations, cross-functional skill development, and continuous capability assessment.</div>
-                                </div>
-                                <div class="process-step">
-                                    <div class="step-title">Principle 3: Decision Architecture Optimization</div>
-                                    <div class="step-description">Redesign decision-making processes to incorporate AI insights while maintaining human oversight for strategic and ethical considerations. This requires new governance structures and accountability frameworks.</div>
-                                </div>
-                                <div class="process-step">
-                                    <div class="step-title">Principle 4: Cultural Integration Strategy</div>
-                                    <div class="step-description">Develop comprehensive cultural change programs that address employee concerns, provide continuous learning opportunities, and celebrate AI-human collaboration successes.</div>
-                                </div>
+                            <h3>Global Cultural Adaptation</h3>
+                            <p>Our framework distinguishes between hierarchical cultures (Germany, Japan, South Korea) and collaborative cultures (Australia, Canada, Scandinavia), each requiring tailored engagement strategies.</p>
+
+                            <div class="highlight-box">
+                                <h4>Implementation Strategy</h4>
+                                <p>Master content creation → Cultural context mapping → Local expert review → Market testing → Iterative refinement. This systematic approach ensures strategic intelligence maintains core value while resonating authentically across diverse business cultures.</p>
                             </div>
 
-                            <h3>Implementation Framework</h3>
-                            <div class="timeline">
-                                <div class="timeline-item">
-                                    <div class="timeline-title">Phase 1: Organizational Assessment</div>
-                                    <div class="timeline-content">Current capability mapping and gap analysis, cultural readiness evaluation and change requirements, leadership alignment and commitment validation, and resource allocation and timeline development.</div>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="timeline-title">Phase 2: Design and Planning</div>
-                                    <div class="timeline-content">New organizational structure development, role and responsibility redefinition, training and development program creation, and communication and change management strategy.</div>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="timeline-title">Phase 3: Pilot Implementation</div>
-                                    <div class="timeline-content">Selected business unit transformation, performance monitoring and adjustment protocols, employee feedback integration and optimization, and success metric validation and refinement.</div>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="timeline-title">Phase 4: Enterprise Rollout</div>
-                                    <div class="timeline-content">Phased deployment across business units, continuous optimization and improvement, cultural reinforcement and celebration programs, and long-term sustainability planning.</div>
-                                </div>
-                            </div>
-
-                            <h3>Success Metrics and Benchmarks</h3>
-                            <h4>Operational Excellence</h4>
                             <div class="stats-grid">
                                 <div class="stat-item">
-                                    <div class="stat-value">30-50%</div>
-                                    <div class="stat-label">Improvement in process efficiency</div>
+                                    <div class="stat-value">30+</div>
+                                    <div class="stat-label">Countries Served</div>
                                 </div>
                                 <div class="stat-item">
-                                    <div class="stat-value">20-35%</div>
-                                    <div class="stat-label">Reduction in operational costs</div>
+                                    <div class="stat-value">12</div>
+                                    <div class="stat-label">Cultural Frameworks</div>
                                 </div>
                                 <div class="stat-item">
-                                    <div class="stat-value">15-25%</div>
-                                    <div class="stat-label">Increase in decision-making speed</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="stat-value">40-60%</div>
-                                    <div class="stat-label">Improvement in error reduction rates</div>
+                                    <div class="stat-value">95%</div>
+                                    <div class="stat-label">Localization Success Rate</div>
                                 </div>
                             </div>
-
-                            <h4>Employee Engagement</h4>
-                            <div class="stats-grid">
-                                <div class="stat-item">
-                                    <div class="stat-value">25-40%</div>
-                                    <div class="stat-label">Increase in job satisfaction scores</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="stat-value">30-50%</div>
-                                    <div class="stat-label">Improvement in skill development metrics</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="stat-value">20-35%</div>
-                                    <div class="stat-label">Increase in internal mobility rates</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="stat-value">15-25%</div>
-                                    <div class="stat-label">Improvement in employee retention</div>
-                                </div>
-                            </div>
-
-                            <h4>Business Performance</h4>
-                            <div class="stats-grid">
-                                <div class="stat-item">
-                                    <div class="stat-value">20-40%</div>
-                                    <div class="stat-label">Increase in revenue per employee</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="stat-value">15-30%</div>
-                                    <div class="stat-label">Improvement in customer satisfaction scores</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="stat-value">25-45%</div>
-                                    <div class="stat-label">Increase in innovation pipeline velocity</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="stat-value">30-55%</div>
-                                    <div class="stat-label">Improvement in competitive response time</div>
-                                </div>
-                            </div>
-
-                            <h3>Strategic Recommendations</h3>
-                            <p><strong>For Executive Leadership:</strong> Commit to long-term transformation timelines, invest in comprehensive change management capabilities, and maintain consistent communication throughout the transformation process.</p>
-                            <p><strong>For HR Organizations:</strong> Develop new competency frameworks, create continuous learning platforms, and design career pathways that incorporate AI collaboration skills.</p>
-                            <p><strong>For IT Departments:</strong> Build flexible technology infrastructures, implement robust data governance systems, and create integration capabilities that support rapid organizational adaptation.</p>
-                            <p><strong>For Business Units:</strong> Embrace experimentation mindsets, develop AI literacy across all roles, and create feedback mechanisms that inform continuous organizational improvement.</p>
+                            
+                            <a href="https://www.contraco.net/contraco_cultural_adaptation_guide.html" class="read-more-btn">Access Full Framework <span>→</span></a>
                         </div>
                     </article>
 
@@ -945,15 +852,15 @@
         <div class="container">
             <div class="footer-content">
                 <div class="company-info">
-    <div class="footer-links">
-    <a href="https://www.contraco.net/">Home</a>
-    <a href="https://www.contraco.net/contraco_about.html">About Us</a>
-    <a href="https://www.contraco.net/#services">Services</a>
-    <a href="https://www.contraco.net/#methodology">Methodology</a>
-    <a href="https://www.contraco.net/contraco_insights.html">Insights</a>
-    <a href="https://www.contraco.net/#contact">Contact</a>
-</div>
-    <h4>contraco USA</h4>
+                    <div class="footer-links">
+                        <a href="https://www.contraco.net/">Home</a>
+                        <a href="https://www.contraco.net/contraco_about.html">About Us</a>
+                        <a href="https://www.contraco.net/#services">Services</a>
+                        <a href="https://www.contraco.net/#methodology">Methodology</a>
+                        <a href="https://www.contraco.net/contraco_insights.html">Insights</a>
+                        <a href="https://www.contraco.net/#contact">Contact</a>
+                    </div>
+                    <h4>contraco USA</h4>
                     <p>Premium transformation consulting combining strategic clarity, technological intelligence, and psychological depth.</p>
                     <p><strong>Email:</strong> transformation@contraco.net</p>
                     <p><strong>Phone:</strong> +1 (312) 940-0326</p>
@@ -976,22 +883,51 @@
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links with header offset
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const headerHeight = 120; // Adjust this to match your navbar height + desired spacing
-            const targetPosition = target.offsetTop - headerHeight;
+        // Enhanced logo fallback with retry mechanism
+        (function() {
+            const logo = document.getElementById('site-logo');
+            const logoImg = logo.querySelector('img');
+            let retryCount = 0;
+            const maxRetries = 2;
             
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
+            function handleLogoError() {
+                if (retryCount < maxRetries) {
+                    retryCount++;
+                    setTimeout(() => {
+                        logoImg.src = 'https://contraco.net/Logo_rectangle.svg';
+                    }, 1000 * retryCount);
+                } else {
+                    logo.classList.add('logo-failed');
+                }
+            }
+            
+            if (logoImg.complete && logoImg.naturalHeight === 0) {
+                handleLogoError();
+            }
+            
+            logoImg.addEventListener('error', handleLogoError);
+            
+            logoImg.addEventListener('load', function() {
+                logo.classList.remove('logo-failed');
             });
-        }
-    });
-});
+        })();
+
+        // Smooth scrolling for navigation links with header offset
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = 120;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
 
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
