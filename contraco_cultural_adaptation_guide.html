@@ -18,6 +18,9 @@
         });
     </script>
     
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -58,10 +61,16 @@
     <meta property="twitter:image" content="https://www.contraco.net/images/contraco-social-preview.jpg">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        /* CSS Variables - Standard across all pages */
         :root {
-            /* Original Contraco Brand Colors */
+            /* Brand Colors */
             --primary-red: #e62d00;
             --deep-charcoal: #2C2C2C;
             --warm-white: #F8F6F3;
@@ -70,25 +79,32 @@
             --warm-gray-dark: #6B6B6B;
             
             /* Typography */
-            --font-serif: 'Crimson Text', serif;
-            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Crimson Text', Georgia, 'Times New Roman', serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             
-            /* Spacing */
+            /* Layout */
+            --container-max: 1200px;
             --section-padding: 80px 0;
-            --container-max: 1000px;
+            
+            /* Transitions */
+            --transition-fast: 0.3s ease;
+            --transition-medium: 0.5s ease;
+            
+            /* Shadows */
+            --shadow-small: 0 4px 15px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --shadow-large: 0 15px 50px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.15);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* Base Typography */
         body {
             font-family: var(--font-sans);
             line-height: 1.7;
             color: var(--deep-charcoal);
             background-color: var(--warm-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .container {
@@ -109,22 +125,22 @@
             transition: all 0.3s ease;
         }
 
-.nav-container {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: var(--container-max);
-    margin: 0 auto;
-    padding: 0 40px;
-}
+        .nav-container {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 40px;
+        }
 
-.logo {
-    margin-left: 60px;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
+        .logo {
+            margin-left: 60px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
 
         .logo img {
             height: 36px;
@@ -136,8 +152,31 @@
             transform: scale(1.05);
         }
 
+        /* Logo Fallback Styling */
+        .logo-fallback {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            letter-spacing: -0.02em;
+            font-family: var(--font-serif);
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        .logo:hover .logo-fallback {
+            transform: scale(1.05);
+        }
+
+        .logo.logo-failed img {
+            display: none;
+        }
+
+        .logo.logo-failed .logo-fallback {
+            display: block;
+        }
+
         .nav-menu {
-            margin-right: 60px; /* Adjust this value - try 40px, 80px, etc. */
+            margin-right: 60px;
             display: flex;
             list-style: none;
             gap: 35px;
@@ -181,6 +220,22 @@
             overflow: hidden;
         }
 
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.1) 50%, transparent 60%);
+            animation: shimmer 8s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translateX(-100%); opacity: 0; }
+            50% { transform: translateX(0); opacity: 1; }
+        }
+
         .page-title {
             font-family: var(--font-serif);
             font-size: 3rem;
@@ -207,10 +262,16 @@
         .cultural-card {
             background: white;
             border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            box-shadow: var(--shadow-medium);
             margin-bottom: 30px;
             overflow: hidden;
             border-left: 5px solid var(--primary-red);
+            transition: all 0.3s ease;
+        }
+
+        .cultural-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
         }
 
         .cultural-header {
@@ -265,6 +326,12 @@
             padding: 20px;
             border-radius: 6px;
             border-left: 4px solid var(--primary-red);
+            transition: all 0.3s ease;
+        }
+
+        .culture-type:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(5px);
         }
 
         .culture-type h5 {
@@ -300,6 +367,7 @@
             margin: 40px 0;
             border-radius: 12px;
             border: 1px solid var(--warm-gray-light);
+            box-shadow: var(--shadow-small);
         }
 
         .implementation-title {
@@ -323,11 +391,12 @@
             border-left: 4px solid var(--primary-red);
             position: relative;
             transition: all 0.3s ease;
+            box-shadow: var(--shadow-small);
         }
 
         .process-step:hover {
             transform: translateX(5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-medium);
         }
 
         .process-step::before {
@@ -373,7 +442,13 @@
             padding: 30px;
             border-radius: 8px;
             border-left: 4px solid var(--primary-red);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--shadow-small);
+            transition: all 0.3s ease;
+        }
+
+        .qa-category:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
         }
 
         .qa-category h5 {
@@ -401,6 +476,20 @@
             position: absolute;
             left: 0;
             color: var(--primary-red);
+        }
+
+        .highlight-note {
+            margin-top: 40px;
+            padding: 25px;
+            background: rgba(234, 68, 37, 0.05);
+            border-left: 4px solid var(--primary-red);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-note p {
+            margin: 0;
+            font-style: italic;
+            color: var(--deep-charcoal);
         }
 
         /* CTA Section */
@@ -459,6 +548,8 @@
             transform: translateY(-2px);
             box-shadow: 0 12px 35px rgba(234, 68, 37, 0.3);
             background: #D63E20;
+            color: white;
+            text-decoration: none;
         }
 
         .cta-button:hover::before {
@@ -480,6 +571,24 @@
             margin-bottom: 32px;
         }
 
+        .footer-links {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .footer-links a {
+            color: var(--warm-gray-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-red);
+        }
+
         .company-info h4 {
             color: var(--primary-red);
             font-size: 1.1rem;
@@ -491,6 +600,10 @@
             margin-bottom: 8px;
             line-height: 1.6;
             font-size: 0.95rem;
+        }
+
+        .company-info strong {
+            color: var(--warm-gray-light);
         }
 
         .imprint-section h4 {
@@ -507,6 +620,10 @@
 
         .imprint-details p {
             margin-bottom: 6px;
+        }
+
+        .imprint-details strong {
+            color: var(--warm-gray-light);
         }
 
         .footer-bottom {
@@ -527,6 +644,10 @@
             .container,
             .nav-container {
                 padding: 0 20px;
+            }
+
+            .logo {
+                margin-left: 20px;
             }
 
             .page-title {
@@ -567,6 +688,10 @@
                 gap: 30px;
                 text-align: center;
             }
+
+            .footer-links {
+                justify-content: center;
+            }
         }
 
         @media (max-width: 480px) {
@@ -592,21 +717,23 @@
 </head>
 <body>
     <!-- Navigation -->
-<nav class="navbar">
-    <div class="nav-container">
-        <a href="https://www.contraco.net/" class="logo">
-            <img src="https://contraco.net/Logo_rectangle.svg" alt="contraco" />
-        </a>
-        <!-- This is where your consistent navigation goes: -->
-        <ul class="nav-menu">
-            <li><a href="https://www.contraco.net/#services" class="nav-link">Services</a></li>
-            <li><a href="https://www.contraco.net/#methodology" class="nav-link">Methodology</a></li>
-            <li><a href="https://www.contraco.net/contraco_insights.html" class="nav-link">Insights</a></li>
-            <li><a href="https://www.contraco.net/contraco_about.html" class="nav-link">About</a></li>
-            <li><a href="https://www.contraco.net/#contact" class="nav-link">Contact</a></li>
-        </ul>
-    </div>
-</nav>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="https://www.contraco.net/" class="logo" id="site-logo">
+                <img src="https://contraco.net/Logo_rectangle.svg" 
+                     alt="contraco" 
+                     onerror="this.parentElement.classList.add('logo-failed');">
+                <span class="logo-fallback">contraco</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="https://www.contraco.net/#services" class="nav-link">Services</a></li>
+                <li><a href="https://www.contraco.net/#methodology" class="nav-link">Methodology</a></li>
+                <li><a href="https://www.contraco.net/contraco_insights.html" class="nav-link">Insights</a></li>
+                <li><a href="https://www.contraco.net/contraco_about.html" class="nav-link">About</a></li>
+                <li><a href="https://www.contraco.net/#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <!-- Page Header -->
     <section class="page-header">
@@ -633,6 +760,8 @@
                                 <li>Top-down engagement strategies</li>
                                 <li>Expert credibility and proven methods</li>
                                 <li>Executive summary formats</li>
+                                <li>Formal presentation protocols</li>
+                                <li>Authority-based decision making</li>
                             </ul>
                         </div>
                         <div class="culture-type">
@@ -643,6 +772,7 @@
                                 <li>Cross-functional collaboration emphasis</li>
                                 <li>Group decision-making facilitation</li>
                                 <li>Democratic feedback and iteration</li>
+                                <li>Participatory change processes</li>
                             </ul>
                         </div>
                     </div>
@@ -710,8 +840,8 @@
                             </div>
                         </div>
 
-                        <div style="margin-top: 40px; padding: 25px; background: rgba(234, 68, 37, 0.05); border-left: 4px solid var(--primary-red); border-radius: 0 8px 8px 0;">
-                            <p style="margin: 0; font-style: italic; color: var(--deep-charcoal);">This approach ensures your strategic intelligence content maintains its core value while resonating authentically with diverse global business cultures, maximizing both impact and market penetration across Contraco's international presence.</p>
+                        <div class="highlight-note">
+                            <p>This approach ensures your strategic intelligence content maintains its core value while resonating authentically with diverse global business cultures, maximizing both impact and market penetration across Contraco's international presence.</p>
                         </div>
                     </div>
                 </div>
@@ -731,20 +861,20 @@
         </div>
     </main>
 
-     <!-- Footer -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="company-info">
-    <div class="footer-links">
-    <a href="https://www.contraco.net/">Home</a>
-    <a href="https://www.contraco.net/contraco_about.html">About Us</a>
-    <a href="https://www.contraco.net/#services">Services</a>
-    <a href="https://www.contraco.net/#methodology">Methodology</a>
-    <a href="https://www.contraco.net/contraco_insights.html">Insights</a>
-    <a href="https://www.contraco.net/#contact">Contact</a>
-</div>
-    <h4>contraco USA</h4>
+                    <div class="footer-links">
+                        <a href="https://www.contraco.net/">Home</a>
+                        <a href="https://www.contraco.net/contraco_about.html">About Us</a>
+                        <a href="https://www.contraco.net/#services">Services</a>
+                        <a href="https://www.contraco.net/#methodology">Methodology</a>
+                        <a href="https://www.contraco.net/contraco_insights.html">Insights</a>
+                        <a href="https://www.contraco.net/#contact">Contact</a>
+                    </div>
+                    <h4>contraco USA</h4>
                     <p>Premium transformation consulting combining strategic clarity, technological intelligence, and psychological depth.</p>
                     <p><strong>Email:</strong> transformation@contraco.net</p>
                     <p><strong>Phone:</strong> +1 (312) 940-0326</p>
@@ -767,6 +897,35 @@
     </footer>
 
     <script>
+        // Enhanced logo fallback with retry mechanism
+        (function() {
+            const logo = document.getElementById('site-logo');
+            const logoImg = logo.querySelector('img');
+            let retryCount = 0;
+            const maxRetries = 2;
+            
+            function handleLogoError() {
+                if (retryCount < maxRetries) {
+                    retryCount++;
+                    setTimeout(() => {
+                        logoImg.src = 'https://contraco.net/Logo_rectangle.svg';
+                    }, 1000 * retryCount);
+                } else {
+                    logo.classList.add('logo-failed');
+                }
+            }
+            
+            if (logoImg.complete && logoImg.naturalHeight === 0) {
+                handleLogoError();
+            }
+            
+            logoImg.addEventListener('error', handleLogoError);
+            
+            logoImg.addEventListener('load', function() {
+                logo.classList.remove('logo-failed');
+            });
+        })();
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -794,10 +953,43 @@
         });
 
         // Analytics tracking
-        gtag('event', 'page_view', {
-            page_title: 'Cultural Adaptation Guide',
-            page_location: window.location.href,
-            content_group1: 'Guide'
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_view', {
+                page_title: 'Cultural Adaptation Guide',
+                page_location: window.location.href,
+                content_group1: 'Guide'
+            });
+        }
+
+        // Add subtle animation to elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Animate process steps
+        document.querySelectorAll('.process-step').forEach(step => {
+            step.style.opacity = '0';
+            step.style.transform = 'translateY(20px)';
+            step.style.transition = 'all 0.6s ease';
+            observer.observe(step);
+        });
+
+        // Animate QA categories
+        document.querySelectorAll('.qa-category').forEach(category => {
+            category.style.opacity = '0';
+            category.style.transform = 'translateY(20px)';
+            category.style.transition = 'all 0.6s ease';
+            observer.observe(category);
         });
     </script>
 </body>
