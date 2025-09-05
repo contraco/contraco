@@ -17,6 +17,9 @@
         });
     </script>
     
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -33,9 +36,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="msapplication-TileColor" content="#EA4425">
+    <meta name="msapplication-TileColor" content="#e62d00">
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
-    <meta name="theme-color" content="#EA4425">
+    <meta name="theme-color" content="#e62d00">
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Learn about contraco's 27-year journey from digital innovation pioneer to premium transformation consulting, humanizing change with psychological depth.">
@@ -45,17 +48,9 @@
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.contraco.net/contraco_about.html">
-    <meta property="og:title" content="About contraco - We Build Transformation You Can Feel">
+    <meta property="og:title" content="About contraco - Premium Transformation Consulting">
     <meta property="og:description" content="27 years of transformation leadership: from search engines to AI, we humanize change with psychological depth and strategic excellence.">
-    <meta property="og:image" content="https://www.contraco.net/images/contraco-about-preview.jpg">
     
-    <!-- Twitter Card -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.contraco.net/contraco_about.html">
-    <meta property="twitter:title" content="About contraco - We Build Transformation You Can Feel">
-    <meta property="twitter:description" content="27 years of transformation leadership: from search engines to AI, we humanize change with psychological depth.">
-    <meta property="twitter:image" content="https://www.contraco.net/images/contraco-about-preview.jpg">
-
     <style>
         * {
             margin: 0;
@@ -64,21 +59,17 @@
         }
 
         :root {
-            /* Contraco Brand Colors */
             --primary-red: #e62d00;
             --deep-charcoal: #2C2C2C;
             --warm-white: #F8F6F3;
             --warm-gray-light: #E5E2DD;
             --warm-gray-medium: #A8A5A0;
             --warm-gray-dark: #6B6B6B;
-            
-            /* Typography */
-            --font-serif: Georgia, 'Times New Roman', serif;
-            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            
-            /* Spacing */
-            --section-padding: 100px 0;
             --container-max: 1200px;
+            --font-serif: 'Crimson Text', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --section-padding: 100px 0;
+            --transition-fast: all 0.3s ease;
         }
 
         body {
@@ -103,25 +94,25 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 12px 0;
-            transition: all 0.3s ease;
+            transition: var(--transition-fast);
         }
 
-.nav-container {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: var(--container-max);
-    margin: 0 auto;
-    padding: 0 40px;
-}
+        .nav-container {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 40px;
+        }
 
-.logo {
-    margin-left: 60px;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
+        .logo {
+            margin-left: 60px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
 
         .logo img {
             height: 36px;
@@ -134,18 +125,29 @@
         }
 
         .logo-fallback {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary-red);
-            transition: color 0.3s ease;
+            letter-spacing: -0.02em;
+            font-family: var(--font-serif);
+            transition: var(--transition-fast);
+            display: none;
         }
 
-        .logo-fallback:hover {
-            color: #D63E20;
+        .logo:hover .logo-fallback {
+            transform: scale(1.05);
+        }
+
+        .logo.logo-failed img {
+            display: none;
+        }
+
+        .logo.logo-failed .logo-fallback {
+            display: block;
         }
 
         .nav-menu {
-            margin-right: 60px; /* Adjust this value - try 40px, 80px, etc. */
+            margin-right: 60px;
             display: flex;
             list-style: none;
             gap: 35px;
@@ -160,7 +162,7 @@
             position: relative;
         }
 
-        .nav-link:hover, .nav-link.active {
+        .nav-link:hover {
             color: var(--primary-red);
         }
 
@@ -175,91 +177,88 @@
             transition: width 0.3s ease;
         }
 
-        .nav-link:hover::after, .nav-link.active::after {
+        .nav-link:hover::after,
+        .nav-link.active::after {
             width: 100%;
         }
 
-        /* Hero Section */
-        .page-hero {
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, var(--deep-charcoal) 0%, rgba(44, 44, 44, 0.9) 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-            padding-top: 80px;
+        /* Main Content */
+        .main-content {
+            padding-top: 100px;
+            min-height: 100vh;
         }
 
-        .page-hero::before {
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--warm-white) 0%, var(--warm-gray-light) 100%);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
             content: '';
             position: absolute;
             top: 0;
-            right: -30%;
-            width: 60%;
+            right: -50%;
+            width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, transparent 40%, rgba(234, 68, 37, 0.1) 50%, transparent 60%);
-            animation: shimmer 8s ease-in-out infinite;
+            background: linear-gradient(45deg, transparent, rgba(230, 45, 0, 0.03));
+            transform: rotate(-5deg);
         }
 
-        @keyframes shimmer {
-            0%, 100% { transform: translateX(-100%); opacity: 0; }
-            50% { transform: translateX(0); opacity: 1; }
-        }
-
-        .hero-content {
+        .page-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+            margin-bottom: 20px;
             position: relative;
             z-index: 2;
-            text-align: center;
-            max-width: 900px;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: var(--warm-gray-dark);
+            max-width: 700px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
-        .hero-content h1 {
-            font-family: var(--font-serif);
-            font-size: 4rem;
-            font-weight: 600;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-content .highlight {
-            color: var(--primary-red);
-        }
-
-        .hero-content .subtitle {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            margin-bottom: 32px;
-            font-weight: 300;
-            line-height: 1.6;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-stats {
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 40px;
-            margin-top: 50px;
-            padding: 40px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin: 60px 0 0;
+            position: relative;
+            z-index: 2;
         }
 
         .stat-item {
             text-align: center;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
         }
 
         .stat-number {
             font-size: 2.5rem;
-            font-weight: 800;
+            font-weight: 700;
             color: var(--primary-red);
             margin-bottom: 8px;
+            font-family: var(--font-serif);
         }
 
         .stat-label {
-            font-size: 0.95rem;
-            opacity: 0.8;
+            font-size: 0.9rem;
+            color: var(--warm-gray-dark);
             font-weight: 500;
         }
 
@@ -272,16 +271,17 @@
             background: white;
         }
 
-        .section-title {
-            font-family: var(--font-serif);
-            font-size: 2.6rem;
-            text-align: center;
-            margin-bottom: 50px;
-            color: var(--deep-charcoal);
+        .content-section.gray {
+            background: var(--warm-gray-light);
         }
 
-        .section-title.white {
-            color: white;
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--deep-charcoal);
         }
 
         /* Mission Section */
@@ -291,298 +291,144 @@
             text-align: center;
         }
 
-        .mission-quote {
-            background: var(--warm-gray-light);
-            border-left: 4px solid var(--primary-red);
-            padding: 40px;
-            margin: 40px 0;
-            border-radius: 0 8px 8px 0;
-            font-size: 1.3rem;
-            font-style: italic;
+        .mission-intro {
+            font-size: 1.2rem;
             color: var(--warm-gray-dark);
-            position: relative;
+            margin-bottom: 40px;
+            line-height: 1.7;
         }
 
-        .mission-quote::before {
-            content: '"';
-            font-size: 4rem;
-            color: var(--primary-red);
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            opacity: 0.3;
-        }
-
-        .blockquote-large {
-            font-size: 1.6rem;
-            color: var(--primary-red);
+        .mission-quote {
+            font-size: 1.4rem;
             font-weight: 600;
-            margin: 50px 0;
-            text-align: center;
+            color: var(--primary-red);
+            margin: 40px 0;
+            padding: 40px;
+            background: var(--warm-white);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-red);
             font-family: var(--font-serif);
             font-style: italic;
         }
 
-        /* Philosophy Grid */
-        .philosophy-grid {
+        .mission-description {
+            font-size: 1rem;
+            color: var(--warm-gray-dark);
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        /* Journey Section */
+        .journey-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .journey-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--primary-red);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .journey-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .journey-year {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 15px;
+            font-family: var(--font-serif);
+        }
+
+        .journey-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--deep-charcoal);
+        }
+
+        .journey-description {
+            color: var(--warm-gray-dark);
+            line-height: 1.6;
+        }
+
+        /* Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
             margin-top: 60px;
         }
 
-        .philosophy-card {
+        .value-card {
             background: white;
-            padding: 40px 32px;
+            padding: 40px 30px;
             border-radius: 8px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-            border-left: 4px solid var(--primary-red);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
         }
 
-        .philosophy-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(234, 68, 37, 0.05), transparent);
-            transition: width 0.6s ease;
-        }
-
-        .philosophy-card:hover {
+        .value-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
 
-        .philosophy-card:hover::before {
-            width: 100%;
-        }
-
-        .philosophy-card h3 {
-            color: var(--primary-red);
-            margin-bottom: 16px;
-            font-size: 1.4rem;
-            font-weight: 600;
-        }
-
-        .philosophy-card p {
-            color: var(--warm-gray-dark);
-            line-height: 1.7;
-            font-size: 0.95rem;
-        }
-
-        /* Timeline */
-        .timeline-section {
-            background: var(--deep-charcoal);
-            color: white;
-        }
-
-        .timeline {
-            position: relative;
-            margin: 50px 0;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 3px;
+        .value-icon {
+            width: 60px;
+            height: 60px;
             background: var(--primary-red);
-            transform: translateX(-50%);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin: 60px 0;
-            width: 100%;
-        }
-
-        .timeline-content {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            padding: 32px;
-            border-radius: 8px;
-            width: 42%;
-            position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content {
-            margin-left: 0;
-        }
-
-        .timeline-item:nth-child(even) .timeline-content {
-            margin-left: 58%;
-        }
-
-        .timeline-year {
-            position: absolute;
-            left: 50%;
-            top: 20px;
-            transform: translateX(-50%);
-            background: var(--primary-red);
-            color: white;
-            width: 70px;
-            height: 70px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            font-size: 0.9rem;
-            z-index: 2;
-            box-shadow: 0 4px 15px rgba(234, 68, 37, 0.3);
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            color: white;
         }
 
-        .timeline-content h4 {
-            color: var(--primary-red);
-            margin-bottom: 12px;
-            font-size: 1.3rem;
+        .value-title {
+            font-size: 1.1rem;
             font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--deep-charcoal);
         }
 
-        .timeline-content p {
-            opacity: 0.9;
+        .value-description {
+            color: var(--warm-gray-dark);
             line-height: 1.6;
             font-size: 0.95rem;
         }
 
-        /* Clients Section */
-        .clients-section {
-            background: white;
-        }
-
-        .client-categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .client-category {
-            background: var(--warm-white);
-            padding: 32px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border-top: 4px solid var(--primary-red);
-        }
-
-        .client-category h4 {
-            color: var(--primary-red);
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-            font-weight: 600;
-            border-bottom: 2px solid var(--warm-gray-light);
-            padding-bottom: 12px;
-        }
-
-        .client-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .client-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            font-weight: 500;
-            color: var(--warm-gray-dark);
-            transition: color 0.3s ease;
-        }
-
-        .client-list li:last-child {
-            border-bottom: none;
-        }
-
-        .client-list li:hover {
-            color: var(--primary-red);
-        }
-
-        /* Leadership Section */
-        .leadership-section {
-            background: var(--warm-gray-light);
-        }
-
-        .leadership-card {
-            background: white;
-            padding: 50px;
-            border-radius: 12px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
-            max-width: 700px;
-            margin: 50px auto 0;
-            text-align: center;
-            position: relative;
-        }
-
-        .leadership-card h3 {
-            color: var(--primary-red);
-            font-size: 2rem;
-            margin-bottom: 8px;
-            font-family: var(--font-serif);
-        }
-
-        .leadership-title {
-            color: var(--warm-gray-medium);
-            font-size: 1.1rem;
-            margin-bottom: 24px;
-            font-weight: 500;
-        }
-
-        .leadership-bio {
-            color: var(--warm-gray-dark);
-            line-height: 1.7;
-            font-size: 1rem;
-        }
-
-        /* Promise Section */
-        .promise-section {
+        /* CTA Section */
+        .cta-section {
             background: var(--deep-charcoal);
             color: white;
             text-align: center;
-        }
-
-        .promise-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .promise-highlight {
-            background: rgba(234, 68, 37, 0.1);
-            border: 1px solid rgba(234, 68, 37, 0.3);
-            padding: 40px;
-            border-radius: 8px;
-            margin: 40px 0;
-            font-size: 1.3rem;
-            font-style: italic;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, var(--primary-red) 0%, rgba(234, 68, 37, 0.9) 100%);
-            color: white;
             padding: 80px 0;
-            text-align: center;
         }
 
-        .cta-content h3 {
-            font-size: 2.2rem;
-            margin-bottom: 16px;
+        .cta-title {
             font-family: var(--font-serif);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 600;
+            margin-bottom: 20px;
         }
 
-        .cta-content p {
-            font-size: 1.2rem;
-            margin-bottom: 32px;
+        .cta-description {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
             opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta-buttons {
@@ -592,37 +438,55 @@
             flex-wrap: wrap;
         }
 
-        .btn-cta {
+        .cta-button {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            background: white;
-            color: var(--primary-red);
+            gap: 12px;
+            background: var(--primary-red);
+            color: white;
             padding: 16px 32px;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 2px;
             font-weight: 600;
             font-size: 0.95rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transition: var(--transition-fast);
+            box-shadow: 0 8px 25px rgba(234, 68, 37, 0.2);
+            position: relative;
+            overflow: hidden;
         }
 
-        .btn-cta:hover {
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
-            color: var(--deep-charcoal);
+            box-shadow: 0 12px 35px rgba(234, 68, 37, 0.3);
+            background: #D63E20;
+            color: white;
             text-decoration: none;
         }
 
-        .btn-cta-outline {
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button-outline {
             background: transparent;
             border: 2px solid white;
             color: white;
         }
 
-        .btn-cta-outline:hover {
+        .cta-button-outline:hover {
             background: white;
-            color: var(--primary-red);
+            color: var(--deep-charcoal);
         }
 
         /* Footer */
@@ -651,6 +515,7 @@
             color: var(--warm-gray-light);
             text-decoration: none;
             transition: color 0.3s ease;
+            font-size: 0.95rem;
         }
 
         .footer-links a:hover {
@@ -670,6 +535,10 @@
             font-size: 0.95rem;
         }
 
+        .company-info strong {
+            color: var(--warm-gray-light);
+        }
+
         .imprint-section h4 {
             color: var(--primary-red);
             font-size: 1rem;
@@ -686,6 +555,10 @@
             margin-bottom: 6px;
         }
 
+        .imprint-details strong {
+            color: var(--warm-gray-light);
+        }
+
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding-top: 25px;
@@ -693,71 +566,57 @@
             font-size: 0.85rem;
         }
 
-        .footer-bottom a {
-            color: var(--primary-red);
-            text-decoration: none;
+        .trademark-notice {
+            margin-top: 8px;
+            font-size: 0.8rem;
+            opacity: 0.8;
         }
 
-        /* Mobile Responsiveness */
+        /* Responsive Design */
         @media (max-width: 768px) {
-            :root {
-                --section-padding: 60px 0;
+            .container,
+            .nav-container {
+                padding: 0 20px;
             }
 
-            .container {
-                padding: 0 20px;
+            .logo {
+                margin-left: 20px;
             }
 
             .nav-menu {
                 display: none;
             }
 
-            .page-hero {
-                padding-top: 70px;
+            .page-title {
+                font-size: 2.5rem;
             }
 
-            .hero-content h1 {
-                font-size: 2.8rem;
-            }
-
-            .hero-content .subtitle {
+            .page-subtitle {
                 font-size: 1.1rem;
             }
 
-            .hero-stats {
+            .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
+                gap: 20px;
             }
 
-            .philosophy-grid, .client-categories {
+            .journey-grid,
+            .values-grid {
                 grid-template-columns: 1fr;
-                gap: 25px;
+                gap: 20px;
             }
 
-            .timeline::before {
-                left: 30px;
-            }
-
-            .timeline-content {
-                width: calc(100% - 80px);
-                margin-left: 80px !important;
-            }
-
-            .timeline-year {
-                left: 30px;
-                width: 50px;
-                height: 50px;
-                font-size: 0.8rem;
+            .client-categories {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
             }
 
             .leadership-card {
-                padding: 35px 25px;
-                margin-top: 30px;
+                padding: 30px 25px;
             }
 
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
+            .leadership-name {
+                font-size: 1.8rem;
             }
 
             .footer-content {
@@ -766,31 +625,25 @@
                 text-align: center;
             }
 
-            .section-title {
-                font-size: 2.2rem;
+            .footer-links {
+                justify-content: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
             }
         }
 
         @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 2.4rem;
-            }
-
-            .hero-stats {
+            .stats-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
             }
 
-            .stat-number {
-                font-size: 2rem;
-            }
-
-            .philosophy-card, .client-category {
-                padding: 25px 20px;
-            }
-
-            .timeline-content {
-                padding: 25px 20px;
+            .journey-card,
+            .value-card,
+            .client-category {
+                padding: 30px 20px;
             }
 
             .leadership-card {
@@ -802,29 +655,33 @@
 <body>
     <!-- Navigation -->
     <nav class="navbar">
-    <div class="nav-container">
-        <a href="https://www.contraco.net/" class="logo">
-            <img src="https://contraco.net/Logo_rectangle.svg" alt="contraco" />
-        </a>
-        <!-- This is where your consistent navigation goes: -->
-        <ul class="nav-menu">
-            <li><a href="https://www.contraco.net/#services" class="nav-link">Services</a></li>
-            <li><a href="https://www.contraco.net/#methodology" class="nav-link">Methodology</a></li>
-            <li><a href="https://www.contraco.net/contraco_insights.html" class="nav-link">Insights</a></li>
-            <li><a href="https://www.contraco.net/contraco_about.html" class="nav-link active">About</a></li>
-            <li><a href="https://www.contraco.net/#contact" class="nav-link">Contact</a></li>
-        </ul>
-    </div>
+        <div class="nav-container">
+            <a href="https://www.contraco.net/" class="logo" id="site-logo">
+                <img src="https://contraco.net/Logo_rectangle.svg" 
+                     alt="contraco" 
+                     onerror="this.parentElement.classList.add('logo-failed');">
+                <span class="logo-fallback">contraco</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="https://www.contraco.net/" class="nav-link">Home</a></li>
+                <li><a href="https://www.contraco.net/#services" class="nav-link">Services</a></li>
+                <li><a href="https://www.contraco.net/#methodology" class="nav-link">Methodology</a></li>
+                <li><a href="https://www.contraco.net/contraco_insights.html" class="nav-link">Insights</a></li>
+                <li><a href="https://www.contraco.net/contraco_about.html" class="nav-link active">About</a></li>
+                <li><a href="https://www.contraco.net/#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="page-hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>About <span class="highlight">contraco</span></h1>
-                <p class="subtitle">27 years of transformation leadership—from search engines to AI, we humanize change with psychological depth and strategic excellence.</p>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">About <span style="color: var(--primary-red);">contraco</span></h1>
+                <p class="page-subtitle">27 years of transformation leadership—from search engines to AI, we humanize change with psychological depth and strategic excellence.</p>
                 
-                <div class="hero-stats">
+                <div class="stats-grid">
                     <div class="stat-item">
                         <div class="stat-number">27+</div>
                         <div class="stat-label">Years of Leadership</div>
@@ -843,212 +700,193 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Mission Section -->
-    <section class="content-section white">
-        <div class="container">
-            <div class="mission-content">
+        <!-- Mission Section -->
+        <section class="content-section white">
+            <div class="container">
                 <h2 class="section-title">Our Mission</h2>
-                <p style="font-size: 1.2rem; color: var(--warm-gray-dark); margin-bottom: 32px;">Founded in 1998, <strong>contraco</strong> is a boutique consultancy that has guided every wave of digital transformation—from the rise of search engines to the age of AI.</p>
-                
-                <div class="mission-quote">
-                    While others chase efficiency, we champion <strong>effectiveness</strong>. Our mission is simple: <strong>to humanize transformation</strong>.
-                </div>
-                
-                <p style="font-size: 1rem; color: var(--warm-gray-dark); margin-bottom: 24px;">For over 27 years, we've helped global brands rethink strategy, redesign culture, and rediscover purpose. We're not just consultants. We're <strong>transformation veterans</strong>—trusted by Google, Microsoft, Yahoo—and now leading the post-AI era with a bold new stance:</p>
-                
-                <div class="blockquote-large">
-                    "While others replace humans with AI, we replace AI with humanity."
+                <div class="mission-content">
+                    <p class="mission-intro">Founded in 1998, <strong>contraco</strong> is a boutique consultancy that has guided every wave of digital transformation—from the rise of search engines to the age of AI.</p>
+                    
+                    <div class="mission-quote">
+                        While others chase efficiency, we champion effectiveness. Our mission is simple: to humanize transformation.
+                    </div>
+                    
+                    <p class="mission-description">For over 27 years, we've helped global brands rethink strategy, redesign culture, and rediscover purpose. We're not just consultants. We're transformation architects who understand that lasting change happens in hearts and minds, not just systems and processes.</p>
+                    
+                    <p class="mission-description">We measure success not just in metrics, but in the human experience of change. When your organization transforms with contraco, every stakeholder—from C-suite to front line—feels the shift. That's transformation you can feel.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Philosophy Section -->
-    <section class="content-section">
-        <div class="container">
-            <h2 class="section-title">Our Philosophy</h2>
-            <div class="philosophy-grid">
-                <div class="philosophy-card">
-                    <h3>🧠 Psychological Architecture</h3>
-                    <p>We redesign mindsets, not just processes. True transformation happens when people feel the change, not just follow it. Our approach creates lasting behavioral shifts that sustain long after implementation.</p>
-                </div>
-                <div class="philosophy-card">
-                    <h3>✨ Felt Experience Design</h3>
-                    <p>Every transformation has an emotional journey. We map and design these experiences to ensure lasting change. When people feel transformation happening, adoption becomes natural and sustainable.</p>
-                </div>
-                <div class="philosophy-card">
-                    <h3>🤖 AI Empowers People</h3>
-                    <p>We use AI to empower people—not replace them. Technology should amplify human potential, not diminish it. Our approach ensures AI serves human creativity and strategic thinking.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Timeline Section -->
-    <section class="content-section timeline-section">
-        <div class="container">
-            <h2 class="section-title white">Transformation Veterans</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-year">1998</div>
-                    <div class="timeline-content">
-                        <h4>Founded</h4>
-                        <p>contraco established as digital transformation pioneer, entering the search engine revolution era with clients like Lycos and emerging web platforms.</p>
+        <!-- Journey Section -->
+        <section class="content-section gray">
+            <div class="container">
+                <h2 class="section-title">Our Journey</h2>
+                <div class="journey-grid">
+                    <div class="journey-card">
+                        <div class="journey-year">1998</div>
+                        <h3 class="journey-title">Digital Pioneer</h3>
+                        <p class="journey-description">Founded as digital transformation specialists, helping companies navigate the early internet era and the rise of search engines.</p>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-year">2000s</div>
-                    <div class="timeline-content">
-                        <h4>Search & Digital Era</h4>
-                        <p>Partnered with Yahoo, Overture, and major search platforms during the dot-com transformation. Built expertise in digital marketing and user experience design.</p>
+                    
+                    <div class="journey-card">
+                        <div class="journey-year">2005</div>
+                        <h3 class="journey-title">Global Expansion</h3>
+                        <p class="journey-description">Extended operations across 4 continents, developing cross-cultural transformation expertise with Fortune 500 companies.</p>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-year">2010s</div>
-                    <div class="timeline-content">
-                        <h4>Global Enterprise</h4>
-                        <p>Expanded to serve Google, Microsoft, Deutsche Telekom, and major corporations across 4 continents. Developed comprehensive transformation methodologies.</p>
+                    
+                    <div class="journey-card">
+                        <div class="journey-year">2015</div>
+                        <h3 class="journey-title">Human-Centered Methodology</h3>
+                        <p class="journey-description">Developed our signature Resonance Method™, combining psychological insights with technological transformation.</p>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-year">2020s</div>
-                    <div class="timeline-content">
-                        <h4>AI & Psychology Integration</h4>
-                        <p>Evolved into contraco 2.0—blending technology with psychological depth for human-centered transformation. Pioneered The Resonance Method™.</p>
+                    
+                    <div class="journey-card">
+                        <div class="journey-year">2020</div>
+                        <h3 class="journey-title">AI Transformation Era</h3>
+                        <p class="journey-description">Leading organizations through AI adoption with our human-first approach, ensuring technology serves people.</p>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-year">2025</div>
-                    <div class="timeline-content">
-                        <h4>Post-AI Era Leadership</h4>
-                        <p>Leading the humanization of AI transformation—making technology serve human potential while creating sustainable organizational change.</p>
+                    
+                    <div class="journey-card">
+                        <div class="journey-year">2025</div>
+                        <h3 class="journey-title">Premium Excellence</h3>
+                        <p class="journey-description">Refined focus on premium transformation consulting, delivering unparalleled strategic intelligence and psychological depth.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Clients Section -->
-    <section class="content-section clients-section">
-        <div class="container">
-            <h2 class="section-title">Our Clients</h2>
-            <p style="text-align: center; font-size: 1.2rem; color: var(--warm-gray-dark); margin-bottom: 50px; max-width: 600px; margin-left: auto; margin-right: auto;">Trusted by industry leaders across 30 countries and 4 continents</p>
-
-            <div class="client-categories">
-                <div class="client-category">
-                    <h4>Global Enterprise</h4>
-                    <ul class="client-list">
-                        <li>Microsoft</li>
-                        <li>Google</li>
-                        <li>Deutsche Telekom AG</li>
-                        <li>KPMG</li>
-                        <li>Thomas Cook</li>
-                        <li>SK Telekom</li>
-                        <li>Scout24 Group</li>
-                        <li>Lycos</li>
-                        <li>Yahoo Search Marketing</li>
-                        <li>Wanadoo</li>
-                        <li>Seat Pagine Gialle</li>
-                        <li>Hanwha Investment Trust</li>
-                    </ul>
-                </div>
-                
-                <div class="client-category">
-                    <h4>Mid-Market Leaders</h4>
-                    <ul class="client-list">
-                        <li>Galeria</li>
-                        <li>AGOF</li>
-                        <li>DAUM</li>
-                        <li>Virgilio</li>
-                        <li>n9uf Club Internet</li>
-                        <li>ya.com</li>
-                        <li>GFT Technologies</li>
-                    </ul>
-                </div>
-                
-                <div class="client-category">
-                    <h4>Innovation & Specialized</h4>
-                    <ul class="client-list">
-                        <li>Fast Search & Transfer</li>
-                        <li>Overture Inc.</li>
-                        <li>Copernic Inc.</li>
-                        <li>PaxiaSoft</li>
-                        <li>Rambler Internet Holding</li>
-                        <li>BT Looksmart</li>
-                        <li>Friendster.com</li>
-                        <li>GeoTel International</li>
-                        <li>Weltmeister Akkordeon</li>
-                        <li>incowia</li>
-                        <li>GfR</li>
-                    </ul>
+        <!-- Values Section -->
+        <section class="content-section white">
+            <div class="container">
+                <h2 class="section-title">What Drives Us</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">🧠</div>
+                        <h3 class="value-title">Psychological Depth</h3>
+                        <p class="value-description">We understand that transformation is fundamentally human. Every change initiative must resonate at an emotional level to create lasting impact.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">🎯</div>
+                        <h3 class="value-title">Strategic Clarity</h3>
+                        <p class="value-description">Clear vision, precise execution. We cut through complexity to deliver strategies that are both ambitious and achievable.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">⚡</div>
+                        <h3 class="value-title">Technological Intelligence</h3>
+                        <p class="value-description">27 years of digital evolution have taught us that technology is a tool for human empowerment, not replacement.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Leadership Section -->
-    <section class="content-section leadership-section">
-        <div class="container">
-            <h2 class="section-title">Leadership</h2>
-            <div class="leadership-card">
-                <h3>Frank Meltke</h3>
-                <div class="leadership-title">Founder & CEO</div>
-                <p class="leadership-bio">Frank has led contraco through every major digital transformation wave since 1998. His vision for humanizing AI and psychological architecture has guided Fortune 500 companies through their most critical transformations. With 27+ years of experience spanning search engines to artificial intelligence, Frank champions the belief that true transformation must be felt, not just implemented. His pioneering work in The Resonance Method™ represents the evolution from traditional consulting to comprehensive human-centered change.</p>
-            </div>
-        </div>
-    </section>
+        <!-- Clients Section -->
+        <section class="content-section" style="background: var(--warm-gray-light); padding: 100px 0;">
+            <div class="container">
+                <h2 class="section-title">Our Clients</h2>
+                <p style="text-align: center; font-size: 1.2rem; color: var(--warm-gray-dark); margin-bottom: 50px; max-width: 600px; margin-left: auto; margin-right: auto;">Trusted by industry leaders across 30 countries and 4 continents</p>
 
-    <!-- Promise Section -->
-    <section class="content-section promise-section">
-        <div class="container">
-            <div class="promise-content">
-                <h2 class="section-title white">Our Promise</h2>
-                <p style="font-size: 1.3rem; margin-bottom: 32px;">Transformation isn't just a deliverable. It's a <strong>felt experience</strong>.</p>
-                <div class="promise-highlight">
-                    If your people don't feel the change, it hasn't happened.
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; margin-top: 60px;">
+                    <div style="background: white; padding: 32px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); border-top: 4px solid var(--primary-red); transition: transform 0.3s ease;">
+                        <h4 style="color: var(--primary-red); font-size: 1.4rem; margin-bottom: 20px; font-weight: 600; border-bottom: 2px solid var(--warm-gray-light); padding-bottom: 12px; font-family: var(--font-serif);">Global Enterprise</h4>
+                        <div style="list-style: none; padding: 0; margin: 0;">
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">Microsoft</div>
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">Google</div>
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">Deutsche Telekom AG</div>
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">KPMG</div>
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">Thomas Cook</div>
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">SK Telekom</div>
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">Scout24 Group</div>
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">Lycos</div>
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">Yahoo Search Marketing</div>
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">Wanadoo</div>
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">Seat Pagine Gialle</div>
+                            <div style="padding: 8px 0; font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">Hanwha Investment Trust</div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: white; padding: 32px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); border-top: 4px solid var(--primary-red); transition: transform 0.3s ease;">
+                        <h4 style="color: var(--primary-red); font-size: 1.4rem; margin-bottom: 20px; font-weight: 600; border-bottom: 2px solid var(--warm-gray-light); padding-bottom: 12px; font-family: var(--font-serif);">Mid-Market Leaders</h4>
+                        <div style="list-style: none; padding: 0; margin: 0;">
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">Galeria</div>
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">AGOF</div>
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">DAUM</div>
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">Virgilio</div>
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">n9uf Club Internet</div>
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">ya.com</div>
+                            <div style="padding: 8px 0; font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">GFT Technologies</div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: white; padding: 32px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); border-top: 4px solid var(--primary-red); transition: transform 0.3s ease;">
+                        <h4 style="color: var(--primary-red); font-size: 1.4rem; margin-bottom: 20px; font-weight: 600; border-bottom: 2px solid var(--warm-gray-light); padding-bottom: 12px; font-family: var(--font-serif);">Innovation & Specialized</h4>
+                        <div style="list-style: none; padding: 0; margin: 0;">
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">Fast Search & Transfer</div>
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">Overture Inc.</div>
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">Copernic Inc.</div>
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">PaxiaSoft</div>
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">Rambler Internet Holding</div>
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">BT Looksmart</div>
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">Friendster.com</div>
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">GeoTel International</div>
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">Weltmeister Akkordeon</div>
+                            <div style="padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">incowia</div>
+                            <div style="padding: 8px 0; font-weight: 500; color: var(--warm-gray-dark); font-size: 0.95rem;">GfR</div>
+                        </div>
+                    </div>
                 </div>
-                <p style="font-size: 1.1rem; opacity: 0.9;">We measure success not just in metrics, but in the human experience of change. When your organization transforms with contraco, every stakeholder—from C-suite to front line—feels the shift. That's transformation you can feel.</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h3>Ready to Experience Transformation?</h3>
-                <p>Join industry leaders who've chosen human-centered change over algorithmic efficiency.</p>
+        <!-- Leadership Section -->
+        <section class="content-section white">
+            <div class="container">
+                <h2 class="section-title">Leadership</h2>
+                <div class="leadership-card">
+                    <h3 class="leadership-name">Frank Meltke</h3>
+                    <div class="leadership-title">Founder & CEO</div>
+                    <p class="leadership-bio">Frank has led contraco through every major digital transformation wave since 1998. His vision for humanizing AI and psychological architecture has guided Fortune 500 companies through their most critical transformations. With 27+ years of experience spanning search engines to artificial intelligence, Frank champions the belief that true transformation must be felt, not just implemented. His pioneering work in The Resonance Method™ represents the evolution from traditional consulting to comprehensive human-centered change.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2 class="cta-title">Ready to Experience Transformation?</h2>
+                <p class="cta-description">Join industry leaders who've chosen human-centered change over algorithmic efficiency.</p>
                 <div class="cta-buttons">
-                    <a href="https://www.contraco.net/#services" class="btn-cta">
+                    <a href="https://www.contraco.net/#services" class="cta-button">
                         Explore Our Services
                         <span>→</span>
                     </a>
-                    <a href="https://www.contraco.net/#contact" class="btn-cta btn-cta-outline">
+                    <a href="https://www.contraco.net/#contact" class="cta-button cta-button-outline">
                         Start the Conversation
                         <span>→</span>
                     </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="company-info">
-    <div class="footer-links">
-    <a href="https://www.contraco.net/">Home</a>
-    <a href="https://www.contraco.net/contraco_about.html">About Us</a>
-    <a href="https://www.contraco.net/#services">Services</a>
-    <a href="https://www.contraco.net/#methodology">Methodology</a>
-    <a href="https://www.contraco.net/contraco_insights.html">Insights</a>
-    <a href="https://www.contraco.net/#contact">Contact</a>
-</div>
-    <h4>contraco</h4>
+                    <div class="footer-links">
+                        <a href="https://www.contraco.net/">Home</a>
+                        <a href="https://www.contraco.net/contraco_about.html">About Us</a>
+                        <a href="https://www.contraco.net/#services">Services</a>
+                        <a href="https://www.contraco.net/#methodology">Methodology</a>
+                        <a href="https://www.contraco.net/contraco_insights.html">Insights</a>
+                        <a href="https://www.contraco.net/#contact">Contact</a>
+                    </div>
+                    <h4>contraco USA</h4>
                     <p>Premium transformation consulting combining strategic clarity, technological intelligence, and psychological depth.</p>
                     <p><strong>Email:</strong> transformation@contraco.net</p>
                     <p><strong>Phone:</strong> +1 (312) 940-0326</p>
@@ -1064,13 +902,48 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 contraco All rights reserved.</p>
-                <p style="margin-top: 8px; font-size: 0.8rem; opacity: 0.8;">The Resonance Method™ is a trademark of contraco.</p>
+                <p>&copy; 2025 contraco. All rights reserved.</p>
+                <p class="trademark-notice">The Resonance Method™ is a trademark of contraco.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Enhanced logo fallback with retry mechanism
+        (function() {
+            const logo = document.getElementById('site-logo');
+            const img = logo.querySelector('img');
+            let retryCount = 0;
+            const maxRetries = 2;
+
+            function retryLoadLogo() {
+                retryCount++;
+                if (retryCount <= maxRetries) {
+                    img.src = img.src + '?retry=' + retryCount;
+                } else {
+                    logo.classList.add('logo-failed');
+                }
+            }
+
+            img.addEventListener('error', retryLoadLogo);
+            
+            img.addEventListener('load', function() {
+                logo.classList.remove('logo-failed');
+            });
+        })();
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(248, 246, 243, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(248, 246, 243, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1085,98 +958,22 @@
             });
         });
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.background = 'rgba(248, 246, 243, 0.98)';
-                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                navbar.style.background = 'rgba(248, 246, 243, 0.95)';
-                navbar.style.boxShadow = 'none';
-            }
-        });
-        
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-        
-        // Apply animation to timeline items
-        document.querySelectorAll('.timeline-item').forEach(item => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(30px)';
-            item.style.transition = 'all 0.6s ease-out';
-            observer.observe(item);
-        });
-        
-        // Apply animation to philosophy cards
-        document.querySelectorAll('.philosophy-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'all 0.6s ease-out';
-            observer.observe(card);
-        });
-
-        // Apply animation to client categories
-        document.querySelectorAll('.client-category').forEach(category => {
-            category.style.opacity = '0';
-            category.style.transform = 'translateY(30px)';
-            category.style.transition = 'all 0.6s ease-out';
-            observer.observe(category);
-        });
-
-        // Stats counter animation
-        function animateStats() {
-            const stats = document.querySelectorAll('.stat-number');
-            stats.forEach(stat => {
-                const target = stat.textContent;
-                const isNumber = !isNaN(target);
-                
-                if (isNumber) {
-                    let current = 0;
-                    const increment = target / 50;
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= target) {
-                            stat.textContent = target;
-                            clearInterval(timer);
-                        } else {
-                            stat.textContent = Math.floor(current);
-                        }
-                    }, 30);
-                }
-            });
-        }
-
-        // Trigger stats animation when hero is visible
-        const heroObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setTimeout(animateStats, 500);
-                    heroObserver.unobserve(entry.target);
-                }
-            });
-        });
-
-        heroObserver.observe(document.querySelector('.hero-stats'));
-
         // Analytics tracking (only if gtag is loaded)
         if (typeof gtag !== 'undefined') {
             gtag('event', 'page_view', {
                 page_title: 'About Page',
                 page_location: window.location.href,
                 content_group1: 'About'
+            });
+
+            // Track CTA clicks
+            document.querySelectorAll('.cta-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    gtag('event', 'cta_click', {
+                        event_category: 'About Page',
+                        event_label: button.textContent.trim()
+                    });
+                });
             });
         }
     </script>
