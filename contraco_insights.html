@@ -4,59 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transformation Insights - contraco</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-868WGCC45D"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-868WGCC45D', {
-            page_title: 'Transformation Insights - contraco',
-            page_location: window.location.href
-        });
-    </script>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="msapplication-TileColor" content="#e62d00">
-    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
-    <meta name="theme-color" content="#e62d00">
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Transformation insights from contraco - Strategic intelligence on digital transformation, AI adoption, and human-centered change management.">
-    <meta name="keywords" content="transformation insights, digital transformation, AI adoption, change management, organizational design, contraco">
-    <meta name="author" content="contraco">
-    
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.contraco.net/contraco_insights.html">
-    <meta property="og:title" content="Transformation Insights - contraco">
-    <meta property="og:description" content="Strategic intelligence and practical wisdom from the frontlines of organizational transformation.">
-    <meta property="og:image" content="https://www.contraco.net/images/contraco-insights-preview.jpg">
-    
-    <!-- Twitter Card -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.contraco.net/contraco_insights.html">
-    <meta property="twitter:title" content="Transformation Insights - contraco">
-    <meta property="twitter:description" content="Strategic intelligence and practical wisdom from the frontlines of organizational transformation.">
-    <meta property="twitter:image" content="https://www.contraco.net/images/contraco-insights-preview.jpg">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -64,36 +13,15 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --primary-red: #e62d00;
-            --deep-charcoal: #2C2C2C;
-            --warm-white: #F8F6F3;
-            --warm-gray-light: #E5E2DD;
-            --warm-gray-medium: #A8A5A0;
-            --warm-gray-dark: #6B6B6B;
-            
-            /* Typography */
-            --font-primary: 'Inter', sans-serif;
-            --font-secondary: 'Crimson Text', serif;
-            --font-serif: 'Crimson Text', serif;
-            --font-sans: 'Inter', sans-serif;
-            
-            /* Spacing */
-            --section-padding: 100px 0;
-            --container-max: 1200px;
-        }
-
         body {
-            font-family: var(--font-sans);
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: var(--deep-charcoal);
-            background-color: var(--warm-white);
-            margin: 0;
-            padding: 0;
+            color: #2C2C2C;
+            background-color: #F8F6F3;
         }
 
         .container {
-            max-width: var(--container-max);
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 40px;
         }
@@ -107,38 +35,47 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 12px 0;
-            transition: all 0.3s ease;
         }
 
-.nav-container {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: var(--container-max);
-    margin: 0 auto;
-    padding: 0 40px;
-}
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
 
-.logo {
-    margin-left: 60px;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
+        .logo {
+            margin-left: 60px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
 
         .logo img {
             height: 36px;
             width: auto;
-            transition: transform 0.3s ease;
         }
 
-        .logo:hover img {
-            transform: scale(1.05);
+        .logo-fallback {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #e62d00;
+            font-family: 'Crimson Text', serif;
+            display: none;
         }
 
-         .nav-menu {
-            margin-right: 60px; /* Adjust this value - try 40px, 80px, etc. */
+        .logo.logo-failed img {
+            display: none;
+        }
+
+        .logo.logo-failed .logo-fallback {
+            display: block;
+        }
+
+        .nav-menu {
+            margin-right: 60px;
             display: flex;
             list-style: none;
             gap: 35px;
@@ -146,584 +83,300 @@
 
         .nav-link {
             text-decoration: none;
-            color: var(--deep-charcoal);
+            color: #2C2C2C;
             font-weight: 500;
             font-size: 0.95rem;
-            transition: color 0.3s ease;
-            position: relative;
         }
 
-        .nav-link:hover, .nav-link.active {
-            color: var(--primary-red);
+        .nav-link.active {
+            color: #e62d00;
         }
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--primary-red);
-            transition: width 0.3s ease;
+        /* Main Content */
+        .main-content {
+            padding-top: 100px;
         }
 
-        .nav-link:hover::after, .nav-link.active::after {
-            width: 100%;
-        }
-
-        /* Insights Section */
-        .insights {
-            padding: 120px 0;
-            background: white;
-            position: relative;
-        }
-
-        .insights .container {
-            padding: 0 40px;
-        }
-
-        .section-header {
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #F8F6F3 0%, #E5E2DD 100%);
+            padding: 120px 0 80px;
             text-align: center;
-            margin-bottom: 80px;
         }
 
-        .section-title {
-            font-family: var(--font-secondary);
-            font-size: clamp(2.5rem, 5vw, 4rem);
+        .hero-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 4rem;
             font-weight: 600;
-            color: var(--deep-charcoal);
-            margin-bottom: 24px;
-            letter-spacing: -0.02em;
+            margin-bottom: 30px;
+            color: #2C2C2C;
         }
 
-        .section-subtitle {
-            font-size: 1.25rem;
-            color: var(--warm-gray-dark);
-            max-width: 600px;
-            margin: 0 auto;
-            font-weight: 300;
+        .highlight {
+            color: #e62d00;
         }
 
-        /* Featured Insight */
-        .featured-insight {
-            background: white;
-            border: 2px solid var(--warm-gray-light);
-            border-radius: 16px;
-            padding: 0;
-            margin-bottom: 120px;
-            overflow: hidden;
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            box-shadow: 0 8px 30px rgba(44, 44, 44, 0.08);
-        }
-
-        .featured-insight::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(230, 45, 0, 0.05), transparent);
-            transition: left 0.8s ease;
-        }
-
-        .featured-insight:hover {
-            border-color: var(--primary-red);
-            box-shadow: 0 16px 50px rgba(230, 45, 0, 0.15);
-            transform: translateY(-8px);
-        }
-
-        .featured-insight:hover::before {
-            left: 100%;
-        }
-
-        .featured-content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: 500px;
-        }
-
-        .featured-text {
-            padding: 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .insight-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 24px;
-        }
-
-        .badge-pill {
-            background: linear-gradient(135deg, var(--primary-red) 0%, #D63E20 100%);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .badge-date {
-            color: var(--warm-gray-medium);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .featured-title {
-            font-family: var(--font-secondary);
-            font-size: clamp(1.75rem, 3vw, 2.5rem);
-            font-weight: 600;
-            color: var(--deep-charcoal);
-            margin-bottom: 24px;
-            line-height: 1.3;
-            letter-spacing: -0.01em;
-        }
-
-        .featured-description {
-            font-size: 1.125rem;
-            color: var(--warm-gray-dark);
-            margin-bottom: 40px;
-            line-height: 1.7;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            margin-bottom: 40px;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 24px 16px;
-            border-radius: 12px;
-            background: var(--warm-white);
-            border: 1px solid var(--warm-gray-light);
-            transition: all 0.3s ease;
-        }
-
-        .stat-item:hover {
-            background: white;
-            border-color: var(--primary-red);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(230, 45, 0, 0.1);
-        }
-
-        .stat-number {
-            display: block;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-red);
-            margin-bottom: 8px;
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
-            color: var(--warm-gray-dark);
-            line-height: 1.4;
-        }
-
-        .featured-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: var(--primary-red);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: none;
-            cursor: pointer;
-        }
-
-        .featured-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(230, 45, 0, 0.3);
-            background: #D63E20;
-            color: white;
-            text-decoration: none;
-        }
-
-        .featured-visual {
-            background: linear-gradient(135deg, var(--warm-white) 0%, var(--warm-gray-light) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 60px 40px;
-            position: relative;
-        }
-
-        .chart-container {
-            width: 100%;
-            max-width: 320px;
-            background: white;
-            padding: 32px;
-            border-radius: 16px;
-            border: 1px solid var(--warm-gray-light);
-            box-shadow: 0 8px 30px rgba(44, 44, 44, 0.08);
-        }
-
-        .chart-title {
-            color: var(--deep-charcoal);
-            font-weight: 600;
-            font-size: 1.125rem;
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        .chart-bars {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .chart-bar {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .bar-label {
-            color: var(--warm-gray-dark);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .bar-track {
-            height: 18px;
-            background: var(--warm-gray-light);
-            border-radius: 999px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .bar-fill {
-            height: 100%;
-            border-radius: 4px;
-            position: relative;
-            animation: barGrow 1.5s ease-out forwards;
-            background: linear-gradient(90deg, var(--primary-red), #D63E20);
-        }
-
-        .bar-fill.low {
-            background: linear-gradient(90deg, #ff6b6b, #ff8787);
-        }
-
-        .bar-fill.medium {
-            background: linear-gradient(90deg, #ffa500, #ffb84d);
-        }
-
-        .bar-value {
-            position: absolute;
-            right: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        @keyframes barGrow {
-            from { width: 0; }
-            to { 
-                width: var(--target-width);
-            }
-        }
-
-        /* Insights Grid */
-        .insights-categories {
-            display: flex;
-            flex-direction: column;
-            gap: 80px;
-        }
-
-        .category-section {
-            position: relative;
-        }
-
-        .category-title {
-            font-family: var(--font-secondary);
-            font-size: 2rem;
-            color: var(--deep-charcoal);
-            margin-bottom: 48px;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .insights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-            gap: 32px;
-        }
-
-        .insight-card {
-            background: white;
-            border: 2px solid var(--warm-gray-light);
-            border-radius: 12px;
-            padding: 32px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(44, 44, 44, 0.06);
-        }
-
-        .insight-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 2px;
-            background: var(--primary-red);
-            transition: left 0.6s ease;
-        }
-
-        .insight-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--primary-red);
-            background: white;
-            box-shadow: 0 12px 40px rgba(230, 45, 0, 0.12);
-        }
-
-        .insight-card:hover::before {
-            left: 0;
-        }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .card-type {
-            background: var(--warm-gray-light);
-            color: var(--warm-gray-dark);
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .card-duration {
-            color: var(--warm-gray-medium);
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        .card-title {
-            font-family: var(--font-secondary);
-            font-size: 1.375rem;
-            color: var(--deep-charcoal);
-            margin-bottom: 16px;
-            line-height: 1.4;
-            font-weight: 600;
-        }
-
-        .card-description {
-            color: var(--warm-gray-dark);
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #6B6B6B;
+            margin-bottom: 50px;
             line-height: 1.6;
-            margin-bottom: 24px;
-            font-size: 0.95rem;
-        }
-
-        .card-tags {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            background: rgba(230, 45, 0, 0.1);
-            color: var(--primary-red);
-            padding: 6px 12px;
-            border-radius: 16px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            border: 1px solid rgba(230, 45, 0, 0.2);
-        }
-
-        /* CTA Section */
-        .insights-cta {
-            margin-top: 120px;
-            text-align: center;
-            background: var(--warm-white);
-            border: 2px solid var(--warm-gray-light);
-            border-radius: 16px;
-            padding: 80px 60px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 8px 30px rgba(44, 44, 44, 0.08);
-        }
-
-        .insights-cta::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(230, 45, 0, 0.03) 0%, transparent 70%);
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.5; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.05); }
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta-title {
-            font-family: var(--font-secondary);
-            font-size: clamp(2rem, 4vw, 2.75rem);
-            color: var(--deep-charcoal);
-            margin-bottom: 24px;
-            font-weight: 600;
-        }
-
-        .cta-subtitle {
-            font-size: 1.25rem;
-            color: var(--warm-gray-dark);
-            margin-bottom: 40px;
-            max-width: 600px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .cta-button {
+        /* Featured Article Section - REDUCED PADDING */
+        .featured-section {
+            padding: 100px 0 30px 0;
+            background: white;
+        }
+
+        .featured-article {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            border: 1px solid #E5E2DD;
+            margin-bottom: 0;
+        }
+
+        .featured-content {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            min-height: 500px;
+        }
+
+        .featured-text {
+            padding: 50px 50px 30px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .featured-badge {
+            background: #e62d00;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            width: fit-content;
+            margin-bottom: 10px;
+        }
+
+        .featured-date {
+            color: #6B6B6B;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .featured-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            color: #2C2C2C;
+        }
+
+        .featured-excerpt {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #6B6B6B;
+            line-height: 1.6;
+        }
+
+        .featured-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid #E5E2DD;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #e62d00;
+            font-family: 'Crimson Text', serif;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #6B6B6B;
+            line-height: 1.3;
+        }
+
+        .featured-cta {
+            background: #e62d00;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 15px 30px;
+            border-radius: 6px;
+            width: fit-content;
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            background: var(--primary-red);
-            color: white;
-            padding: 20px 40px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.125rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: none;
-            cursor: pointer;
+            gap: 8px;
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(230, 45, 0, 0.3);
-            background: #D63E20;
-            color: white;
-            text-decoration: none;
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(44, 44, 44, 0.8);
-            backdrop-filter: blur(10px);
-        }
-
-        .modal-content {
-            background: white;
-            margin: 5% auto;
-            padding: 0;
-            border-radius: 16px;
-            border: 2px solid var(--warm-gray-light);
-            width: 90%;
-            max-width: 900px;
-            max-height: 85vh;
-            overflow: hidden;
-            animation: modalSlide 0.3s ease-out;
-            box-shadow: 0 20px 60px rgba(44, 44, 44, 0.3);
-        }
-
-        @keyframes modalSlide {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .modal-header {
-            background: var(--warm-white);
-            padding: 24px 32px;
-            border-bottom: 1px solid var(--warm-gray-light);
+        .featured-visual {
+            background: #E5E2DD;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
+            padding: 40px 30px;
         }
 
-        .modal-title {
-            font-family: var(--font-secondary);
-            font-size: 1.5rem;
-            color: var(--deep-charcoal);
+        .success-rates-chart {
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .chart-title {
+            font-size: 1.1rem;
             font-weight: 600;
+            text-align: center;
+            margin-bottom: 25px;
+            color: #2C2C2C;
         }
 
-        .close {
-            color: var(--warm-gray-medium);
-            font-size: 2rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            line-height: 1;
+        .chart-item {
+            margin-bottom: 15px;
         }
 
-        .close:hover {
-            color: var(--deep-charcoal);
+        .chart-label {
+            font-size: 0.9rem;
+            color: #6B6B6B;
+            margin-bottom: 5px;
         }
 
-        .modal-body {
-            padding: 40px;
-            max-height: 60vh;
-            overflow-y: auto;
-            color: var(--warm-gray-dark);
-            line-height: 1.7;
+        .chart-bar {
+            background: #e9ecef;
+            height: 24px;
+            border-radius: 12px;
+            overflow: hidden;
         }
 
-        .modal-body h2 {
-            color: var(--deep-charcoal);
-            margin: 32px 0 16px;
-            font-family: var(--font-secondary);
-            font-size: 1.375rem;
+        .chart-fill {
+            height: 100%;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
         }
 
-        .modal-body h2:first-child {
-            margin-top: 0;
+        .chart-fill.traditional {
+            background: #dc3545;
+            width: 27%;
         }
 
-        .modal-body ul, .modal-body ol {
-            margin: 16px 0;
-            padding-left: 24px;
+        .chart-fill.technology {
+            background: #fd7e14;
+            width: 35%;
         }
 
-        .modal-body li {
-            margin: 8px 0;
+        .chart-fill.resonance {
+            background: #e62d00;
+            width: 84%;
+        }
+
+        /* Insights Section - REDUCED TOP PADDING */
+        .insights-section {
+            padding: 30px 0 100px 0;
+            background: white;
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .insight-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            border-top: 4px solid #e62d00;
+        }
+
+        .insight-header {
+            padding: 30px;
+            background: #F8F6F3;
+        }
+
+        .insight-meta {
+            font-size: 0.85rem;
+            color: #6B6B6B;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .insight-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2C2C2C;
+            line-height: 1.3;
+        }
+
+        .insight-excerpt {
+            color: #6B6B6B;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .insight-content {
+            padding: 30px 35px 15px;
+            text-align: left;
+        }
+
+        .insight-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+            justify-content: flex-start;
+        }
+
+        .tag {
+            background: #E5E2DD;
+            color: #6B6B6B;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .insight-cta {
+            color: #e62d00;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
         /* Footer */
         .footer {
             background: #1a1a1a;
-            color: var(--warm-gray-light);
+            color: #E5E2DD;
             padding: 50px 0 35px;
         }
 
@@ -731,15 +384,27 @@
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 50px;
-            align-items: start;
             margin-bottom: 32px;
         }
 
+        .footer-links {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .footer-links a {
+            color: #E5E2DD;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
         .company-info h4 {
-            color: var(--primary-red);
+            color: #e62d00;
             font-size: 1.1rem;
             margin-bottom: 16px;
-            font-family: var(--font-serif);
+            font-family: 'Crimson Text', serif;
         }
 
         .company-info p {
@@ -749,10 +414,10 @@
         }
 
         .imprint-section h4 {
-            color: var(--primary-red);
+            color: #e62d00;
             font-size: 1rem;
             margin-bottom: 12px;
-            font-family: var(--font-serif);
+            font-family: 'Crimson Text', serif;
         }
 
         .imprint-details {
@@ -776,162 +441,90 @@
             font-size: 0.8rem;
             opacity: 0.8;
         }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-                text-align: center;
-            }
-            
-            .container {
-                padding: 0 20px;
-            }
-            
-            .nav-menu {
-                display: none;
-            }
-            
-            .logo img {
-                height: 32px;
-            }
-
-            .insights {
-                padding: 80px 0;
-            }
-
-            .featured-content-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .featured-text {
-                padding: 40px;
-            }
-
-            .featured-visual {
-                padding: 40px;
-                min-height: 300px;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-
-            .insights-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .insight-card {
-                padding: 24px;
-            }
-
-            .insights-cta {
-                padding: 40px 24px;
-                margin-top: 80px;
-            }
-
-            .modal-content {
-                width: 95%;
-                margin: 10% auto;
-            }
-
-            .modal-body {
-                padding: 24px;
-            }
-        }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
-    <div class="nav-container">
-        <a href="https://www.contraco.net/" class="logo">
-            <img src="https://contraco.net/Logo_rectangle.svg" alt="contraco" />
-        </a>
-        <!-- This is where your consistent navigation goes: -->
-        <ul class="nav-menu">
-            <li><a href="https://www.contraco.net/#services" class="nav-link">Services</a></li>
-            <li><a href="https://www.contraco.net/#methodology" class="nav-link">Methodology</a></li>
-            <li><a href="https://www.contraco.net/contraco_insights.html" class="nav-link active">Insights</a></li>
-            <li><a href="https://www.contraco.net/contraco_about.html" class="nav-link">About</a></li>
-            <li><a href="https://www.contraco.net/#contact" class="nav-link">Contact</a></li>
-        </ul>
-    </div>
-</nav>
+        <div class="nav-container">
+            <a href="https://www.contraco.net/" class="logo" id="site-logo">
+                <img src="https://contraco.net/Logo_rectangle.svg" alt="contraco" onerror="this.parentElement.classList.add('logo-failed');">
+                <span class="logo-fallback">contraco</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="https://www.contraco.net/" class="nav-link">Home</a></li>
+                <li><a href="https://www.contraco.net/#services" class="nav-link">Services</a></li>
+                <li><a href="https://www.contraco.net/#methodology" class="nav-link">Methodology</a></li>
+                <li><a href="https://www.contraco.net/contraco_insights.html" class="nav-link active">Insights</a></li>
+                <li><a href="https://www.contraco.net/contraco_about.html" class="nav-link">About</a></li>
+                <li><a href="https://www.contraco.net/#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <!-- Add padding for fixed nav -->
-    <div style="height: 80px;"></div>
-    
-    <!-- Insights Section -->
-    <section class="insights" id="insights">
-        <div class="container">
-            <div class="section-header">
-                <h1 class="section-title">Transformation Insights</h1>
-                <p class="section-subtitle">
-                    Strategic intelligence and practical wisdom from the frontlines of organizational transformation
-                </p>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">Transformation <span class="highlight">Insights</span></h1>
+                <p class="hero-subtitle">Strategic intelligence and practical wisdom from the frontlines of organizational transformation. 27 years of experience distilled into actionable insights.</p>
             </div>
-            
-            <!-- Featured Insight -->
-            <div class="featured-insight">
-                <div class="featured-content-grid">
-                    <div class="featured-text">
-                        <div class="insight-badge">
-                            <span class="badge-pill">Featured Research</span>
-                            <span class="badge-date">August 2025</span>
+        </section>
+
+        <!-- Featured Article Section -->
+        <section class="featured-section">
+            <div class="container">
+                <div class="featured-article">
+                    <div class="featured-content">
+                        <div class="featured-text">
+                            <div>
+                                <div class="featured-badge">FEATURED RESEARCH</div>
+                                <div class="featured-date">August 2025</div>
+                                <h2 class="featured-title">The Psychology of AI Adoption: Why 73% of Digital Transformations Fail at the Human Level</h2>
+                                <p class="featured-excerpt">Our latest research reveals that technological capability isn't the bottleneck—psychological readiness is. Organizations that integrate change psychology into their AI implementation strategies see 4x higher adoption rates and 60% better ROI.</p>
+                            </div>
+                            
+                            <div class="featured-stats">
+                                <div class="stat-box">
+                                    <div class="stat-number">73%</div>
+                                    <div class="stat-label">Transformations fail at human adoption</div>
+                                </div>
+                                <div class="stat-box">
+                                    <div class="stat-number">4x</div>
+                                    <div class="stat-label">Higher adoption with psychology integration</div>
+                                </div>
+                                <div class="stat-box">
+                                    <div class="stat-number">60%</div>
+                                    <div class="stat-label">Better ROI with Resonance Method™</div>
+                                </div>
+                            </div>
+
+                            <a href="https://www.contraco.net/contraco_ai_adoption_research.html" class="featured-cta">
+                                Read Full Research
+                                <span>→</span>
+                            </a>
                         </div>
-                        <h2 class="featured-title">The Psychology of AI Adoption: Why 73% of Digital Transformations Fail at the Human Level</h2>
-                        <p class="featured-description">Our latest research reveals that technological capability isn't the bottleneck—psychological readiness is. Organizations that integrate change psychology into their AI implementation strategies see 4x higher adoption rates and 60% better ROI.</p>
                         
-                        <div class="stats-grid">
-                            <div class="stat-item">
-                                <span class="stat-number">73%</span>
-                                <span class="stat-label">Transformations fail at human adoption</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">4x</span>
-                                <span class="stat-label">Higher adoption with psychology integration</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">60%</span>
-                                <span class="stat-label">Better ROI with Resonance Method™</span>
-                            </div>
-                        </div>
-                        <a href="https://www.contraco.net/contraco_ai_adoption_research.html" class="featured-cta">
-                            Read Full Research
-                            <span>→</span>
-                        </a>
-                    </div>
-                        
-                    <div class="featured-visual">
-                        <div class="chart-container">
-                            <div class="chart-title">Transformation Success Rates</div>
-                            <div class="chart-bars">
-                                <div class="chart-bar">
-                                    <div class="bar-label">Traditional Approach</div>
-                                    <div class="bar-track">
-                                        <div class="bar-fill low" style="--target-width: 27%;">
-                                            <span class="bar-value">27%</span>
-                                        </div>
+                        <div class="featured-visual">
+                            <div class="success-rates-chart">
+                                <h3 class="chart-title">Transformation Success Rates</h3>
+                                <div class="chart-item">
+                                    <div class="chart-label">Traditional Approach</div>
+                                    <div class="chart-bar">
+                                        <div class="chart-fill traditional">27%</div>
                                     </div>
                                 </div>
-                                <div class="chart-bar">
-                                    <div class="bar-label">Technology-First</div>
-                                    <div class="bar-track">
-                                        <div class="bar-fill medium" style="--target-width: 35%;">
-                                            <span class="bar-value">35%</span>
-                                        </div>
+                                <div class="chart-item">
+                                    <div class="chart-label">Technology-First</div>
+                                    <div class="chart-bar">
+                                        <div class="chart-fill technology">35%</div>
                                     </div>
                                 </div>
-                                <div class="chart-bar">
-                                    <div class="bar-label">Resonance Method™</div>
-                                    <div class="bar-track">
-                                        <div class="bar-fill" style="--target-width: 84%;">
-                                            <span class="bar-value">84%</span>
-                                        </div>
+                                <div class="chart-item">
+                                    <div class="chart-label">Resonance Method™</div>
+                                    <div class="chart-bar">
+                                        <div class="chart-fill resonance">84%</div>
                                     </div>
                                 </div>
                             </div>
@@ -939,186 +532,144 @@
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Insights Categories -->
-            <div class="insights-categories">
-                <!-- Strategic Intelligence -->
-                <div class="category-section">
-                    <h2 class="category-title">Strategic Intelligence</h2>
-                    <div class="insights-grid">
-                        <div class="insight-card" onclick="window.location.href='https://www.contraco.net/contraco_strategic_intelligence.html#psychology-of-pricing';">
-                            <div class="card-header">
-                                <span class="card-type">Strategy Brief</span>
-                                <span class="card-duration">5 min read</span>
-                            </div>
-                            <h4 class="card-title">The Psychology of Pricing: How Behavioral Economics Drives Revenue Growth</h4>
-                            <p class="card-description">Beyond traditional pricing models lies a deeper understanding of customer psychology. We explore how behavioral economics principles can increase pricing power by 15-30%.</p>
-                            <div class="card-tags">
-                                <span class="tag">Pricing Strategy</span>
-                                <span class="tag">Behavioral Economics</span>
-                            </div>
+        <!-- Insights Section -->
+        <section class="insights-section">
+            <div class="container">
+                <div class="insights-grid">
+                    <article class="insight-card">
+                        <div class="insight-header">
+                            <div class="insight-meta">Strategy Brief | 8 min read</div>
+                            <h3 class="insight-title">The Psychology of Pricing: How Behavioral Economics Drives Revenue Growth</h3>
+                            <p class="insight-excerpt">Traditional pricing models fail because they overlook fundamental psychological drivers of purchasing decisions. Learn how behavioral economics can increase pricing power by 15-30%.</p>
                         </div>
-
-                        <div class="insight-card" onclick="window.location.href='https://www.contraco.net/contraco_strategic_intelligence.html#ai-strategy-framework';">
-                            <div class="card-header">
-                                <span class="card-type">Executive Guide</span>
-                                <span class="card-duration">8 min read</span>
+                        <div class="insight-content">
+                            <div class="insight-tags">
+                                <span class="tag">Strategy</span>
+                                <span class="tag">Psychology</span>
+                                <span class="tag">Revenue</span>
                             </div>
-                            <h4 class="card-title">AI Strategy Framework: From Pilot to Enterprise Scale</h4>
-                            <p class="card-description">A practical roadmap for executives navigating AI implementation. Learn the strategic checkpoints that separate successful enterprise AI from expensive experiments.</p>
-                            <div class="card-tags">
+                            <a href="#" class="insight-cta">
+                                Read Insight
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="insight-card">
+                        <div class="insight-header">
+                            <div class="insight-meta">Executive Guide | 12 min read</div>
+                            <h3 class="insight-title">AI Strategy Framework: From Pilot to Enterprise Scale</h3>
+                            <p class="insight-excerpt">The transition from AI experimentation to enterprise implementation separates industry leaders from digital laggards. Our framework provides strategic checkpoints for success.</p>
+                        </div>
+                        <div class="insight-content">
+                            <div class="insight-tags">
                                 <span class="tag">AI Strategy</span>
-                                <span class="tag">Digital Transformation</span>
+                                <span class="tag">Implementation</span>
+                                <span class="tag">Framework</span>
                             </div>
+                            <a href="#" class="insight-cta">
+                                Read Guide
+                                <span>→</span>
+                            </a>
                         </div>
+                    </article>
 
-                        <div class="insight-card" onclick="window.location.href='https://www.contraco.net/contraco_strategic_intelligence.html#organizational-design-ai-era';">
-                            <div class="card-header">
-                                <span class="card-type">Case Study</span>
-                                <span class="card-duration">12 min read</span>
-                            </div>
-                            <h4 class="card-title">Organizational Design for the AI Era: Lessons from 50+ Transformations</h4>
-                            <p class="card-description">How forward-thinking organizations are restructuring for AI-augmented workflows. Real patterns and anti-patterns from our transformation portfolio.</p>
-                            <div class="card-tags">
+                    <article class="insight-card">
+                        <div class="insight-header">
+                            <div class="insight-meta">Case Study | 15 min read</div>
+                            <h3 class="insight-title">Organizational Design for the AI Era: Lessons from 50+ Transformations</h3>
+                            <p class="insight-excerpt">Analysis of organizational transformations across Fortune 500 companies reveals consistent patterns for AI-ready organizational design.</p>
+                        </div>
+                        <div class="insight-content">
+                            <div class="insight-tags">
                                 <span class="tag">Organizational Design</span>
-                                <span class="tag">Future of Work</span>
+                                <span class="tag">Case Study</span>
+                                <span class="tag">AI Era</span>
                             </div>
+                            <a href="#" class="insight-cta">
+                                Read Case Study
+                                <span>→</span>
+                            </a>
                         </div>
-                    </div>
-                </div>
+                    </article>
 
-                <!-- Technological Intelligence -->
-                <div class="category-section">
-                    <h2 class="category-title">Technological Intelligence</h2>
-                    <div class="insights-grid">
-                        <div class="insight-card" onclick="openInsightModal('omnichannel')">
-                            <div class="card-header">
-                                <span class="card-type">Technical Deep Dive</span>
-                                <span class="card-duration">10 min read</span>
-                            </div>
-                            <h4 class="card-title">Omnichannel Architecture: Building for Customer Journey Intelligence</h4>
-                            <p class="card-description">Technical strategies for creating seamless customer experiences across all touchpoints. Architecture patterns that scale from startup to enterprise.</p>
-                            <div class="card-tags">
-                                <span class="tag">Omnichannel</span>
-                                <span class="tag">Customer Experience</span>
-                            </div>
+                    <article class="insight-card">
+                        <div class="insight-header">
+                            <div class="insight-meta">Leadership Brief | 6 min read</div>
+                            <h3 class="insight-title">Leading Through AI Transformation: The Human Side of Change</h3>
+                            <p class="insight-excerpt">While technology evolves rapidly, human psychology remains constant. Leadership strategies that address fear, uncertainty, and identity during AI adoption.</p>
                         </div>
+                        <div class="insight-content">
+                            <div class="insight-tags">
+                                <span class="tag">Leadership</span>
+                                <span class="tag">Change Management</span>
+                                <span class="tag">Human-Centered</span>
+                            </div>
+                            <a href="#" class="insight-cta">
+                                Read Brief
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </article>
 
-                        <div class="insight-card" onclick="openInsightModal('data-strategy')">
-                            <div class="card-header">
-                                <span class="card-type">Analytics Framework</span>
-                                <span class="card-duration">6 min read</span>
-                            </div>
-                            <h4 class="card-title">Data Strategy for Decision Intelligence: Beyond Business Intelligence</h4>
-                            <p class="card-description">Moving from reactive reporting to predictive insights. How to build data capabilities that enhance decision-making at every organizational level.</p>
-                            <div class="card-tags">
-                                <span class="tag">Data Strategy</span>
-                                <span class="tag">Business Intelligence</span>
-                            </div>
+                    <article class="insight-card">
+                        <div class="insight-header">
+                            <div class="insight-meta">Methodology | 10 min read</div>
+                            <h3 class="insight-title">The Resonance Method™ in Action: Cultural Transformation at Scale</h3>
+                            <p class="insight-excerpt">How our signature methodology creates sustainable change by aligning strategic clarity, technological intelligence, and psychological depth across organizations.</p>
                         </div>
+                        <div class="insight-content">
+                            <div class="insight-tags">
+                                <span class="tag">Resonance Method</span>
+                                <span class="tag">Culture</span>
+                                <span class="tag">Transformation</span>
+                            </div>
+                            <a href="https://www.contraco.net/contraco_resonance_method.html" class="insight-cta">
+                                Explore Method
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </article>
 
-                        <div class="insight-card" onclick="openInsightModal('automation')">
-                            <div class="card-header">
-                                <span class="card-type">Implementation Guide</span>
-                                <span class="card-duration">7 min read</span>
-                            </div>
-                            <h4 class="card-title">Intelligent Automation: When to Automate, When to Augment</h4>
-                            <p class="card-description">Strategic decision framework for automation initiatives. Identifying high-impact opportunities while maintaining human value and organizational agility.</p>
-                            <div class="card-tags">
-                                <span class="tag">Process Automation</span>
-                                <span class="tag">Human-AI Collaboration</span>
-                            </div>
+                    <article class="insight-card">
+                        <div class="insight-header">
+                            <div class="insight-meta">Research Paper | 20 min read</div>
+                            <h3 class="insight-title">Digital Transformation ROI: Measuring Human and Financial Impact</h3>
+                            <p class="insight-excerpt">Comprehensive analysis of transformation ROI across 12 industries, revealing the correlation between human-centered approaches and financial performance.</p>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Human-Centered Change -->
-                <div class="category-section">
-                    <h2 class="category-title">Human-Centered Change</h2>
-                    <div class="insights-grid">
-                        <div class="insight-card" onclick="openInsightModal('change-psychology')">
-                            <div class="card-header">
-                                <span class="card-type">Research Report</span>
-                                <span class="card-duration">15 min read</span>
+                        <div class="insight-content">
+                            <div class="insight-tags">
+                                <span class="tag">ROI Analysis</span>
+                                <span class="tag">Research</span>
+                                <span class="tag">Performance</span>
                             </div>
-                            <h4 class="card-title">The Neuroscience of Organizational Change: Why Logic Isn't Enough</h4>
-                            <p class="card-description">Breakthrough research on how the brain processes organizational change. Practical applications of neuroscience principles for transformation leaders.</p>
-                            <div class="card-tags">
-                                <span class="tag">Change Psychology</span>
-                                <span class="tag">Neuroscience</span>
-                            </div>
+                            <a href="#" class="insight-cta">
+                                Read Research
+                                <span>→</span>
+                            </a>
                         </div>
-
-                        <div class="insight-card" onclick="openInsightModal('culture-design')">
-                            <div class="card-header">
-                                <span class="card-type">Culture Brief</span>
-                                <span class="card-duration">9 min read</span>
-                            </div>
-                            <h4 class="card-title">Culture as Code: Engineering Organizational Values in the Digital Age</h4>
-                            <p class="card-description">How technology companies are systematically building culture through systems, processes, and digital touchpoints. A data-driven approach to cultural transformation.</p>
-                            <div class="card-tags">
-                                <span class="tag">Culture Design</span>
-                                <span class="tag">Values Engineering</span>
-                            </div>
-                        </div>
-
-                        <div class="insight-card" onclick="openInsightModal('leadership-evolution')">
-                            <div class="card-header">
-                                <span class="card-type">Leadership Guide</span>
-                                <span class="card-duration">11 min read</span>
-                            </div>
-                            <h4 class="card-title">Leadership in the Age of AI: From Command to Orchestration</h4>
-                            <p class="card-description">The evolution of leadership roles in AI-augmented organizations. How successful leaders are adapting their approach to guide human-AI collaboration and maintain strategic vision.</p>
-                            <div class="card-tags">
-                                <span class="tag">Leadership Evolution</span>
-                                <span class="tag">AI Integration</span>
-                            </div>
-                        </div>
-                    </div>
+                    </article>
                 </div>
             </div>
+        </section>
+    </main>
 
-            <!-- CTA Section -->
-            <div class="insights-cta">
-                <div class="cta-content">
-                    <h2 class="cta-title">Ready to Transform with Strategic Intelligence?</h2>
-                    <p class="cta-subtitle">Apply these insights to your organization with The Resonance Method™ — combining strategic clarity, technological intelligence, and psychological depth.</p>
-                    <a href="https://www.contraco.net/#contact" class="cta-button">
-                        Start Your Transformation Journey
-                        <span>→</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modal Structure -->
-    <div id="insightModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title" id="modalTitle">Insight Title</h2>
-                <span class="close" onclick="closeInsightModal()">&times;</span>
-            </div>
-            <div class="modal-body" id="modalBody">
-                <!-- Modal content will be populated by JavaScript -->
-            </div>
-        </div>
-    </div>
-
-     <!-- Footer -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="company-info">
-    <div class="footer-links">
-    <a href="https://www.contraco.net/">Home</a>
-    <a href="https://www.contraco.net/contraco_about.html">About Us</a>
-    <a href="https://www.contraco.net/#services">Services</a>
-    <a href="https://www.contraco.net/#methodology">Methodology</a>
-    <a href="https://www.contraco.net/contraco_insights.html">Insights</a>
-    <a href="https://www.contraco.net/#contact">Contact</a>
-</div>
-    <h4>contraco USA</h4>
+                    <div class="footer-links">
+                        <a href="https://www.contraco.net/">Home</a>
+                        <a href="https://www.contraco.net/contraco_about.html">About Us</a>
+                        <a href="https://www.contraco.net/#services">Services</a>
+                        <a href="https://www.contraco.net/#methodology">Methodology</a>
+                        <a href="https://www.contraco.net/contraco_insights.html">Insights</a>
+                        <a href="https://www.contraco.net/#contact">Contact</a>
+                    </div>
+                    <h4>contraco USA</h4>
                     <p>Premium transformation consulting combining strategic clarity, technological intelligence, and psychological depth.</p>
                     <p><strong>Email:</strong> transformation@contraco.net</p>
                     <p><strong>Phone:</strong> +1 (312) 940-0326</p>
@@ -1141,228 +692,15 @@
     </footer>
 
     <script>
-        // Modal functionality
-        const modalContent = {
-            'omnichannel': {
-                title: 'Omnichannel Architecture: Building for Customer Journey Intelligence',
-                content: `
-                    <h2>The Challenge of Fragmented Customer Experience</h2>
-                    <p>Modern customers interact with brands across multiple touchpoints—websites, mobile apps, social media, email, physical stores, and customer service channels. Each interaction creates data and expectations that must be seamlessly connected to deliver a cohesive experience.</p>
-                    
-                    <h2>Architectural Principles for Omnichannel Success</h2>
-                    <p><strong>Customer Data Platform (CDP) as Foundation:</strong> Centralized customer data management that creates unified customer profiles across all touchpoints.</p>
-                    
-                    <p><strong>API-First Architecture:</strong> Microservices approach that enables flexible integration of new channels and technologies without disrupting existing systems.</p>
-                    
-                    <p><strong>Real-Time Data Synchronization:</strong> Event-driven architecture that ensures customer interactions are immediately reflected across all channels.</p>
-                    
-                    <h2>Implementation Strategy</h2>
-                    <ul>
-                        <li>Start with customer journey mapping to identify critical touchpoints</li>
-                        <li>Implement data governance frameworks for consistent customer information</li>
-                        <li>Build progressive personalization capabilities using machine learning</li>
-                        <li>Create feedback loops for continuous optimization</li>
-                    </ul>
-                    
-                    <p>Organizations implementing comprehensive omnichannel strategies typically see 15-35% improvement in customer satisfaction scores and 20-30% increase in customer lifetime value.</p>
-                `
-            },
-            'data-strategy': {
-                title: 'Data Strategy for Decision Intelligence: Beyond Business Intelligence',
-                content: `
-                    <h2>The Evolution from Reporting to Intelligence</h2>
-                    <p>Traditional business intelligence focuses on what happened. Decision intelligence focuses on what should happen next, combining data science, behavioral economics, and decision theory to enhance organizational decision-making.</p>
-                    
-                    <h2>Building Decision Intelligence Capabilities</h2>
-                    <p><strong>Predictive Analytics Integration:</strong> Moving beyond descriptive analytics to predictive models that inform strategic decisions.</p>
-                    
-                    <p><strong>Automated Decision Systems:</strong> Implementing AI-driven decision-making for routine operational choices while maintaining human oversight for strategic decisions.</p>
-                    
-                    <p><strong>Decision Quality Measurement:</strong> Establishing metrics to evaluate decision outcomes and continuously improve decision-making processes.</p>
-                    
-                    <h2>Implementation Framework</h2>
-                    <ul>
-                        <li>Audit current data assets and identify decision-critical gaps</li>
-                        <li>Implement data quality management and governance frameworks</li>
-                        <li>Build cross-functional teams combining data science and domain expertise</li>
-                        <li>Create decision trees and automated workflows for common scenarios</li>
-                    </ul>
-                    
-                    <p>Organizations with mature decision intelligence capabilities report 25-40% improvement in decision speed and 30-50% better strategic outcome achievement.</p>
-                `
-            },
-            'automation': {
-                title: 'Intelligent Automation: When to Automate, When to Augment',
-                content: `
-                    <h2>The Automation Decision Framework</h2>
-                    <p>Not all processes should be automated. The key is identifying where automation adds genuine value while preserving human creativity, judgment, and relationship-building capabilities.</p>
-                    
-                    <h2>Automation Sweet Spot Analysis</h2>
-                    <p><strong>High-Volume, Low-Variability Tasks:</strong> Routine data processing, report generation, and standard customer service queries are ideal for full automation.</p>
-                    
-                    <p><strong>Complex, High-Stakes Decisions:</strong> Strategic planning, customer relationship management, and creative problem-solving benefit from human-AI augmentation rather than replacement.</p>
-                    
-                    <p><strong>Hybrid Workflows:</strong> Many processes benefit from automation of routine elements while preserving human oversight for exceptions and quality assurance.</p>
-                    
-                    <h2>Implementation Best Practices</h2>
-                    <ul>
-                        <li>Start with pilot programs in low-risk, high-impact areas</li>
-                        <li>Implement comprehensive change management to address employee concerns</li>
-                        <li>Create clear escalation paths from automated to human decision-making</li>
-                        <li>Establish continuous monitoring and improvement processes</li>
-                    </ul>
-                    
-                    <p>Successful automation initiatives typically achieve 30-60% reduction in processing time while improving accuracy by 20-40% and employee satisfaction by focusing human effort on higher-value activities.</p>
-                `
-            },
-            'change-psychology': {
-                title: 'The Neuroscience of Organizational Change: Why Logic Isn\'t Enough',
-                content: `
-                    <h2>The Neuroscience Behind Resistance to Change</h2>
-                    <p>Recent neuroscience research reveals that organizational change triggers the brain's threat detection systems, creating physiological resistance that logical arguments cannot overcome. Understanding these mechanisms is crucial for successful transformation.</p>
-                    
-                    <h2>Brain-Based Change Principles</h2>
-                    <p><strong>Status Quo Bias and Neural Efficiency:</strong> The brain's preference for familiar patterns creates automatic resistance to new processes and structures.</p>
-                    
-                    <p><strong>Loss Aversion in Organizational Context:</strong> Employees perceive potential losses (familiar processes, established relationships, proven competencies) more intensely than equivalent gains.</p>
-                    
-                    <p><strong>Social Brain and Group Dynamics:</strong> Mirror neurons and social cognition systems mean that change must address both individual and collective psychological needs.</p>
-                    
-                    <h2>Neuroscience-Informed Change Strategies</h2>
-                    <ul>
-                        <li>Create positive emotional associations with change through celebration and recognition</li>
-                        <li>Implement gradual change processes that don't overwhelm the brain's adaptation capacity</li>
-                        <li>Use storytelling and visualization to engage emotional and rational brain systems</li>
-                        <li>Provide psychological safety to reduce threat responses</li>
-                    </ul>
-                    
-                    <p>Organizations applying neuroscience principles to change management see 40-65% higher adoption rates and 30-45% faster transformation timelines compared to traditional approaches.</p>
-                `
-            },
-            'culture-design': {
-                title: 'Culture as Code: Engineering Organizational Values in the Digital Age',
-                content: `
-                    <h2>Systematic Approach to Cultural Transformation</h2>
-                    <p>Leading technology companies are treating culture development with the same rigor as software development—creating systematic processes, measuring outcomes, and continuously iterating based on data.</p>
-                    
-                    <h2>Culture Engineering Framework</h2>
-                    <p><strong>Values Translation into Systems:</strong> Converting abstract cultural values into concrete policies, processes, and system designs that reinforce desired behaviors.</p>
-                    
-                    <p><strong>Behavioral Metrics and Feedback Loops:</strong> Implementing measurement systems that track cultural indicators and provide real-time feedback on cultural health.</p>
-                    
-                    <p><strong>Digital Culture Touchpoints:</strong> Designing digital experiences that reinforce cultural values through user interfaces, communication tools, and workflow systems.</p>
-                    
-                    <h2>Implementation Methodology</h2>
-                    <ul>
-                        <li>Define measurable cultural behaviors that reflect organizational values</li>
-                        <li>Design systems and processes that naturally encourage these behaviors</li>
-                        <li>Create feedback mechanisms to track cultural evolution</li>
-                        <li>Iterate and optimize based on behavioral data and employee feedback</li>
-                    </ul>
-                    
-                    <p>Organizations with systematically engineered cultures report 25-40% higher employee engagement, 30-50% better retention rates, and 20-35% faster innovation cycles.</p>
-                `
-            },
-            'leadership-evolution': {
-                title: 'Leadership in the Age of AI: From Command to Orchestration',
-                content: `
-                    <h2>The Changing Nature of Leadership</h2>
-                    <p>As AI takes over routine decision-making and analysis, leadership roles are evolving from information processing and command structures to orchestration, vision-setting, and human development.</p>
-                    
-                    <h2>New Leadership Competencies</h2>
-                    <p><strong>AI Collaboration Skills:</strong> Understanding how to work effectively with AI systems while maintaining human judgment for strategic and ethical decisions.</p>
-                    
-                    <p><strong>Adaptive Leadership:</strong> Leading through continuous change and uncertainty as AI capabilities rapidly evolve and market conditions shift.</p>
-                    
-                    <p><strong>Human Development Focus:</strong> Developing uniquely human capabilities in team members while helping them adapt to AI-augmented work environments.</p>
-                    
-                    <h2>Leadership Transformation Strategies</h2>
-                    <ul>
-                        <li>Develop AI literacy to understand capabilities and limitations</li>
-                        <li>Focus on vision-setting and strategic thinking rather than operational control</li>
-                        <li>Build coaching and development skills to support team adaptation</li>
-                        <li>Create psychological safety for experimentation and learning</li>
-                    </ul>
-                    
-                    <p>Leaders who successfully adapt to AI-augmented environments typically see 20-35% improvement in team performance, 25-40% increase in innovation output, and 30-45% better employee retention and satisfaction.</p>
-                `
-            }
-        };
-
-        function openInsightModal(insightId) {
-            const modal = document.getElementById('insightModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalBody = document.getElementById('modalBody');
+        // Logo fallback
+        (function() {
+            const logo = document.getElementById('site-logo');
+            const img = logo.querySelector('img');
             
-            if (modalContent[insightId]) {
-                modalTitle.textContent = modalContent[insightId].title;
-                modalBody.innerHTML = modalContent[insightId].content;
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        function closeInsightModal() {
-            const modal = document.getElementById('insightModal');
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('insightModal');
-            if (event.target === modal) {
-                closeInsightModal();
-            }
-        }
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeInsightModal();
-            }
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.background = 'rgba(248, 246, 243, 0.98)';
-                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                navbar.style.background = 'rgba(248, 246, 243, 0.95)';
-                navbar.style.boxShadow = 'none';
-            }
-        });
-
-        // Enhanced insight card interactions
-        document.querySelectorAll('.insight-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.borderColor = 'var(--primary-red)';
+            img.addEventListener('error', function() {
+                logo.classList.add('logo-failed');
             });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.borderColor = 'var(--warm-gray-light)';
-            });
-        });
-
-        // Analytics tracking
-        gtag('event', 'page_view', {
-            page_title: 'Transformation Insights',
-            page_location: window.location.href,
-            content_group1: 'Insights'
-        });
-
-        // Track insight engagement
-        document.querySelectorAll('.insight-card').forEach((card, index) => {
-            card.addEventListener('click', function() {
-                gtag('event', 'click', {
-                    event_category: 'engagement',
-                    event_label: 'insight_card_click',
-                    value: index + 1
-                });
-            });
-        });
+        })();
     </script>
 </body>
 </html>
