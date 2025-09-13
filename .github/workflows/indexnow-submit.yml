@@ -127,8 +127,19 @@ jobs:
         run: |
           set -euo pipefail
           if [[ -s urls_to_submit.txt ]]; then
-            urls_json=$(jq -R -s -c 'split("\n")[:-1]' urls_to_submit.txt)
+            # Add international site homepages to the submission
+            {
+              cat urls_to_submit.txt
+              echo "https://contraco.de"
+              echo "https://contraco.ru" 
+              echo "https://contraco.co.kr"
+            } | sort -u > all_urls_to_submit.txt
+            
+            urls_json=$(jq -R -s -c 'split("\n")[:-1]' all_urls_to_submit.txt)
             echo "Submitting to IndexNow API..."
+            echo "URLs being submitted:"
+            cat all_urls_to_submit.txt
+            
             response=$(curl -s -w "\nHTTP_CODE:%{http_code}" -X POST "https://api.indexnow.org/indexnow" \
               -H "Content-Type: application/json" \
               -d '{
@@ -139,7 +150,7 @@ jobs:
               }')
             http_code=$(echo "$response" | awk -F: '/HTTP_CODE:/ {print $2}')
             if [[ "$http_code" == "200" || "$http_code" == "202" ]]; then
-              echo "✅ Successfully submitted $(wc -l < urls_to_submit.txt) URLs to IndexNow"
+              echo "✅ Successfully submitted $(wc -l < all_urls_to_submit.txt) URLs to IndexNow"
             else
               echo "❌ Failed to submit URLs. HTTP Status: $http_code"
               echo "$response"
