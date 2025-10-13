@@ -5,6 +5,14 @@
 User-agent: *
 Allow: /
 
+User-agent: Googlebot
+Disallow: /yandex_3d4a640028515d1b.html
+
+User-agent: Yandex
+Allow: /yandex_3d4a640028515d1b.html
+
+
+
 # Block crawlers from common sensitive directories (if they exist)
 Disallow: /admin/
 Disallow: /private/
