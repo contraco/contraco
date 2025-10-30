@@ -213,6 +213,34 @@
             width: 100%;
         }
 
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            gap: 8px;
+            margin-left: 20px;
+        }
+
+        .lang-link {
+            text-decoration: none;
+            color: var(--warm-gray-medium);
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-link:hover {
+            color: var(--primary-red);
+            background-color: var(--warm-white);
+        }
+
+        .lang-link.active {
+            color: var(--primary-red);
+            background-color: var(--warm-white);
+            font-weight: 600;
+        }
+        
         /* Main Content */
         .main-content {
             padding-top: 100px;
@@ -712,18 +740,25 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="https://www.contraco.net/" class="logo" id="site-logo">
-                <img src="https://contraco.net/Logo_rectangle.svg" 
-                     alt="contraco" 
-                     onerror="this.parentElement.classList.add('logo-failed');">
+                <img src="https://contraco.net/Logo_rectangle.svg" alt="contraco" onerror="this.parentElement.classList.add('logo-failed');">
                 <span class="logo-fallback">contraco</span>
             </a>
-            <ul class="nav-menu">
-                <li><a href="https://www.contraco.net/#services" class="nav-link">Services</a></li>
-                <li><a href="https://www.contraco.net/#methodology" class="nav-link">Methodology</a></li>
-                <li><a href="https://www.contraco.net/contraco_insights.html" class="nav-link">Insights</a></li>
-                <li><a href="https://www.contraco.net/contraco_about.html" class="nav-link">About</a></li>
-                <li><a href="https://www.contraco.net/#contact" class="nav-link">Contact</a></li>
-            </ul>
+            <div style="display: flex; align-items: center;">
+                <ul class="nav-menu">
+                    <li><a href="https://www.contraco.net/" class="nav-link">Home</a></li>
+                    <li><a href="https://www.contraco.net/#services" class="nav-link">Services</a></li>
+                    <li><a href="https://www.contraco.net/#methodology" class="nav-link">Methodology</a></li>
+                    <li><a href="https://www.contraco.net/contraco_insights.html" class="nav-link">Insights</a></li>
+                    <li><a href="https://www.contraco.net/contraco_about.html" class="nav-link">About</a></li>
+                    <li><a href="https://www.contraco.net/#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="language-switcher">
+                    <a href="https://contraco.net/contraco_strategic-intelligence.html" class="lang-link active">EN</a>
+                    <a href="https://contraco.de/strategic-intelligence.html" class="lang-link">DE</a>
+                    <a href="https://contraco.ru/strategic-intelligence.html" class="lang-link">RU</a>
+                    <a href="https://contraco.co.kr/strategic-intelligence.html" class="lang-link">KO</a>
+                </div>
+            </div>
         </div>
     </nav>
 
