@@ -83,15 +83,93 @@
             gap: 35px;
         }
 
-        .nav-link {
+       .nav-link {
             text-decoration: none;
             color: #2C2C2C;
             font-weight: 500;
             font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #e62d00;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #e62d00;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
         }
 
         .nav-link.active {
             color: #e62d00;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            gap: 8px;
+            margin-left: 20px;
+        }
+
+        .lang-link {
+            text-decoration: none;
+            color: #A8A5A0;
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-link:hover {
+            color: #e62d00;
+            background-color: #ffffff;
+        }
+
+        .lang-link.active {
+            color: #e62d00;
+            background-color: #ffffff;
+            font-weight: 600;
+        }
+
+/* Language Switcher */
+        .language-switcher {
+            display: flex;
+            gap: 8px;
+            margin-left: 20px;
+        }
+
+        .lang-link {
+            text-decoration: none;
+            color: #A8A5A0;
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-link:hover {
+            color: #e62d00;
+            background-color: #ffffff;
+        }
+
+        .lang-link.active {
+            color: #e62d00;
+            background-color: #ffffff;
+            font-weight: 600;
         }
 
         /* Main Content */
