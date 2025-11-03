@@ -1,19 +1,19 @@
 # Robots.txt for contraco.net
-# Generated on August 22, 2025
+# Updated: 2025-11-03 to fix duplicate content issues
 
-# Allow all crawlers to access all content
+# Allow all crawlers to access main content
 User-agent: *
 Allow: /
 
-User-agent: Googlebot
-Disallow: /yandex_3d4a640028515d1b.html
+# Block template files and utilities
+Disallow: /css_base_styles.html
+Disallow: /navigation_template.html
+Disallow: /*_template.html
 
-User-agent: Yandex
-Allow: /yandex_3d4a640028515d1b.html
+# Block duplicate contraco_ prefixed pages (will be redirected)
+Disallow: /contraco_*.html
 
-
-
-# Block crawlers from common sensitive directories (if they exist)
+# Block crawlers from common sensitive directories
 Disallow: /admin/
 Disallow: /private/
 Disallow: /wp-admin/
@@ -23,6 +23,13 @@ Disallow: /.git/
 Disallow: /backup/
 Disallow: /temp/
 Disallow: /tmp/
+
+# Block verification files from other search engines
+User-agent: Googlebot
+Disallow: /yandex_*.html
+
+User-agent: Yandex
+Allow: /yandex_3d4a640028515d1b.html
 
 # XML Sitemap location
 Sitemap: https://www.contraco.net/sitemap.xml
