@@ -1,4 +1,4 @@
-name: IndexNow Submit + Sitemap Update
+name: IndexNow Submit + Smart Sitemap Update
 
 on:
   push:
@@ -72,7 +72,10 @@ jobs:
             echo "found_files=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Generate sitemap.xml (same normalization)
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y jq xmlstarlet
+
+      - name: Generate smart sitemap.xml (preserves existing SEO optimization)
         shell: bash
         run: |
           set -euo pipefail
@@ -89,7 +92,56 @@ jobs:
             printf '%s\n' "$url"
           }
 
-          echo "Generating sitemap.xml..."
+          # Function to determine strategic priority and changefreq
+          get_seo_params() {
+            local url="$1"
+            local filename="$2"
+            
+            # Strategic SEO rules based on our optimization
+            case "$url" in
+              "${DOMAIN}" | "${DOMAIN}/")
+                echo "1.0|daily"  # Homepage gets maximum priority
+                ;;
+              */about.html | */contact.html | */insights.html)
+                echo "0.9|weekly"  # Main pages
+                ;;
+              */thank-you.html | */thankyou.html | */copyright.html)
+                echo "0.5|monthly"  # Utility pages
+                ;;
+              */yandex_*.html | */google*.html | *verification*.html)
+                echo "0.1|yearly"  # Verification files
+                ;;
+              */ai-*.html | */digital-*.html | */organizational-*.html | */leading-*.html | */pricing-*.html | */resonance-*.html | */strategic-*.html | */cultural-*.html)
+                echo "0.8|weekly"  # Content pages
+                ;;
+              *)
+                echo "0.8|weekly"  # Default for other pages
+                ;;
+            esac
+          }
+
+          echo "Generating smart sitemap.xml with SEO optimization preservation..."
+          
+          # Read existing sitemap if it exists to preserve manual optimizations
+          declare -A existing_priorities
+          declare -A existing_changefreqs
+          
+          if [[ -f sitemap.xml ]]; then
+            echo "Reading existing sitemap to preserve SEO optimizations..."
+            # Extract existing priorities and changefreqs
+            xmlstarlet sel -N x="http://www.sitemaps.org/schemas/sitemap/0.9" \
+              -t -m "//x:url" \
+              -v "x:loc" -o "|" \
+              -v "x:priority" -o "|" \
+              -v "x:changefreq" -nl \
+              sitemap.xml 2>/dev/null | while IFS='|' read -r loc priority changefreq; do
+                if [[ -n "$loc" && -n "$priority" ]]; then
+                  existing_priorities["$loc"]="$priority"
+                  existing_changefreqs["$loc"]="$changefreq"
+                fi
+              done || true
+          fi
+
           : > sitemap.xml
           printf '%s\n' '<?xml version="1.0" encoding="UTF-8"?>' >> sitemap.xml
           printf '%s\n' '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
@@ -99,25 +151,37 @@ jobs:
             -not -path "./.git/*" \
             -not -name "404.html" \
             -not -name "404.htm" \
+            -not -name "*template*.html" \
+            -not -name "css_base_styles.html" \
           | sort | while read -r file; do
               url="$(normalize "$file")"
               lastmod="$(date -r "$file" +"%Y-%m-%d" 2>/dev/null || stat -c %y "$file" | cut -d' ' -f1)"
+              
+              # Use existing priority/changefreq if available, otherwise use strategic defaults
+              if [[ -n "${existing_priorities[$url]:-}" ]]; then
+                priority="${existing_priorities[$url]}"
+                changefreq="${existing_changefreqs[$url]:-weekly}"
+                echo "Preserving existing SEO: $url (priority: $priority, changefreq: $changefreq)"
+              else
+                seo_params="$(get_seo_params "$url" "$file")"
+                priority="${seo_params%|*}"
+                changefreq="${seo_params#*|}"
+                echo "Applying strategic SEO: $url (priority: $priority, changefreq: $changefreq)"
+              fi
+              
               {
                 printf '  <url>\n'
                 printf '    <loc>%s</loc>\n' "$url"
                 printf '    <lastmod>%s</lastmod>\n' "$lastmod"
-                printf '    <changefreq>weekly</changefreq>\n'
-                printf '    <priority>0.8</priority>\n'
+                printf '    <changefreq>%s</changefreq>\n' "$changefreq"
+                printf '    <priority>%s</priority>\n' "$priority"
                 printf '  </url>\n'
               } >> sitemap.xml
             done
 
           printf '%s\n' '</urlset>' >> sitemap.xml
-          echo "Generated sitemap with $(grep -c '<url>' sitemap.xml) URLs"
-
-      - name: Install jq
-        if: steps.changed-files.outputs.found_files == 'true'
-        run: sudo apt-get update && sudo apt-get install -y jq
+          echo "✅ Generated smart sitemap with $(grep -c '<url>' sitemap.xml) URLs"
+          echo "✅ SEO optimizations preserved and applied strategically"
 
       - name: Submit to IndexNow
         if: steps.changed-files.outputs.found_files == 'true'
@@ -160,7 +224,7 @@ jobs:
             echo "No changes to sitemap.xml"
             exit 0
           fi
-          git commit -m "Auto-update sitemap.xml"
+          git commit -m "Auto-update sitemap.xml with SEO optimization preserved"
           # Ensure no conflicting auth header from checkout
           git config --local --unset-all http.https://github.com/.extraheader || true
           # Push with PAT

@@ -32,4 +32,4 @@ User-agent: Yandex
 Allow: /yandex_3d4a640028515d1b.html
 
 # XML Sitemap location
-Sitemap: https://www.contraco.net/sitemap.xml
+Sitemap: https://contraco.net/sitemap.xml
