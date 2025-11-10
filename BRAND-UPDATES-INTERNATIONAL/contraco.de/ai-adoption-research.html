@@ -136,11 +136,43 @@
         }
 
         .logo {
-            font-family: 'Crimson Text', serif;
-            font-size: 28px;
-            font-weight: 600;
-            color: var(--deep-charcoal);
+            margin-left: 60px;
+            display: flex;
+            align-items: center;
             text-decoration: none;
+        }
+
+        .logo img {
+            height: 58px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Logo Fallback Styling */
+        .logo-fallback {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            letter-spacing: -0.02em;
+            font-family: var(--font-serif);
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        .logo:hover .logo-fallback {
+            transform: scale(1.05);
+        }
+
+        .logo.logo-failed img {
+            display: none;
+        }
+
+        .logo.logo-failed .logo-fallback {
+            display: block;
         }
 
         .nav-menu {
@@ -485,7 +517,12 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="https://contraco.de/" class="logo">contraco</a>
+            <a href="https://contraco.de/" class="logo" id="site-logo">
+                <img src="https://contraco.net/Logo_rectangle.svg"
+                     alt="contraco"
+                     onerror="this.parentElement.classList.add('logo-failed');">
+                <span class="logo-fallback">contraco</span>
+            </a>
             <ul class="nav-menu">
                 <li><a href="https://contraco.de/" class="nav-link">Startseite</a></li>
                 <li><a href="https://contraco.de/#services" class="nav-link">Dienstleistungen</a></li>
@@ -896,5 +933,40 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Enhanced logo fallback with retry mechanism
+        (function() {
+            const logo = document.getElementById('site-logo');
+            if (!logo) return;
+
+            const logoImg = logo.querySelector('img');
+            if (!logoImg) return;
+
+            let retryCount = 0;
+            const maxRetries = 2;
+
+            function handleLogoError() {
+                if (retryCount < maxRetries) {
+                    retryCount++;
+                    setTimeout(() => {
+                        logoImg.src = 'https://contraco.net/Logo_rectangle.svg';
+                    }, 1000 * retryCount);
+                } else {
+                    logo.classList.add('logo-failed');
+                }
+            }
+
+            if (logoImg.complete && logoImg.naturalHeight === 0) {
+                handleLogoError();
+            }
+
+            logoImg.addEventListener('error', handleLogoError);
+
+            logoImg.addEventListener('load', function() {
+                logo.classList.remove('logo-failed');
+            });
+        })();
+    </script>
 </body>
 </html>
