@@ -1038,12 +1038,6 @@
 
         // Analytics tracking (only if gtag is loaded)
         if (typeof gtag !== 'undefined') {
-            gtag('event', 'page_view', {
-                page_title: 'About Page',
-                page_location: window.location.href,
-                content_group1: 'About'
-            });
-
             // Track CTA clicks
             document.querySelectorAll('.cta-button').forEach(button => {
                 button.addEventListener('click', () => {
