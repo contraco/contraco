@@ -6,7 +6,7 @@
     <title>Privacy Statement | contraco</title>
 
     <!-- Canonical Tag -->
-    <link rel="canonical" href="https://contraco.com/privacy-statement.html">
+    <link rel="canonical" href="https://contraco.net/privacy-statement.html">
 
     <!-- Complete hreflang for International SEO -->
     <link rel="alternate" href="https://contraco.net/privacy-statement.html" hreflang="x-default" />
@@ -30,12 +30,54 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Favicon -->
+    <!-- COMPLETE Favicon Set -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#C00000">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <meta name="theme-color" content="#C00000">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Privacy Statement for contraco - Learn how we collect, use, and protect your personal data. GDPR and CCPA compliant data protection policies.">
+    <meta name="keywords" content="privacy statement, data protection, GDPR, CCPA, contraco privacy policy">
+    <meta name="author" content="contraco">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://contraco.net/privacy-statement.html">
+    <meta property="og:title" content="Privacy Statement | contraco">
+    <meta property="og:description" content="Learn how contraco protects your personal data. GDPR and CCPA compliant privacy policies.">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Privacy Statement",
+        "description": "Privacy Statement for contraco - Data protection policies and practices",
+        "url": "https://contraco.net/privacy-statement.html",
+        "publisher": {
+            "@type": "Organization",
+            "name": "contraco",
+            "url": "https://contraco.net/",
+            "logo": "https://contraco.net/Logo_rectangle.svg"
+        }
+    }
+    </script>
 
     <style>
         /* CSS Variables - Updated Brand Colors */
@@ -111,14 +153,33 @@
         }
 
         .logo {
-            display: flex;
+            display: inline-flex;
             align-items: center;
+            justify-content: center;
             text-decoration: none;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-fallback {
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary-red);
             letter-spacing: -0.02em;
             font-family: var(--font-serif);
+            display: none;
+        }
+
+        .logo.logo-failed img {
+            display: none;
+        }
+
+        .logo.logo-failed .logo-fallback {
+            display: block;
         }
 
         .nav-menu {
@@ -312,7 +373,12 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/" class="logo">contraco</a>
+            <a href="/" class="logo" id="site-logo">
+                <img src="https://contraco.net/Logo_rectangle.svg"
+                     alt="contraco"
+                     onerror="this.parentElement.classList.add('logo-failed');">
+                <span class="logo-fallback">contraco</span>
+            </a>
             <ul class="nav-menu">
                 <li><a href="/#services" class="nav-link">Services</a></li>
                 <li><a href="/#methodology" class="nav-link">Methodology</a></li>
@@ -564,5 +630,36 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Enhanced logo fallback with retry mechanism
+        (function() {
+            const logo = document.getElementById('site-logo');
+            const logoImg = logo.querySelector('img');
+            let retryCount = 0;
+            const maxRetries = 2;
+
+            function handleLogoError() {
+                if (retryCount < maxRetries) {
+                    retryCount++;
+                    setTimeout(() => {
+                        logoImg.src = 'https://contraco.net/Logo_rectangle.svg';
+                    }, 1000 * retryCount);
+                } else {
+                    logo.classList.add('logo-failed');
+                }
+            }
+
+            if (logoImg.complete && logoImg.naturalHeight === 0) {
+                handleLogoError();
+            }
+
+            logoImg.addEventListener('error', handleLogoError);
+
+            logoImg.addEventListener('load', function() {
+                logo.classList.remove('logo-failed');
+            });
+        })();
+    </script>
 </body>
 </html>
