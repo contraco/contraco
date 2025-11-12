@@ -859,12 +859,6 @@
                 'event_label': 'contact_form_thank_you'
             });
 
-            gtag('event', 'page_view', {
-                page_title: 'Thank You Page',
-                page_location: window.location.href,
-                content_group1: 'Thank You'
-            });
-
             // Track button clicks
             document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
                 button.addEventListener('click', () => {

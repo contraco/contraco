@@ -1542,12 +1542,6 @@
 
         // Analytics tracking
         if (typeof gtag !== 'undefined') {
-            gtag('event', 'page_view', {
-                page_title: 'Leading AI Transformation Leadership Guide',
-                page_location: window.location.href,
-                content_group1: 'Strategic Intelligence'
-            });
-
             // Track CTA clicks
             document.querySelectorAll('.cta-button').forEach(button => {
                 button.addEventListener('click', () => {

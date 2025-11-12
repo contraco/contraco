@@ -1122,12 +1122,6 @@
 
         // Analytics tracking
         if (typeof gtag !== 'undefined') {
-            gtag('event', 'page_view', {
-                page_title: 'Resonance Method Page',
-                page_location: window.location.href,
-                content_group1: 'Methodology'
-            });
-
             // Track form submissions
             document.querySelector('.contact-form').addEventListener('submit', function() {
                 gtag('event', 'form_submission', {
