@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Statement | contraco</title>
+
+    <!-- Canonical Tag -->
+    <link rel="canonical" href="https://contraco.com/privacy-statement.html">
+
+    <!-- Complete hreflang for International SEO -->
+    <link rel="alternate" href="https://contraco.net/privacy-statement.html" hreflang="x-default" />
+    <link rel="alternate" hreflang="en" href="https://contraco.net/privacy-statement.html" />
+    <link rel="alternate" hreflang="de" href="https://contraco.de/privacy-statement.html" />
+    <link rel="alternate" hreflang="ru" href="https://contraco.ru/privacy-statement.html" />
+    <link rel="alternate" hreflang="ko" href="https://contraco.co.kr/privacy-statement.html" />
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-868WGCC45D"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-868WGCC45D', {
+            page_title: 'Privacy Statement - contraco',
+            page_location: window.location.href
+        });
+    </script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <meta name="theme-color" content="#C00000">
+
+    <style>
+        /* CSS Variables - Updated Brand Colors */
+        :root {
+            /* Brand Colors */
+            --primary-red: #C00000;
+            --deep-charcoal: #2C2C2C;
+            --warm-white: #F8F6F3;
+            --warm-gray-light: #E5E2DD;
+            --warm-gray-medium: #A8A5A0;
+            --warm-gray-dark: #6B6B6B;
+
+            /* Typography */
+            --font-serif: 'Crimson Text', Georgia, 'Times New Roman', serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+            /* Layout */
+            --container-max: 1200px;
+            --section-padding: 100px 0;
+
+            /* Transitions */
+            --transition-fast: 0.3s ease;
+            --transition-medium: 0.5s ease;
+
+            /* Shadows */
+            --shadow-small: 0 4px 15px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --shadow-large: 0 15px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            color: var(--deep-charcoal);
+            background-color: var(--warm-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(248, 246, 243, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 12px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            letter-spacing: -0.02em;
+            font-family: var(--font-serif);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--deep-charcoal);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-red);
+        }
+
+        /* Privacy Content Styles */
+        .privacy-hero {
+            background: linear-gradient(135deg, var(--warm-white) 0%, var(--warm-gray-light) 100%);
+            padding: 140px 0 60px;
+            margin-top: 60px;
+        }
+
+        .privacy-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--deep-charcoal);
+            font-family: var(--font-serif);
+            margin-bottom: 20px;
+        }
+
+        .last-updated {
+            font-size: 1.1rem;
+            color: var(--warm-gray-dark);
+            font-style: italic;
+        }
+
+        .privacy-content {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .privacy-section {
+            margin-bottom: 50px;
+        }
+
+        .privacy-section h2 {
+            font-size: 1.8rem;
+            color: var(--primary-red);
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-family: var(--font-serif);
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--warm-gray-light);
+        }
+
+        .privacy-section h3 {
+            font-size: 1.3rem;
+            color: var(--deep-charcoal);
+            margin: 20px 0 15px;
+            font-weight: 600;
+        }
+
+        .privacy-section p {
+            color: var(--warm-gray-dark);
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        .privacy-section ul {
+            margin: 20px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .privacy-section ul li {
+            color: var(--warm-gray-dark);
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .privacy-section ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary-red);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .contact-box {
+            background: var(--warm-gray-light);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid var(--primary-red);
+        }
+
+        .contact-box strong {
+            color: var(--deep-charcoal);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--deep-charcoal);
+            color: var(--warm-gray-light);
+            padding: 50px 0 35px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+            margin-bottom: 32px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .footer-links a {
+            color: var(--warm-gray-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-red);
+        }
+
+        .company-info h4 {
+            color: var(--primary-red);
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            font-family: var(--font-serif);
+        }
+
+        .company-info p {
+            margin-bottom: 8px;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container, .nav-container {
+                padding: 0 20px;
+            }
+
+            .privacy-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">contraco</a>
+            <ul class="nav-menu">
+                <li><a href="/#services" class="nav-link">Services</a></li>
+                <li><a href="/#methodology" class="nav-link">Methodology</a></li>
+                <li><a href="/insights.html" class="nav-link">Insights</a></li>
+                <li><a href="/about.html" class="nav-link">About</a></li>
+                <li><a href="/contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Privacy Hero Section -->
+    <section class="privacy-hero">
+        <div class="container">
+            <h1>Privacy Statement</h1>
+            <p class="last-updated">Last Updated: November 2025</p>
+        </div>
+    </section>
+
+    <!-- Privacy Content -->
+    <section class="privacy-content">
+        <div class="container">
+            <!-- Data Controller -->
+            <div class="privacy-section">
+                <h2>1. Data Controller</h2>
+                <div class="contact-box">
+                    <p>
+                        <strong>contraco</strong><br>
+                        1209 10th Ln.<br>
+                        Ava, MO 65608<br>
+                        United States<br><br>
+                        <strong>Email:</strong> dpo@contraco.com<br>
+                        <strong>Phone:</strong> +1 (312) 940-0326
+                    </p>
+                </div>
+            </div>
+
+            <!-- Data Collection -->
+            <div class="privacy-section">
+                <h2>2. Data Collection</h2>
+                <p>We collect and process the following categories of personal data:</p>
+                <ul>
+                    <li>Contact information (name, email address, phone number)</li>
+                    <li>Organization and professional details</li>
+                    <li>Information provided in consultation and inquiry forms</li>
+                    <li>Communication history related to our services</li>
+                    <li>Website usage data through cookies and analytics</li>
+                </ul>
+            </div>
+
+            <!-- Purpose of Data Processing -->
+            <div class="privacy-section">
+                <h2>3. Purpose of Data Processing</h2>
+                <p>Your personal data is processed exclusively for the following purposes:</p>
+                <ul>
+                    <li>Responding to consultation inquiries and service requests</li>
+                    <li>Providing digital transformation and consulting services</li>
+                    <li>Business communication and relationship management</li>
+                    <li>Improving our services and website experience</li>
+                    <li>Compliance with legal and regulatory obligations</li>
+                </ul>
+            </div>
+
+            <!-- Legal Basis -->
+            <div class="privacy-section">
+                <h2>4. Legal Basis</h2>
+                <p>We process your personal data based on the following legal grounds:</p>
+                <ul>
+                    <li><strong>Consent:</strong> When you explicitly agree to data processing (Article 6(1)(a) GDPR)</li>
+                    <li><strong>Contract:</strong> For fulfillment of contractual obligations (Article 6(1)(b) GDPR)</li>
+                    <li><strong>Legitimate Interests:</strong> For business operations and service improvement (Article 6(1)(f) GDPR)</li>
+                    <li><strong>Legal Obligations:</strong> To comply with applicable laws (Article 6(1)(c) GDPR)</li>
+                </ul>
+            </div>
+
+            <!-- Data Retention -->
+            <div class="privacy-section">
+                <h2>5. Data Retention</h2>
+                <p>We retain personal data only as long as necessary for the purposes stated above or as required by law:</p>
+                <ul>
+                    <li>Business inquiry data: Typically retained for 3 years</li>
+                    <li>Contract-related data: Duration of business relationship plus statutory retention periods</li>
+                    <li>Marketing communications: Until consent is withdrawn</li>
+                    <li>Legal compliance data: As required by applicable regulations</li>
+                </ul>
+            </div>
+
+            <!-- Data Security -->
+            <div class="privacy-section">
+                <h2>6. Data Security</h2>
+                <p>We implement comprehensive technical and organizational measures to protect your personal data:</p>
+                <ul>
+                    <li>Encrypted data transmission using SSL/TLS protocols</li>
+                    <li>Secure data storage with access controls</li>
+                    <li>Regular security assessments and updates</li>
+                    <li>Staff training on data protection best practices</li>
+                    <li>Incident response procedures for data breaches</li>
+                </ul>
+            </div>
+
+            <!-- Your Rights -->
+            <div class="privacy-section">
+                <h2>7. Your Rights</h2>
+                <p>Under applicable data protection laws, you have the following rights:</p>
+                <ul>
+                    <li><strong>Access:</strong> Request copies of your personal data</li>
+                    <li><strong>Rectification:</strong> Correct inaccurate or incomplete data</li>
+                    <li><strong>Erasure:</strong> Request deletion of your data ("right to be forgotten")</li>
+                    <li><strong>Restriction:</strong> Limit processing of your data</li>
+                    <li><strong>Portability:</strong> Receive your data in a structured format</li>
+                    <li><strong>Objection:</strong> Object to certain types of processing</li>
+                    <li><strong>Withdraw Consent:</strong> Revoke previously given consent at any time</li>
+                </ul>
+                <p>To exercise these rights, please contact us using the information provided in Section 1.</p>
+            </div>
+
+            <!-- Third-Party Services -->
+            <div class="privacy-section">
+                <h2>8. Third-Party Services</h2>
+                <p>We use carefully selected third-party services to operate our website and provide our services:</p>
+
+                <h3>Analytics Services</h3>
+                <ul>
+                    <li><strong>Google Analytics:</strong> Website traffic analysis (Google LLC, USA)</li>
+                </ul>
+
+                <h3>Communication Services</h3>
+                <ul>
+                    <li><strong>FormSubmit:</strong> Secure contact form processing</li>
+                </ul>
+
+                <p>These services may process data outside the European Economic Area. We ensure appropriate safeguards are in place.</p>
+            </div>
+
+            <!-- International Data Transfers -->
+            <div class="privacy-section">
+                <h2>9. International Data Transfers</h2>
+                <p>As we operate from the United States, your data may be transferred to and processed in the United States. We ensure appropriate safeguards for international data transfers:</p>
+                <ul>
+                    <li>Standard Contractual Clauses approved by the European Commission</li>
+                    <li>Adequate security measures for data protection</li>
+                    <li>Compliance with applicable international data transfer regulations</li>
+                </ul>
+            </div>
+
+            <!-- Cookies -->
+            <div class="privacy-section">
+                <h2>10. Cookie Policy</h2>
+                <p>Our website uses cookies to enhance functionality and analyze usage:</p>
+
+                <h3>Types of Cookies We Use</h3>
+                <ul>
+                    <li><strong>Essential Cookies:</strong> Required for website operation (cannot be disabled)</li>
+                    <li><strong>Analytics Cookies:</strong> Help us understand website usage patterns</li>
+                    <li><strong>Functional Cookies:</strong> Remember your preferences and settings</li>
+                </ul>
+
+                <p>You can manage cookie preferences through your browser settings. Disabling certain cookies may affect website functionality.</p>
+            </div>
+
+            <!-- Contact for Privacy Matters -->
+            <div class="privacy-section">
+                <h2>11. Contact for Privacy Matters</h2>
+                <p>For questions, concerns, or requests regarding this Privacy Statement or our data processing practices:</p>
+                <div class="contact-box">
+                    <p>
+                        <strong>Data Protection Contact</strong><br>
+                        Email: dpo@contraco.com<br>
+                        Phone: +1 (312) 940-0326<br><br>
+                        We aim to respond to all privacy-related inquiries within 30 days.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Updates -->
+            <div class="privacy-section">
+                <h2>12. Updates to This Statement</h2>
+                <p>We may update this Privacy Statement to reflect changes in our practices or legal requirements. Updates will be posted on this page with a revised "Last Updated" date. For significant changes, we may provide additional notice through our website or direct communication.</p>
+            </div>
+
+            <!-- Complaints -->
+            <div class="privacy-section">
+                <h2>13. Supervisory Authority</h2>
+                <p>If you believe your data protection rights have been violated, you have the right to lodge a complaint with your local data protection supervisory authority. For EU residents, this is the supervisory authority in your member state. We encourage you to contact us first to address any concerns.</p>
+            </div>
+
+            <!-- GDPR Rights for European Residents -->
+            <div class="privacy-section">
+                <h2>14. GDPR Rights for European Residents</h2>
+                <p>If you are located in the European Economic Area (EEA), United Kingdom, or Switzerland, you have enhanced rights under the General Data Protection Regulation (GDPR):</p>
+                <ul>
+                    <li><strong>Right to Access:</strong> Obtain confirmation whether we process your data and receive a copy</li>
+                    <li><strong>Right to Rectification:</strong> Correct inaccurate or complete incomplete personal data</li>
+                    <li><strong>Right to Erasure:</strong> Request deletion under specific circumstances</li>
+                    <li><strong>Right to Restrict Processing:</strong> Limit how we use your data</li>
+                    <li><strong>Right to Data Portability:</strong> Receive your data in a machine-readable format</li>
+                    <li><strong>Right to Object:</strong> Object to processing based on legitimate interests or direct marketing</li>
+                    <li><strong>Rights Related to Automated Decision-Making:</strong> Not be subject to solely automated decisions</li>
+                </ul>
+                <p>We will respond to your request within one month, extendable by two months for complex requests. There is no fee unless requests are manifestly unfounded or excessive.</p>
+                <p>For GDPR-related inquiries, contact our Data Protection Officer at dpo@contraco.com</p>
+            </div>
+
+            <!-- California Privacy Rights -->
+            <div class="privacy-section">
+                <h2>15. California Privacy Rights</h2>
+                <p>California residents have additional rights under the California Consumer Privacy Act (CCPA):</p>
+                <ul>
+                    <li>Right to know what personal information is collected</li>
+                    <li>Right to delete personal information</li>
+                    <li>Right to opt-out of the sale of personal information (we do not sell personal data)</li>
+                    <li>Right to non-discrimination for exercising privacy rights</li>
+                </ul>
+                <p>To exercise these rights, California residents may contact us using the information in Section 11.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="company-info">
+                    <div class="footer-links">
+                        <a href="/">Home</a>
+                        <a href="/about.html">About Us</a>
+                        <a href="/#services">Services</a>
+                        <a href="/#methodology">Methodology</a>
+                        <a href="/insights.html">Insights</a>
+                        <a href="/contact.html">Contact</a>
+                        <a href="/privacy-statement.html" style="color: var(--primary-red);">Privacy</a>
+                    </div>
+                    <h4>contraco USA</h4>
+                    <p>Premium transformation consulting combining strategic clarity, technological intelligence, and psychological depth.</p>
+                    <p><strong>General:</strong> transformation@contraco.net</p>
+                    <p><strong>Data Protection:</strong> dpo@contraco.com</p>
+                    <p><strong>Phone:</strong> +1 (312) 940-0326</p>
+                </div>
+                <div class="imprint-section">
+                    <h4>Company Information</h4>
+                    <p><strong>contraco</strong></p>
+                    <p>1209 10th Ln.</p>
+                    <p>Ava, MO 65608</p>
+                    <p>United States</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 contraco. All rights reserved.</p>
+                <p style="margin-top: 8px; font-size: 0.8rem; opacity: 0.8;">The Resonance Method™ is a trademark of contraco.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
