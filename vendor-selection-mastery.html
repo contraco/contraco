@@ -432,8 +432,22 @@
             background: #ffe5e5;
             border-left: 4px solid var(--primary-red);
             padding: 25px;
+            padding-left: 70px;
             margin: 40px 0;
             border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+
+        .warning-box::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 25px;
+            width: 32px;
+            height: 32px;
+            background-image: url('/warning.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
         }
 
         .warning-box h4 {
