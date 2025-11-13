@@ -616,18 +616,21 @@
             background: white;
             padding: 20px;
             border-radius: 8px;
-            border-left: 4px solid #dc3545;
+            border-left: 4px solid var(--primary-red);
             box-shadow: var(--shadow-small);
         }
 
         .flag-icon {
-            color: #dc3545;
-            font-size: 1.5rem;
+            width: 32px;
+            height: 32px;
+            background-image: url('/warning.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
             margin-bottom: 10px;
         }
 
         .flag-title {
-            color: #dc3545;
+            color: var(--primary-red);
             font-weight: 600;
             margin-bottom: 10px;
             font-size: 1rem;
@@ -1271,37 +1274,37 @@
 
                     <div class="red-flags">
                         <div class="flag-card">
-                            <div class="flag-icon">⚠️</div>
+                            <div class="flag-icon"></div>
                             <h5 class="flag-title">Pressure Tactics & Artificial Urgency</h5>
                             <p class="flag-description">Vendors who create artificial deadlines, limited-time offers, or pressure decisions before evaluation completion. Quality vendors compete on merit, not manipulation.</p>
                         </div>
 
                         <div class="flag-card">
-                            <div class="flag-icon">⚠️</div>
+                            <div class="flag-icon"></div>
                             <h5 class="flag-title">Inability to Provide References</h5>
                             <p class="flag-description">Vendors who cannot or will not provide customer references from similar-sized companies in your industry. Reference resistance signals problems they don't want discovered.</p>
                         </div>
 
                         <div class="flag-card">
-                            <div class="flag-icon">⚠️</div>
+                            <div class="flag-icon"></div>
                             <h5 class="flag-title">Vague Roadmap Commitments</h5>
                             <p class="flag-description">Product roadmaps containing generalities without specific timelines or commitments. Vaporware promises materialize slowly if ever, leaving capability gaps.</p>
                         </div>
 
                         <div class="flag-card">
-                            <div class="flag-icon">⚠️</div>
+                            <div class="flag-icon"></div>
                             <h5 class="flag-title">Resistance to POC Testing</h5>
                             <p class="flag-description">Vendors who discourage or resist proof-of-concept testing with actual data and integration scenarios. POC resistance indicates capability gaps they prefer to hide.</p>
                         </div>
 
                         <div class="flag-card">
-                            <div class="flag-icon">⚠️</div>
+                            <div class="flag-icon"></div>
                             <h5 class="flag-title">Unclear or Punitive Exit Terms</h5>
                             <p class="flag-description">Contract terms with unclear data export provisions, excessive exit fees, or multi-year lock-in requirements. Vendors confident in their value don't trap customers.</p>
                         </div>
 
                         <div class="flag-card">
-                            <div class="flag-icon">⚠️</div>
+                            <div class="flag-icon"></div>
                             <h5 class="flag-title">Dismissive Technical Team</h5>
                             <p class="flag-description">Sales-led presentations with technical teams that dismiss integration concerns, architectural questions, or security requirements. Technical dismissiveness predicts implementation problems.</p>
                         </div>
