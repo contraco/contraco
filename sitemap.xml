@@ -108,10 +108,4 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://contraco.net/yandex_3d4a640028515d1b.html</loc>
-    <lastmod>2025-11-13</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.1</priority>
-  </url>
 </urlset>
