@@ -153,6 +153,8 @@ jobs:
             -not -name "404.htm" \
             -not -name "*template*.html" \
             -not -name "css_base_styles.html" \
+            -not -name "yandex_*.html" \
+            -not -name "google*.html" \
           | sort | while read -r file; do
               url="$(normalize "$file")"
               lastmod="$(date -r "$file" +"%Y-%m-%d" 2>/dev/null || stat -c %y "$file" | cut -d' ' -f1)"
